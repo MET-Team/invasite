@@ -1,0 +1,89 @@
+<div class="page-block page-block-buy" ng-controller="BuyCtrl">
+  <div class="column products">
+    <div class="title">Покупки</div>
+
+    <div class="products-list" ng-if="productItem">
+      <div class="products-list-item">
+        <div class="product-card">
+          <div class="head">
+            Артикул:  <span ng-bind="productItem.artikul"></span>
+            <div class="ico-remove" ng-click="removeItem()"></div>
+          </div>
+          <div class="detail">
+            <div class="image">
+              <img src="images/temp/product-buy.png" alt="" />
+            </div>
+
+            <div class="name" ng-bind="productItem.name"></div>
+            <div class="price"><span ng-bind="productItem.price"></span> <span class="rouble">⃏</span></div>
+            <div class="functions-price" ng-if="additionalPrice">
+              Фунцкии: <span ng-bind="additionalPrice"></span> <span class="rouble">⃏</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-functions" ng-if="functionsSelected.length > 0">
+          <div class="head">
+            Выбранные функции
+            <div class="ico-list-action" ng-click="toggleFunctionList()" ng-class="{'ico-list-open': functionsListOpened}"></div>
+          </div>
+          <div class="functions-list" ng-show="functionsListOpened">
+            <div class="function-item" ng-repeat="item in functionsSelected">
+              <div ng-bind="item.title"></div>
+              <div class="price"><span ng-bind="item.price"></span> <span class="rouble">⃏</span></div>
+              <div class="ico-remove" ng-click="removeFunction(item)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buy-empty" ng-if="!productItem">
+      Ничего не выбрано
+    </div>
+
+  </div>
+  <div class="column checkout" ng-if="productItem">
+    <div class="title">Оформление заказа</div>
+
+    <div class="tabs">
+      <div class="tab-item tab-completed">
+        <div class="inner">
+          Контакты
+          <div class="ico-completed"></div>
+        </div>
+      </div>
+      <div class="tab-item tab-active">
+        <div class="inner">Доставка</div>
+      </div>
+      <div class="tab-item">
+        <div class="inner">Оплата</div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-content-item"></div>
+      <div class="tab-content-item tab-content-item-delivery">
+        <div class="title">Доставка</div>
+        <div class="delivery-list">
+          <div class="delivery-item" ng-repeat="item in deliveryItems" ng-class="{selected: selectedDelivery == item}">
+            <div ng-bind="item.title"></div>
+
+            <div ng-if="item.priceRange">
+              <div class="price">Стоимость от <span ng-bind="item.priceRange.from"></span> до <span class="summ"><span ng-bind="item.priceRange.to"></span> <span class="rouble">⃏</span></span></div>
+            </div>
+
+            <div ng-if="item.price" class="price" ng-bind="item.price"></div>
+
+            <div class="choose-button" ng-click="toggleDeliveryItem(item)">Выбрать</div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content-item"></div>
+    </div>
+
+    <div class="continue-button">
+      <div class="inner">Продолжить</div>
+    </div>
+
+  </div>
+</div>

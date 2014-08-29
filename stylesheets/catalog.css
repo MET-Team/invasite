@@ -1,0 +1,186 @@
+/* Start: Recommended Isotope styles */
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property:    -moz-transform, opacity;
+  -ms-transition-property:     -ms-transform, opacity;
+  -o-transition-property:      -o-transform, opacity;
+  transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+/* End: Recommended Isotope styles */
+
+
+
+/* disable CSS transitions for containers with infinite scrolling*/
+.isotope.infinite-scrolling {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.page-block-catalog{
+  padding: 40px 60px;
+}
+
+.page-block-catalog .filters .filter-type{
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.page-block-catalog .filters .filter-item{
+  padding: 12px 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+.page-block-catalog .filters .filter-carriage-type{
+  margin-right: 35px;
+}
+.page-block-catalog .filters .filter-carriage-type .filter-item{
+  background: none #f2f2f2;
+}
+.page-block-catalog .filters .filter-carriage-type .filter-item.selected{
+  background: none #5098de;
+  color: #fff;
+  cursor: default;
+}
+
+.page-block-catalog .filters .filter-carriage-options{
+  margin-right: 45px;
+}
+.page-block-catalog .filters .filter-carriage-options .filter-item{
+  border: solid 1px #e6e6e6;
+  margin-right: 8px;
+}
+.page-block-catalog .filters .filter-carriage-options .filter-item:last-child{
+  margin-right: 0;
+}
+.page-block-catalog .filters .filter-carriage-options .filter-item .ico{
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  background: url('../images/ico-filter-radio.png') no-repeat 0 0 transparent;
+  margin-left: 10px;
+}
+.page-block-catalog .filters .filter-carriage-options .filter-item.checked{
+  color: #5098de;
+}
+.page-block-catalog .filters .filter-carriage-options .filter-item.checked .ico{
+  background: url('../images/ico-filter-radio-checked.png') no-repeat 0 0 transparent;
+}
+
+.page-block-catalog .filters .filter-carriage-order{
+  cursor: pointer;
+}
+.page-block-catalog .filters .filter-carriage-order .ico{
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 6px;
+  background: url('../images/ico-filter-sort-caret.png') no-repeat 0 0 transparent;
+  margin-left: 10px;
+}
+.page-block-catalog .filters .filter-carriage-order.ordered .ico{
+  background: url('../images/ico-filter-sort-caret-ordered.png') no-repeat 0 0 transparent;
+}
+
+.page-block-catalog .product-list{
+  margin-top: 30px;
+}
+.page-block-catalog .product-list .product-item{
+  width: 272px;
+  margin-right: 28px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 50px;
+  position: relative;
+  text-decoration: none;
+  color: #272e32;
+}
+.page-block-catalog .product-list .product-item:last-child{
+  margin-right: 0;
+}
+.page-block-catalog .product-list .product-item .price{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 11px;
+  color: #fff;
+  background: none #5098de;
+}
+.page-block-catalog .product-list .product-item .name{
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+@media (max-width: 360px){
+  .page-block-catalog{
+    padding: 30px;
+  }
+  .page-block-catalog .filters .filter-carriage-type{
+    margin-right: 0;
+  }
+  .page-block-catalog .filters .filter-carriage-type .filter-item{
+    font-size: 16px;
+    width: 50%;
+  }
+  .page-block-catalog .filters .filter-carriage-options, .page-block-catalog .filters .filter-carriage-order{
+    display: none;
+  }
+
+  .page-block-catalog .product-list .product-item{
+    margin-right: 0;
+    position: static!important;
+    width: 100%;
+    transform: none !important;
+  }
+  .page-block-catalog .product-list .product-item .image img{
+    width: 100%;
+  }
+}

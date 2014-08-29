@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="App">
+  <head>
+    <meta charset="UTF-8">
+    <title>Invasite</title>
+    <link rel="stylesheet" href="stylesheets/reset.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+
+    <link rel="stylesheet" href="stylesheets/site-pages.css" />
+
+    <script src="javascripts/isotope/vendor/jquery-2.1.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    <script src="javascripts/angular/angular.min.js"></script>
+
+    <script src="javascripts/angular/angular-route.min.js"></script>
+    <script src="javascripts/angular/angular-animate.min.js"></script>
+    <script src="javascripts/angular/angular-sanitize.min.js"></script>
+
+    <script src='javascripts/stickyfloat-ng.js'></script>
+    <script src="javascripts/gmaps.js"></script>
+
+    <script src="javascripts/angular/localStorage.js"></script>
+    <script src="javascripts/gmaps-ng.js"></script>
+
+    <script src="javascripts/isotope/vendor/jquery.isotope.js"></script>
+    <script src="javascripts/isotope/angular-isotope.js"></script>
+
+    <script src="javascripts/app.js"></script>
+
+    <script src="//tdcdn.blob.core.windows.net/toolbar/assets/prod/td.js" data-trackduck-id="53da4686c525d59522e5aa4b" async=""></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  </head>
+  <body>
+    <div class="wrapper" ng-controller="ApplicationCtrl" ng-class="{'sidebar-open': sidebarMenuIsOpen}">
+
+      <div class="sidebar" ng-click="toggleSidebarMenu()">
+        <div class="sidebar-ico-open"></div>
+        <div class="sidebar-menu">
+          <ul>
+            <li>
+              <img class="ico" src="images/menu/ico-1.png" alt="" />
+              <span class="caption">Корзина</span>
+            </li>
+            <li>
+              <img class="ico" src="images/menu/ico-2.png" alt="" />
+              <span class="caption">Коляски</span>
+            </li>
+            <li>
+              <img class="ico" src="images/menu/ico-3.png" alt="" />
+              <span class="caption">Ходунки</span>
+            </li>
+            <li>
+              <img class="ico" src="images/menu/ico-4.png" alt="" />
+              <span class="caption">Подъемники</span>
+            </li>
+            <li>
+              <img class="ico" src="images/menu/ico-5.png" alt="" />
+              <span class="caption">Туалеты</span>
+            </li>
+            <li>
+              <img class="ico" src="images/menu/ico-6.png" alt="" />
+              <span class="caption">Аксессуары</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="part-menu">
+          <ul>
+            <li>
+              <a href="#!/brands">Бренды</a>
+            </li>
+            <li>
+              <a href="#!/delivery-payment">Доставка и оплата</a>
+            </li>
+            <li>
+              <a href="#!/about">О компании</a>
+            </li>
+            <li>
+              <a href="#!/contacts">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
+        <div ng-view=""></div>
+      </div>
+
+    </div>
+  </body>
+</html>

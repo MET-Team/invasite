@@ -1,0 +1,317 @@
+/* page-block-about */
+.page-block-about{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.page-block-about .page-inner{
+  width: 695px;
+  margin: 0 auto -240px;
+  min-height: 100%;
+  height: auto;
+  padding-top: 475px;
+}
+.page-block-about .page-inner:after{
+  content: "";
+  height: 240px;
+  display: block;
+}
+
+.page-block-about .head{
+  min-height: 400px;
+  color: #fff;
+  font-size: 45px;
+  background: url('../images/bg-about.png') no-repeat center center transparent;
+  background-size: cover;
+  text-align: center;
+  padding: 140px 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.page-block-about .page-title{
+  font-size: 45px;
+}
+.page-block-about .page-content{
+  font-size: 18px;
+  line-height: 29px;
+  margin-top: 48px;
+}
+
+.page-block-about .transitions{
+  height: 150px;
+  font-size: 18px;
+  overflow: hidden;
+  clear: both;
+  display: table;
+  width: 100%;
+  border-top: solid 1px #f2f2f2;
+  position: relative;
+  top: 90px;
+}
+.page-block-about .transitions:before{
+  content: "";
+  clear: both;
+}
+
+.page-block-about .transitions .transition-item{
+  display: table-cell;
+  border-right: solid 1px #f2f2f2;
+  padding: 30px 60px;
+}
+.page-block-about .transitions .transition-item:last-child{
+  border-right: medium none;
+}
+.page-block-about .transitions .transition-item .transition-inner{
+  position: relative;
+  padding-right: 64px;
+  background: url('../images/ico-transition.png') no-repeat right center transparent;
+}
+.page-block-about .transitions .transition-item a{
+  text-decoration: none;
+  color: inherit;
+}
+.page-block-about .transitions .transition-item .transition-title{
+  font-size: 24px;
+  color: #000;
+  font-family: 'MuseoSansCyrl-500';
+}
+.page-block-about .transitions .transition-item .transition-text{
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* page-block-contacts */
+.page-block-contacts{
+  font-size: 18px;
+}
+.page-block-contacts .head{
+  min-height: 400px;
+  color: #fff;
+  font-size: 45px;
+  background: url('../images/bg-contacts.png') no-repeat center center transparent;
+  background-size: cover;
+  text-align: center;
+  padding: 140px 40px;
+}
+
+.page-block-contacts .contacts-list{
+  display: table;
+  width: 100%;
+  color: #737373;
+}
+
+.page-block-contacts .page-col{
+  display: table-cell;
+  width: 50%;
+}
+.page-block-contacts .page-col{
+  padding: 50px 40px 80px 60px;
+}
+.page-block-contacts .page-col.page-content{
+  padding-left: 30px;
+}
+
+.page-block-contacts .page-col.page-map .address{
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.page-block-contacts .communication-types .communication-type{
+  margin-bottom: 60px;
+}
+.page-block-contacts .communication-types .communication-type:last-child{
+  margin-bottom: 0;
+}
+
+.page-block-contacts .communication-type .title{
+  font-size: 30px;
+}
+.page-block-contacts .communication-type .text{
+  margin-top: 20px;
+  line-height: 25px;
+}
+
+.page-block-contacts .communication-type .text.email, .page-block-contacts .communication-type .text.phone{
+  font-size: 24px;
+  color: #000;
+}
+
+.page-block-contacts .communication-type .call-order{
+  margin-top: 25px;
+  position: relative;
+}
+.page-block-contacts .communication-type .call-order .button{
+  background: none rgba(255, 193, 62, 1);
+  border: medium none;
+  font-family: 'MuseoSansCyrl-500';
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  width: 234px;
+  padding: 12px 0;
+  outline: medium none;
+  border-radius: 5px;
+}
+.page-block-contacts .communication-type .call-order .button:hover{
+  background: none rgba(255, 193, 62, 0.8);
+}
+.page-block-contacts .communication-type .call-order .button i{
+  background: url('../images/ico-order-button.png') no-repeat 0 0 transparent;
+  width: 16px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.page-block-contacts .communication-type .map-box{
+  margin-top: 20px;
+  width: 100%;
+  height: 250px !important;
+}
+
+/* page-block-delivery-payments */
+
+.page-block-delivery-payments .head{
+  min-height: 400px;
+  color: #fff;
+  font-size: 45px;
+  background: url('../images/bg-delivery.png') no-repeat center center transparent;
+  background-size: cover;
+  text-align: center;
+  padding: 140px 40px;
+}
+
+.page-block-delivery-payments .delivery{
+  padding: 70px 60px;
+}
+
+.page-block-delivery-payments .payment{
+  padding: 70px 60px;
+  background: none #f2f1ed;
+}
+
+.page-block-delivery-payments .delivery .title, .page-block-delivery-payments .payment .title{
+  font-size: 30px;
+}
+.page-block-delivery-payments .delivery .text, .page-block-delivery-payments .payment .text{
+  margin-top: 30px;
+  width: 50%;
+  line-height: 28px;
+  font-size: 16px;
+  padding-right: 50px;
+  color: #4c4c4c;
+}
+
+.page-block-delivery-payments .delivery .delivery-types{
+  display: table;
+  width: 100%;
+  margin-top: 50px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item{
+  display: table-cell;
+  padding-right: 60px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .title{
+  font-size: 18px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list{
+  margin-top: 33px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table{
+  width: 100%;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table td{
+  background: none #fff;
+  padding: 14px 20px;
+  color: #000;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table tr.border td{
+  border-bottom: solid 1px #d9d9d9;
+}
+
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table td.price{
+  font-family: 'MuseoSansCyrl-500';
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table td.target{
+  color: #4c4c4c;
+}
+
+.page-block-delivery-payments .payment .payments-list{
+  margin-top: 50px;
+  display: table;
+  width: 100%;
+}
+
+.page-block-delivery-payments .payment .payments-list .payment-item{
+  padding: 0 15px;
+  display: table-cell;
+  width: 25%;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .inner{
+  border: solid 1px #eeede9;
+  box-shadow: 0 1px 1px #dad9d6;
+  padding: 20px 15px;
+  background: none #fff;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .title{
+  font-size: 18px;
+  font-family: 'MuseoSansCyrl-500';
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text{
+  font-size: 16px;
+  width: 100%;
+  margin-top: 15px;
+  padding-right: 0;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text p{
+  margin-bottom: 20px;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text p:last-child{
+  margin-bottom: 0;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text .more{
+  color: #5098de;
+  border-bottom: dotted 1px #5098de;
+  cursor: pointer;
+}
+
+.page-block-delivery-payments .order-call{
+  background: none #333230;
+  color: #fff;
+  padding: 50px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.page-block-delivery-payments .order-call .button{
+  background: none rgba(255, 193, 62, 1);
+  border: medium none;
+  font-family: 'MuseoSansCyrl-500';
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  width: 234px;
+  padding: 12px 0;
+  outline: medium none;
+  border-radius: 5px;
+  margin-left: 25px;
+}
+.page-block-delivery-payments .order-call .button:hover{
+  background: none rgba(255, 193, 62, 0.8);
+}
+.page-block-delivery-payments .order-call .button i{
+  background: url('../images/ico-order-button.png') no-repeat 0 0 transparent;
+  width: 16px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
