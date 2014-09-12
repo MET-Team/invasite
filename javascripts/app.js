@@ -37,6 +37,10 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       templateUrl: "javascripts/templates/info.html",
       reloadOnSearch: false
     })
+    .when("/brands", {
+      templateUrl: "javascripts/templates/brands.html",
+      reloadOnSearch: false
+    })
 
     .otherwise({
       templateUrl: 'javascripts/templates/404.html',

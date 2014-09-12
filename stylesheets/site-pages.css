@@ -236,9 +236,13 @@
 .page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table tr.border td{
   border-bottom: solid 1px #d9d9d9;
 }
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table tr td:first-child{
+  padding-left: 0;
+}
 
 .page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table td.price{
   font-family: 'MuseoSansCyrl-500';
+  text-align: right;
 }
 .page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table td.target{
   color: #4c4c4c;
@@ -246,10 +250,10 @@
 
 .page-block-delivery-payments .payment .payments-list{
   margin-top: 50px;
+  margin-left: -15px;
   display: table;
   width: 100%;
 }
-
 .page-block-delivery-payments .payment .payments-list .payment-item{
   padding: 0 15px;
   display: table-cell;
@@ -314,4 +318,53 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
+}
+
+/* page-block-brands */
+.page-block-brands{
+  background: none #f2f1ed;
+}
+.page-block-brands .head{
+  min-height: 400px;
+  color: #fff;
+  font-size: 45px;
+  background: url('../images/bg-brands.png') no-repeat center center transparent;
+  background-size: cover;
+  text-align: center;
+  padding: 165px 40px 0;
+}
+.page-block-brands .brand-list{
+  padding: 30px 0 30px 30px;
+}
+.page-block-brands .brand-list .brand-item{
+  display: inline-block;
+  box-shadow: 0 2px 3px #dad9d6;
+  background: none #fff;
+  margin: 0 25px 30px 0;
+}
+.page-block-brands .brand-list .brand-item .description{
+  padding: 30px 20px;
+}
+.page-block-brands .brand-list .brand-item .description:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.page-block-brands .brand-list .brand-item .description .title{
+  font-size: 18px;
+  font-family: 'MuseoSansCyrl-500';
+}
+.page-block-brands .brand-list .brand-item .description .text{
+  color: #4c4c4c;
+  margin-top: 15px;
+}
+.page-block-brands .brand-list .brand-item .description .btn-details{
+  margin-top: 20px;
+  color: #ffc13e;
+  font-family: 'MuseoSansCyrl-700';
+  cursor: pointer;
+  background: url('../images/ico-brand-detail.png') no-repeat right center transparent;
+  line-height: 19px;
+  float: left;
+  padding-right: 30px;
 }
