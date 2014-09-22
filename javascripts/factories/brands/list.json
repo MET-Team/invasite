@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Invacare",
+    "text": "Коляски премиум-класса",
+    "image": "images/brands/img-1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Ottobock",
+    "text": "Коляски всех видов",
+    "image": "images/brands/img-2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Küschall",
+    "text": "Лучшие спортивные коляскив",
+    "image": "images/brands/img-3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Rebotek",
+    "text": "Медицинские аксессуары",
+    "image": "images/brands/img-4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Bold",
+    "text": "Ингаляторы и грелки",
+    "image": "images/brands/img-5.jpg"
+  }
+]

@@ -5,6 +5,7 @@
     <title>Invasite</title>
     <link rel="stylesheet" href="stylesheets/reset.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/style.css.scss" />
 
     <link rel="stylesheet" href="stylesheets/site-pages.css" />
 
@@ -36,7 +37,7 @@
   <body>
     <div class="wrapper" ng-controller="ApplicationCtrl" ng-class="{'sidebar-open': sidebarMenuIsOpen}">
 
-      <div class="sidebar" ng-click="toggleSidebarMenu()">
+      <div class="sidebar" ng-mouseenter="toggleSidebarMenu()" ng-mouseleave="toggleSidebarMenu()">
         <div class="sidebar-ico-open"></div>
         <div class="sidebar-menu">
           <ul>

@@ -1,58 +1,14 @@
-<div class="page-block page-block-brands">
+<div class="page-block page-block-brands" ng-controller="BrandsCtrl">
   <div class="head">Ведущие производители</div>
   <div class="brand-list">
-    <div class="brand-item">
+    <div class="brand-item" ng-repeat="item in brandsList">
       <div class="image">
-        <img src="images/brands/img-1.jpg" width="277" height="277" alt="" />
+        <img ng-src="{{item.image}}" width="277" height="277" alt="" />
       </div>
       <div class="description">
-        <div class="title">Invacare</div>
-        <div class="text">Коляски премиум-класса</div>
-        <div class="btn-details">Подробнее</div>
-      </div>
-    </div>
-
-    <div class="brand-item">
-      <div class="image">
-        <img src="images/brands/img-2.jpg" width="277" height="277" alt="" />
-      </div>
-      <div class="description">
-        <div class="title">Ottobock</div>
-        <div class="text">Коляски всех видов</div>
-        <div class="btn-details">Подробнее</div>
-      </div>
-    </div>
-
-    <div class="brand-item">
-      <div class="image">
-        <img src="images/brands/img-3.jpg" width="277" height="277" alt="" />
-      </div>
-      <div class="description">
-        <div class="title">Küschall</div>
-        <div class="text">Лучшие спортивные коляски</div>
-        <div class="btn-details">Подробнее</div>
-      </div>
-    </div>
-
-    <div class="brand-item">
-      <div class="image">
-        <img src="images/brands/img-4.jpg" width="277" height="277" alt="" />
-      </div>
-      <div class="description">
-        <div class="title">Rebotek</div>
-        <div class="text">Медицинские аксессуары</div>
-        <div class="btn-details">Подробнее</div>
-      </div>
-    </div>
-
-    <div class="brand-item">
-      <div class="image">
-        <img src="images/brands/img-5.jpg" width="277" height="277" alt="" />
-      </div>
-      <div class="description">
-        <div class="title">Bold</div>
-        <div class="text">Ингаляторы и грелки</div>
-        <div class="btn-details">Подробнее</div>
+        <div class="title" ng-bind="item.title"></div>
+        <div class="text" ng-bind="item.text"></div>
+        <a ng-href="#!/brands/{{item.id}}" class="btn-details">Подробнее</a>
       </div>
     </div>
   </div>

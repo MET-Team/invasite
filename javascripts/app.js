@@ -41,6 +41,10 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       templateUrl: "javascripts/templates/brands.html",
       reloadOnSearch: false
     })
+    .when("/brands/:brandId", {
+      templateUrl: "javascripts/templates/brand-item.html",
+      reloadOnSearch: false
+    })
 
     .otherwise({
       templateUrl: 'javascripts/templates/404.html',
@@ -83,6 +87,15 @@ App.controller('ApplicationCtrl', function($scope, $location, $document){
     console.log($scope.orderCallData)
   };
 
+});
+
+App.controller('BrandsCtrl', function($scope, $http){
+  $http.get('javascripts/factories/brands/list.json')
+    .success(function(data){
+      $scope.brandsList = data;
+    }).error(function(){
+      console.error('Произошла ошибка');
+    });
 });
 
 App.controller('CatalogCtrl', function($scope, $http, $location){

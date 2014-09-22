@@ -367,4 +367,36 @@
   line-height: 19px;
   float: left;
   padding-right: 30px;
+  text-decoration: none;
+  display: block;
+}
+/* page-block-brand-item */
+.page-block-brand-item{
+  background: none #f2f1ed;
+}
+.page-block-brand-item .head{
+  min-height: 400px;
+  color: #fff;
+  font-size: 45px;
+  background: url('../images/bg-brand-item.png') no-repeat center center transparent;
+  background-size: cover;
+  text-align: center;
+  padding: 165px 40px 0;
+}
+.page-block-brand-item .brand-details{
+  padding: 30px 100px 30px 30px;
+  position: relative;
+}
+.page-block-brand-item .brand-details .brand-inner{
+  padding: 60px 50px;
+  background: none #fff;
+}
+.page-block-brand-item .brand-details .ico-close{
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 60px;
+  height: 60px;
+  background: url('../images/ico-brand-close.png') no-repeat center center #fff;
+  cursor: pointer;
 }
