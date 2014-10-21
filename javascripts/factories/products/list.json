@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Invacare Kite",
+    "description": "Кресло-коляска c вертикализатором Invacare Dragon",
+    "price": 430000
+  },
+  {
+    "name": "Invacare Kite",
+    "description": "Кресло-коляска с электроприводом Invacare Bora",
+    "price": 210000
+  },
+  {
+    "name": "Invacare Kite",
+    "description": "Кресло-коляска с функцией подъема сидения Invacare TDX",
+    "price": 540000
+  },
+  {
+    "name": "Invacare Kite",
+    "description": "Электрическое кресло-коляска Invacare Kite",
+    "price": 265078
+  },
+  {
+    "name": "Invacare Kite",
+    "description": "Коляска инвалидная электрическая Invacare P9000 XDT",
+    "price": 97500
+  },
+  {
+    "name": "Invacare Kite",
+    "description": "Кресло-коляска электрическое Invacare Storm",
+    "price": 350000
+  },
+  {
+    "name": "Invacare Kite",
+    "description": "Коляска с электроприводом Invacare Stream",
+    "price": 148000
+  }
+]

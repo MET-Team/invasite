@@ -1,29 +1,46 @@
 <div class="page-block page-block-catalog" ng-controller="CatalogCtrl">
-  <div class="filters">
-    <div class="filter-type filter-carriage-type">
-      <div class="filter-item" ng-repeat="item in carriageTypes" ng-click="changeType(item.type)" ng-class="{selected: item.type == carriageTypeSelected}" ng-bind="item.title"></div>
-    </div>
-
-    <div class="filter-type filter-carriage-options" ng-if="carriageOptionsByType">
-      <div class="filter-item" ng-repeat="item in carriageOptionsByType" ng-click="filterOptions($index)" ng-class="{checked: activeOptionsFilter.indexOf($index) > -1}">
-        <span ng-bind="item"></span>
-        <div class="ico"></div>
+  <div class="catalog-head">
+    <div class="filters">
+      <div class="filter-item filter-type filter-carriage-type btn btn-default">
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="carriageType.selected" data-html="1" ng-options="item.value as item.title for item in carriageType.list" data-placeholder="" bs-select></button>
       </div>
-    </div>
 
-    <div class="filter-type filter-carriage-order" ng-class="{ordered:priceOrderProperty == '-price'}" ng-click="togglePriceOrderProperty()">
-      Сортировать по ценам
-      <div class="ico"></div>
+      <div class="filter-item btn btn-default" ng-repeat="item in features" ng-bind="item" ng-click="filterOptions($index)" ng-class="{checked: activeOptionsFilter.indexOf($index) > -1}"></div>
+
+      <div class="filter-item filter-type filter-brand btn btn-default">
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="brand.selected" data-html="1" ng-options="item.value as item.title for item in brand.list" data-placeholder="Бренд" bs-select></button>
+      </div>
+
+      <div class="filter-item filter-type filter-summ-range">
+        <div class="range-labels">
+          <div class="label-item label-start">
+            <span  ng-bind="summRange.array[0]"></span>.-
+          </div>
+          <div class="label-item label-end">
+            <span  ng-bind="summRange.array[1]"></span>.-
+          </div>
+        </div>
+        <slider model="summRange.array" range-config="range_slider"></slider>
+      </div>
+
+      <div class="filter-item filter-type filter-sort btn btn-default">
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="order.selected" data-html="1" ng-options="item.value as item.title for item in order.list" data-placeholder="Сортировка" bs-select></button>
+      </div>
+
     </div>
   </div>
 
-  <div class="product-list" id="isotopeContainer" isotope-container="isotope-container" iso-options="isoOptions">
-    <a href="#!/catalog/1" class="product-item" ng-if="item.visible" ng-repeat="item in productsList | orderBy:priceOrderProperty" isotope-item>
-      <div class="price"><span ng-bind="item.price"></span> руб.</div>
+  <div class="product-list">
+    <div class="product-item equal-height" ng-repeat="item in productsList">
       <div class="image">
-        <img src="images/temp/product-image.png" alt="" />
+        <img src="images/temp/product-image.jpg" alt="" />
       </div>
       <div class="name" ng-bind="item.name"></div>
-    </a>
+      <div class="description" ng-bind="item.description"></div>
+      <div class="more">
+        <a ng-href="#!/catalog/1" class="btn-details">Подробнее</a>
+      </div>
+      <div class="price"><span ng-bind="item.price"></span>.-</div>
+    </div>
   </div>
 </div>

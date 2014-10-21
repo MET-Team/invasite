@@ -53,6 +53,7 @@
   border-top: solid 1px #f2f2f2;
   position: relative;
   top: 90px;
+  margin-bottom: 60px;
 }
 .page-block-about .transitions:before{
   content: "";
@@ -84,6 +85,7 @@
 .page-block-about .transitions .transition-item .transition-text{
   font-size: 18px;
   margin-top: 20px;
+  color: #4d4d4d;
 }
 
 /* page-block-contacts */
@@ -160,7 +162,7 @@
   border-radius: 5px;
 }
 .page-block-contacts .communication-type .call-order .button:hover{
-  background: none rgba(255, 193, 62, 0.8);
+  background-color: #ffca57;
 }
 .page-block-contacts .communication-type .call-order .button i{
   background: url('../images/ico-order-button.png') no-repeat 0 0 transparent;
@@ -309,7 +311,7 @@
   margin-left: 25px;
 }
 .page-block-delivery-payments .order-call .button:hover{
-  background: none rgba(255, 193, 62, 0.8);
+  background-color: #ffca57;
 }
 .page-block-delivery-payments .order-call .button i{
   background: url('../images/ico-order-button.png') no-repeat 0 0 transparent;
@@ -369,7 +371,12 @@
   padding-right: 30px;
   text-decoration: none;
   display: block;
+  font-size: 16px;
 }
+.page-block-brands .brand-list .brand-item .description .btn-details:hover{
+  color: #ffca57;
+}
+
 /* page-block-brand-item */
 .page-block-brand-item{
   background: none #f2f1ed;
@@ -378,7 +385,7 @@
   min-height: 400px;
   color: #fff;
   font-size: 45px;
-  background: url('../images/bg-brand-item.png') no-repeat center center transparent;
+  background: url('../images/bg-brands.png') no-repeat center center transparent;
   background-size: cover;
   text-align: center;
   padding: 165px 40px 0;
@@ -388,8 +395,9 @@
   position: relative;
 }
 .page-block-brand-item .brand-details .brand-inner{
-  padding: 60px 50px;
+  padding: 60px 0 60px 50px;
   background: none #fff;
+  position: relative;
 }
 .page-block-brand-item .brand-details .ico-close{
   position: absolute;
@@ -397,6 +405,58 @@
   top: 30px;
   width: 60px;
   height: 60px;
+}
+.page-block-brand-item .brand-details .ico-close a{
+  display: block;
+  width: 60px;
+  height: 60px;
   background: url('../images/ico-brand-close.png') no-repeat center center #fff;
-  cursor: pointer;
+}
+
+.page-block-brand-item .brand-details .brand-inner .brand-title{
+  font-size: 46px;
+}
+.page-block-brand-item .brand-details .brand-inner .brand-text{
+  color: #4c4c4c;
+  font-size: 16px;
+  margin-top: 35px;
+  line-height: 30px;
+  padding-right: 370px;
+}
+.page-block-brand-item .brand-details .brand-inner .brand-ico{
+  width: 220px;
+  right: 60px;
+  top: 60px;
+  position: absolute;
+}
+.page-block-brand-item .brand-details .brand-inner .catalog-groups{
+  margin-top: 35px;
+}
+.page-block-brand-item .brand-details .brand-inner .catalog-groups .catalog-group-item{
+  margin-right: 10px;
+  background: none #ffc13e;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  padding: 15px 65px 15px 40px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+.page-block-brand-item .brand-details .brand-inner .catalog-groups .catalog-group-item:after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 16px;
+  background: url('../images/brands/brand-catalog-group-arrow.png') no-repeat 0 center transparent;
+  top: 0;
+  bottom: 0;
+  right: 40px;
+}
+.page-block-brand-item .brand-details .brand-inner .catalog-groups .catalog-group-item:hover{
+  background-color: #ffca57;
+}
+
+.page-block-brand-item .brand-details .brand-inner .catalog-groups .catalog-group-item:last-child{
+  margin-right: 0;
 }

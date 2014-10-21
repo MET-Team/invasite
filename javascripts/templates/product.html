@@ -2,306 +2,110 @@
   <div class="main-card">
 
     <div class="image-view">
-      <div class="view-item selected">360&deg;</div>
-      <div class="view-item">3D</div>
+      <div class="view-item" ng-repeat="item in viewItems" ng-class="{selected: $index == viewItemSelected}" ng-bind="item" ng-click="changeView($index)"></div>
     </div>
 
     <div class="card-container">
       <div class="card-col card-image">
-        <img src="images/temp/product-main-image.png" alt="" />
+        <div class="image-container">
+          <img src="images/temp/product-main-image.jpg" alt="" />
+
+          <div class="zoom-controls" ng-if="viewItemSelected == 1">
+            <div class="control-item plus"></div>
+            <div class="control-item minus"></div>
+          </div>
+
+          <div class="threed-hint" ng-if="hintEnabled">
+            <div class="center">
+              <img src="images/ico-3d-hint-1.png" alt="" width="66" height="66" />
+              <div class="hint-text">
+                Используйте кнопки
+                для масштабирования
+              </div>
+              <img src="images/ico-3d-hint-2.png" alt="" width="58" height="60" />
+              <div class="hint-text">
+                Двигайте изображение
+                в любом направлении
+              </div>
+              <button class="continue btn btn-default" ng-click="continueView()">Продолжить</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-col card-details">
-        <div class="artikul" ng-bind="productsItemData.artikul"></div>
-        <div class="name" ng-bind="productsItemData.name"></div>
-        <div class="text" ng-bind="productsItemData.text"></div>
+        <div class="col-container">
+          <div class="artikul" ng-bind="product.artikul"></div>
+          <div class="name" ng-bind="product.name"></div>
+          <div class="text">
+            <div class="text-container">
+              <div ng-bind="product.text"></div>
+              <div class="more" ng-click="additionalTextShow = true" ng-show="product.additional_text.length > 0">Подробнее</div>
+            </div>
 
-        <div class="other">
-          <div class="other-item delivery">
-            <div class="ico"></div>
-            Бесплатная доставка в пределах МКАД
+            <div class="additional-text" ng-show="additionalTextShow">
+              <div class="close" ng-click="additionalTextShow = false"></div>
+              <div class="additional-text-container">
+                <div class="title">Подробно об Invacare Kite</div>
+                <div class="item" ng-repeat="item in product.additional_text" ng-show="additionalTextItemVisible == $index">
+                  <div class="text" ng-bind="item.text"></div>
+                </div>
+              </div>
+              <div class="arrows">
+                <div class="arrow prev" ng-click="prevItem()" ng-class="{disabled: prevArrowDisabled}"></div>
+                <div class="arrow next" ng-click="nextItem()" ng-class="{disabled: nextArrowDisabled}"></div>
+              </div>
+            </div>
+
           </div>
-          <div class="other-item refunds">
-            <div class="ico"></div>
-            Возврат денег
-            <span class="more">подробнее</span>
-          </div>
-        </div>
+          <div class="price"><span ng-bind="product.price"></span>.-</div>
 
-        <div class="buy-button">
-          <a class="button" ng-click="buyProduct()" href="javascript:void(0)">Купить за <span class="price"><span ng-bind="productsItemData.price"></span> <span class="rouble">⃏</span></span></a>
-        </div>
-      </div>
-    </div>
-  </div>
+          <div class="other">
+            <div class="other-item refunds">
+              <div class="btn btn-default" ng-click="refundPopupShow = true">Узнать больше о возврате денег</div>
 
-  <div class="main-card speciality">
-    <div class="card-container">
+              <div class="popup popup-more" ng-show="refundPopupShow">
+                <div class="close" ng-click="refundPopupShow = false"></div>
+                <div class="title">Возврат денег</div>
+                <div class="text">
+                  Kite создан для активных пользователей, любящих активное времяпрепровождение на улице, но нуждающихся также и в компактной инвалидной коляске для ежедневного пользования. <span class="more">Подробнее</span>
+                </div>
+              </div>
 
-      <div class="card-col card-details">
-        <div class="title">Вертикализатор</div>
-        <div class="text">
-          Мобильность в вертикальном положении
-          значительно расширяет ваши возможности
-          в повседневной жизни. Управление коляской
-          возможно даже в вертикальном положении
-        </div>
-        <div class="actions">
-          <div class="action-item">
-            <div class="ico"></div>
-            <div class="caption">Наведите мышь на картинку</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-col card-image">
-        <img src="images/temp/product-speciality-1.png" alt="" />
-      </div>
-
-    </div>
-  </div>
-
-  <div class="main-card speciality speciality-white speciality-control">
-    <div class="card-container">
-
-      <div class="card-col card-image">
-        <img src="images/temp/product-speciality-2.png" alt="" />
-      </div>
-
-      <div class="card-col card-details">
-        <div class="title">Удобное управление</div>
-        <div class="text">
-          Мобильность в вертикальном положении
-          значительно расширяет ваши возможности
-          в повседневной жизни. Управление коляской
-          возможно даже в вертикальном положении
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="main-card speciality speciality-description">
-    <div class="card-container">
-
-      <div class="card-col card-details">
-        <div class="title">Очень комфортно</div>
-        <div class="text">
-          Мобильность в вертикальном положении
-          значительно расширяет ваши возможности
-          в повседневной жизни. Управление коляской
-          возможно даже в вертикальном положении
-        </div>
-      </div>
-
-      <div class="card-col card-image"></div>
-
-    </div>
-  </div>
-
-  <div class="main-card schema">
-    <div class="card-container">
-
-      <div class="card-col card-image">
-        <img src="images/temp/product-main-image-schema.png" alt="" />
-      </div>
-
-      <div class="schema-list">
-
-        <div class="schema-item schema-item-1 schema-item-left">
-          <div class="title">Крутое управление</div>
-          <div class="text">Составление брифа и оценка объема работ</div>
-        </div>
-
-        <div class="schema-item schema-item-2 schema-item-left">
-          <div class="title">Удобное сиденье</div>
-          <div class="text">Составление брифа и оценка объема работ</div>
-        </div>
-
-        <div class="schema-item schema-item-3 schema-item-left">
-          <div class="title">Поднимающиеся опоры</div>
-          <div class="text">Составление брифа и оценка объема работ</div>
-        </div>
-
-        <div class="schema-item schema-item-4 schema-item-right">
-          <div class="title">Супер спинка</div>
-          <div class="text">Составление брифа и оценка объема работ</div>
-        </div>
-
-        <div class="schema-item schema-item-5 schema-item-right">
-          <div class="title">Тазобедренный фиксатор</div>
-          <div class="text">Составление брифа и оценка объема работ</div>
-        </div>
-
-        <div class="schema-item schema-item-6 schema-item-right">
-          <div class="title">Цельнолитые шины</div>
-          <div class="text">Составление брифа и оценка объема работ</div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-  <div class="gallery">
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-1.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-2.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-3.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-4.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-5.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-6.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-7.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="gallery-item" style="background: url('images/temp/product-gallery-8.png') no-repeat 50% 50% transparent; background-size: cover;">
-      <div class="overlay"></div>
-      <div class="caption">Латеральный тазобедренный фиксатор</div>
-    </div>
-    <div class="clear"></div>
-  </div>
-
-  <div class="configurator">
-    <div class="title">Конфигуратор</div>
-    <div class="description">Выбери необходимую функцию, ты весишь только унцию, получи инструкцию</div>
-
-    <div class="functions-tabs">
-
-      <div class="function-total" ng-if="functionsSelected.length" ng-class="{opened: functionTotalOpened}">
-        <div class="label" ng-click="toggleSelectedFunctionsList()">Выбрано функций (<span ng-bind="functionsSelected.length"></span>)</div>
-
-        <div class="functions-list">
-          <div class="list-item" ng-repeat="item in functionsSelected">
-            <span ng-bind=""></span>
-            <div ng-bind="item.title"></div>
-            <div class="price"><span ng-bind="item.price"></span> <span class="rouble">⃏</span></div>
-            <div class="ico-remove" ng-click="toggleFunction(item)"></div>
+            </div>
           </div>
 
-          <div class="total-price">
-            <a class="buy-button" ng-click="buyProduct()" href="javascript:void(0)">Купить за <span ng-bind="totalPrice"></span> <span class="rouble">⃏</span></a>
-            <div class="additional-price">С учетом опций на <span ng-bind="additionalPrice"></span> <span class="rouble">⃏</span></div>
+          <div class="buy-button">
+            <a class="btn button blink-basket" ng-click="buyProduct()" href="javascript:void(0)">Добавить в корзину</a>
           </div>
-        </div>
-      </div>
 
-      <div class="function-types" ng-if="functionTypes.length">
-        <div class="type-item" ng-repeat="item in functionTypes" ng-click="showOptionsByType(item.value)" ng-class="{selected: item.value == functionTypeSelected}">
-          <div ng-bind="item.name"></div>
         </div>
       </div>
     </div>
-
-    <div class="functions-list" ng-if="functionsList">
-      <div class="list-group" ng-if="functionsList.group" ng-repeat="group in functionsList.group">
-        <div class="group-title">
-          <div ng-bind="group.title"></div>
-        </div>
-
-        <div class="function-item" ng-if="group.list" ng-repeat="function_item in group.list" ng-click="toggleFunction(function_item)" ng-class="{selected: functionsSelected.indexOf(function_item) > -1}">
-          <div ng-bind="function_item.title"></div>
-          <div class="price"><span ng-bind="function_item.price"></span> <span class="rouble">⃏</span></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <div class="technical-characteristics">
-    <div class="title">Технические характеристики</div>
-    <div class="description">Выбери необходимую функцию, ты весишь только унцию, получи инструкцию</div>
-
-    <div class="options">
-      <div class="option-item">
-        <img src="images/temp/product-tech-option-1.png" alt="" />
-        <br/>
-        Вертикализатор
-      </div>
-
-      <div class="option-item">
-        <img src="images/temp/product-tech-option-2.png" alt="" />
-        <br/>
-        Пульт
-      </div>
-
-      <div class="option-item">
-        <img src="images/temp/product-tech-option-3.png" alt="" />
-        <br/>
-        Антиопрокидователи
-      </div>
-
-      <div class="option-item">
-        <img src="images/temp/product-tech-option-4.png" alt="" />
-        <br/>
-        Фары
-      </div>
-
-      <div class="option-item">
-        <img src="images/temp/product-tech-option-5.png" alt="" />
-        <br/>
-        Зашита аккумулятора
-      </div>
-
-      <div class="option-item">
-        <img src="images/temp/product-tech-option-6.png" alt="" />
-        <br/>
-        Супер герои
-      </div>
-    </div>
-
-    <div class="characters-grid" ng-if="productsItemData.technical_characteristics">
-
-      <div class="grid-col col-left">
+    <div class="inner">
+      <div class="characters-grid col" ng-if="product.technical_characteristics">
+        <div class="title">Технические характеристики</div>
         <table>
-          <tr ng-repeat="item in productsItemData.technical_characteristics">
+          <tr ng-repeat="item in product.technical_characteristics" ng-class="{hidden: $index > 5, visible: showHiddenCharacters}">
             <td class="caption" ng-bind="item.name"></td>
             <td class="value" ng-bind="item.value"></td>
           </tr>
         </table>
-      </div>
-
-      <div class="grid-col col-right col-images">
-        <div class="image-item">
-          <img src="images/temp/product-character-1.png" alt="" />
+        <div class="load-more btn btn-default" ng-click="toggleMoreCharacters()">
+          <span ng-show="!showHiddenCharacters">Загрузить еще</span>
+          <span ng-show="showHiddenCharacters">Скрыть</span>
         </div>
-        <div class="image-item">
-          <img src="images/temp/product-character-2.png" alt="" />
+      </div>
+      <div class="options col">
+        <div class="title">Доставка</div>
+        <div class="text">
+          <p>Kite создан для активных пользователей, любящих активное времяпрепровождение на улице, но нуждающихся также и в компактной инвалидной коляске для ежедневного пользования.</p>
+          <p>Уникальная система подвески гарантирует удобство передвижения и надежное сцепление колес с дорожным покрытием.</p>
         </div>
       </div>
     </div>
 
   </div>
-
-  <div class="main-card total-cost">
-    <div class="card-container">
-
-      <div class="card-col">
-        Вы выбрали <span class="options-count"><span ng-bind="functionsSelected.length"></span> <span ng-bind="optionsCountLabel"></span></span>, и теперь итоговая стоимость вашей коляски составляет
-        <span class="price"><span ng-bind="totalPrice"></span> <span class="rouble">⃏</span></span>
-      </div>
-
-      <div class="card-col card-buy-button">
-        <a ng-click="buyProduct()" href="javascript:void(0)" class="button">Оформить покупку</a>
-      </div>
-
-    </div>
-  </div>
-
 </div>
