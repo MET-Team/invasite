@@ -82,19 +82,28 @@
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 8px 20px;
-  background: none #fff;
-  border: solid 1px #ccc;
+  border: medium none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   color: #808080;
+  background: none #f2f1ed;
+  -webkit-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -moz-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -o-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
 }
+.page-block-catalog .filters .filter-item:hover{
+  background-color: #ffc13e;
+  color: #fff;
+}
+
 .page-block-catalog .filters .filter-item:last-child{
   margin-right: 0;
 }
 .page-block-catalog .filters .filter-item.checked{
   color: #fff;
-  background-color: #807d79;
+  background-color: #ffc13e;
 }
 
 .page-block-catalog .filters .filter-type{
@@ -116,6 +125,10 @@
   text-align: left;
   outline: medium none;
   min-width: 149px;
+  -webkit-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -moz-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -o-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
 }
 .page-block-catalog .filters .filter-item.filter-price .btn.btn-dropdown{
   padding-right: 40px;
@@ -149,6 +162,9 @@
   background-color: #807d79;
   border: medium none;
 }
+.page-block-catalog .filters .filter-item .btn.btn-dropdown:hover{
+  background-color: #999791;
+}
 .page-block-catalog .filters .filter-item .dropdown-menu{
   background: none #807d79;
 }
@@ -173,6 +189,9 @@
 
 .page-block-catalog .filters .filter-item.filter-carriage-type .btn.btn-dropdown{
   background-color: #ffc13e;
+}
+.page-block-catalog .filters .filter-item.filter-carriage-type .btn.btn-dropdown:hover{
+  background-color: #ffca57;
 }
 .page-block-catalog .filters .filter-item.filter-carriage-type .dropdown-menu{
   background: none #fff;
