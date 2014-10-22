@@ -13,7 +13,6 @@ var App = angular.module('App',
     'stickyfloat-ng',
 
     'mgcrea.ngStrap.select',
-    'range-slider',
     'matchHeight-ng'
   ]
 );

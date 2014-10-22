@@ -127,20 +127,20 @@ appControllers.controller('CatalogCtrl', function($scope, $http, $location, $fil
     list: [
       {
         value: "mechanic",
-        title: "<i></i> Механические коляски"
+        title: "Механические коляски"
       },
       {
         value: "electric",
-        title: "<i></i> Электрические коляски"
+        title: "Электрические коляски"
       },
       {
         value: "active",
-        title: "<i></i> Активные коляски"
+        title: "Активные коляски"
       }
       ,
       {
         value: "child",
-        title: "<i></i> Детские коляски"
+        title: "Детские коляски"
       }
     ],
     selected: "mechanic"
@@ -169,21 +169,47 @@ appControllers.controller('CatalogCtrl', function($scope, $http, $location, $fil
         title: "Artlebedev"
       }
     ],
-    selected: ""
+    selected: null
   };
 
-  $scope.order = {
+  $scope.presence = {
     list: [
       {
-        value: 0,
-        title: "Наличие"
+        value: 1,
+        title: "На складе"
       },
       {
-        value: 1,
-        title: "Цена"
+        value: 2,
+        title: "Под заказ"
       }
     ],
-    selected: 0
+    selected: null
+  };
+
+  $scope.price = {
+    list: [
+      {
+        value: "1",
+        title: "0 - 1 000"
+      },
+      {
+        value: "2",
+        title: "1 000 - 10 000"
+      },
+      {
+        value: "3",
+        title: "10 000 - 30 000"
+      },
+      {
+        value: "4",
+        title: "30 000 - 50 000"
+      },
+      {
+        value: "5",
+        title: "50 000 - 100 000"
+      }
+    ],
+    selected: null
   };
 
   $scope.features = [
@@ -194,15 +220,6 @@ appControllers.controller('CatalogCtrl', function($scope, $http, $location, $fil
     "Для узких проемов",
     "Откидная спинка"
   ];
-
-  $scope.summRange = {};
-
-  $scope.summRange.array = [0, 600000];
-  $scope.range_slider = {
-    min: 0,
-    max: 1000000,
-    step: 500
-  };
 
   $scope.activeOptionsFilter = [];
 

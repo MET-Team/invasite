@@ -2,29 +2,21 @@
   <div class="catalog-head">
     <div class="filters">
       <div class="filter-item filter-type filter-carriage-type btn btn-default">
-        <button type="button" class="btn btn-default btn-dropdown" ng-model="carriageType.selected" data-html="1" ng-options="item.value as item.title for item in carriageType.list" data-placeholder="" bs-select></button>
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="carriageType.selected" data-html="1" ng-options="item.value as item.title for item in carriageType.list" data-placeholder="" data-selected-caption="Категория:" bs-select></button>
       </div>
 
       <div class="filter-item btn btn-default" ng-repeat="item in features" ng-bind="item" ng-click="filterOptions($index)" ng-class="{checked: activeOptionsFilter.indexOf($index) > -1}"></div>
 
       <div class="filter-item filter-type filter-brand btn btn-default">
-        <button type="button" class="btn btn-default btn-dropdown" ng-model="brand.selected" data-html="1" ng-options="item.value as item.title for item in brand.list" data-placeholder="Бренд" bs-select></button>
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="brand.selected" data-html="1" ng-options="item.value as item.title for item in brand.list" data-placeholder="Бренд" data-selected-caption="Бренд:" bs-select></button>
       </div>
 
-      <div class="filter-item filter-type filter-summ-range">
-        <div class="range-labels">
-          <div class="label-item label-start">
-            <span  ng-bind="summRange.array[0]"></span>.-
-          </div>
-          <div class="label-item label-end">
-            <span  ng-bind="summRange.array[1]"></span>.-
-          </div>
-        </div>
-        <slider model="summRange.array" range-config="range_slider"></slider>
+      <div class="filter-item filter-type filter-price btn btn-default">
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="price.selected" data-html="1" ng-options="item.value as item.title for item in price.list" data-placeholder="Цена" data-selected-caption="Цена:" bs-select></button>
       </div>
 
       <div class="filter-item filter-type filter-sort btn btn-default">
-        <button type="button" class="btn btn-default btn-dropdown" ng-model="order.selected" data-html="1" ng-options="item.value as item.title for item in order.list" data-placeholder="Сортировка" bs-select></button>
+        <button type="button" class="btn btn-default btn-dropdown" ng-model="presence.selected" data-html="1" ng-options="item.value as item.title for item in presence.list" data-placeholder="Наличие" data-selected-caption="Наличие:" bs-select></button>
       </div>
 
     </div>
