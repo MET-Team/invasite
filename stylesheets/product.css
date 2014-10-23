@@ -231,7 +231,7 @@
   z-index: 100;
   background: none #f2f1ed;
   box-shadow: 0 2px 2px #bebdba;
-  top: 100%;
+  bottom: 0;
   right: 0;
   text-align: left;
   font-size: 16px;

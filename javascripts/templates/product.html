@@ -45,7 +45,7 @@
             <div class="additional-text" ng-show="additionalTextShow">
               <div class="close" ng-click="additionalTextShow = false"></div>
               <div class="additional-text-container">
-                <div class="title">Подробно об Invacare Kite</div>
+                <div class="title" ng-show="additionalTextItemVisible == 0">Подробно об Invacare Kite</div>
                 <div class="item" ng-repeat="item in product.additional_text" ng-show="additionalTextItemVisible == $index">
                   <div class="text" ng-bind="item.text"></div>
                 </div>

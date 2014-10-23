@@ -57,6 +57,12 @@ body{
   width: 100%;
 }
 
+.btn,
+.btn:active,
+.btn.active{
+  box-shadow: none;
+}
+
 .sidebar{
   position: fixed;
   width: 80px;

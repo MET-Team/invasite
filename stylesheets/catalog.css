@@ -220,8 +220,8 @@
   position: relative;
   text-decoration: none;
   color: #272e32;
-  padding: 15px 20px 65px;
-  background: none #f9f9f9;
+  padding: 0 20px 65px;
+  background: none #fff;
   box-shadow: 0 2px 2px #dad9d6;
   border-radius: 3px;
 }
@@ -230,7 +230,12 @@
 }
 .page-block-catalog .product-list .product-item .image{
   text-align: center;
+  margin: 0 -20px 0 -20px;
 }
+.page-block-catalog .product-list .product-item .image img{
+  width: 100%;
+}
+
 .page-block-catalog .product-list .product-item .name{
   margin-top: 26px;
   font-size: 18px;
