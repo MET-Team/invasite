@@ -402,7 +402,7 @@ appControllers.controller('BuyCtrl', function($scope, $http, localStorageService
       price: 'Бесплатно'
     },
     {
-      title: 'Курьероaм по Москве и области',
+      title: 'Курьером по Москве и области',
       priceRange: {
         from: 0,
         to: 900
