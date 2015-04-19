@@ -1,113 +1,24 @@
-var App = angular.module('App',
-  [
-    'ngRoute',
-    'ngAnimate',
-    'ngSanitize',
+var App = angular.module('App', [
+  'ngRoute',
+  'ngAnimate',
+  'ngSanitize',
 
-    'appControllers',
+  'appControllers',
 
-    'customFilters',
-    'googlemap-ng',
-    'LocalStorageModule',
+  'googlemap-ng',
+  'LocalStorageModule',
 
-    'stickyfloat-ng',
-
-    'mgcrea.ngStrap.select',
-    'matchHeight-ng'
-  ]
-);
-
-App.config(['$routeProvider', '$locationProvider', function($routes, $location) {
-
-  $location.hashPrefix('!');
-
-  $routes.when("/", {
-    templateUrl: "javascripts/templates/about.html",
-    reloadOnSearch: false
-  })
-    .when("/catalog", {
-      templateUrl: "javascripts/templates/catalog.html",
-      reloadOnSearch: false
-    })
-    .when("/catalog/:productId", {
-      templateUrl: "javascripts/templates/product.html",
-      reloadOnSearch: false
-    })
-    .when("/buy", {
-      templateUrl: "javascripts/templates/buy.html",
-      reloadOnSearch: false
-    })
-
-    .when("/delivery-payment", {
-      templateUrl: "javascripts/templates/delivery-payment.html",
-      reloadOnSearch: false
-    })
-    .when("/about", {
-      templateUrl: "javascripts/templates/about.html",
-      reloadOnSearch: false
-    })
-    .when("/contacts", {
-      templateUrl: "javascripts/templates/contacts.html",
-      reloadOnSearch: false
-    })
-    .when("/info", {
-      templateUrl: "javascripts/templates/info.html",
-      reloadOnSearch: false
-    })
-    .when("/brands", {
-      templateUrl: "javascripts/templates/brands.html",
-      reloadOnSearch: false
-    })
-    .when("/brands/:brandId", {
-      templateUrl: "javascripts/templates/brand-item.html",
-      reloadOnSearch: false
-    })
-
-    .otherwise({
-      templateUrl: 'javascripts/templates/404.html',
-      reloadOnSearch: false
-    });
-
-}]);
+  'mgcrea.ngStrap.select',
+  'matchHeight-ng'
+]);
 
 App.factory('Basket', function(){
   return { list: [], totalPrice: 0 };
 });
 
-App.directive('toggleMenuIco', function(){
-  return {
-    restrict: "EAC",
-    scope: {
-      toggleMenuItem: "="
-    },
-    link: function(scope, elements){
-      var item = scope.toggleMenuItem,
-          element = $(elements[0]);
-
-      element.hover(function(){
-        $('img.ico', $(this)).attr('src', item['ico-hover'])
-      }, function(){
-        $('img.ico', $(this)).attr('src', item['ico'])
-      });
-    }
-  };
-});
-
-App.directive('blinkBasket', function(){
-  return {
-    restrict: "EAC",
-    link: function(scope, elements){
-      var element = $(elements[0]);
-
-      element.click(function(){
-        $('.sidebar-menu .item-basket').addClass('hovered');
-        $('img.ico', '.sidebar-menu .item-basket').attr('src', 'images/menu/ico-1-hover.png');
-
-        setTimeout(function(){
-          $('.sidebar-menu .item-basket').removeClass('hovered');
-          $('img.ico', '.sidebar-menu .item-basket').attr('src', 'images/menu/ico-1.png');
-        }, 200)
-      })
-    }
+App.filter("declOfNum", function() {
+  return function(number, textVariants) {
+    var cases = [2, 0, 1, 1, 1, 2];
+    return textVariants[(number % 100 > 4 && number % 100 < 20 ? 2 : cases[(number % 10 < 5 ? number % 10 : 5)])];
   };
 });

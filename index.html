@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
 
     <link rel="stylesheet" href="stylesheets/site-pages.css" />
+    <link rel="stylesheet" href="stylesheets/info-navigation.css" />
+    <link rel="stylesheet" href="stylesheets/deliery-payments.css" />
+    <link rel="stylesheet" href="stylesheets/return-guarantee.css" />
+    <link rel="stylesheet" href="stylesheets/faq.css" />
+
     <link rel="stylesheet" href="stylesheets/catalog.css" />
     <link rel="stylesheet" href="stylesheets/product.css" />
     <link rel="stylesheet" href="stylesheets/buy.css" />
@@ -16,7 +21,7 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="javascripts/bootstrap.js"></script>
+    <script src="javascripts/vendor/bootstrap.js"></script>
 
     <script src="javascripts/angular/angular.min.js"></script>
 
@@ -24,13 +29,13 @@
     <script src="javascripts/angular/angular-animate.min.js"></script>
     <script src="javascripts/angular/angular-sanitize.min.js"></script>
 
-    <script src='javascripts/filters.js'></script>
-
-    <script src='javascripts/directives/stickyfloat-ng.js'></script>
-    <script src="javascripts/gmaps.js"></script>
+    <script src="javascripts/vendor/gmaps.js"></script>
 
     <script src="javascripts/angular/localStorage.js"></script>
     <script src="javascripts/directives/gmaps-ng.js"></script>
+
+    <script src="javascripts/vendor/waypoint/waypoints.min.js"></script>
+    <script src="javascripts/vendor/waypoint/waypoints-sticky.min.js"></script>
 
     <script src="javascripts/angular-strap/angular-strap.js"></script>
     <script src="javascripts/angular-strap/angular-strap.tpl.js"></script>
@@ -40,98 +45,95 @@
     <script src="javascripts/angular-strap/modules/select.js"></script>
     <script src="javascripts/angular-strap/modules/select.tpl.js"></script>
 
-    <script src="javascripts/jquery.matchHeight-min.js"></script>
+    <script src="javascripts/vendor/jquery.matchHeight-min.js"></script>
     <script src="javascripts/directives/matchHeight-ng.js"></script>
 
     <script src="javascripts/app.js"></script>
-    <script src="javascripts/controllers.js"></script>
+    <script src="javascripts/config.js"></script>
+    <script src="javascripts/controllers/application.js"></script>
+
+    <script src="javascripts/controllers/delivery.js"></script>
+    <script src="javascripts/controllers/product.js"></script>
+    <script src="javascripts/controllers/basket.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   </head>
   <body>
     <div class="wrapper" ng-controller="ApplicationCtrl" ng-class="{'sidebar-open': sidebarMenuIsOpen}">
-      <div class="sidebar" ng-mouseenter="toggleSidebarMenu()" ng-mouseleave="toggleSidebarMenu()">
 
-        <div class="logo" ng-mouseenter="hideBasket()">
-          <a href="#!/" class="sidebar-ico-open"></a>
-          <span class="caption">инвасайт</span>
+      <div class="header-layout">
+        <div class="logo">
+          <a ng-href="#!/">
+            <img src="images/logo.png" alt="" />
+          </a>
         </div>
-
-        <div class="sidebar-menu">
-          <ul>
-            <li class="item-basket" ng-mouseenter="sidebarBasketIsOpen = true; basketIco = 'images/menu/ico-1-hover.png'" ng-mouseleave="basketIco = 'images/menu/ico-1.png'">
-              <a>
-                <img class="ico" ng-src="{{basketIco}}" alt="" />
-                <span class="caption">Корзина</span>
-                <div class="product-count" ng-if="basketList.list.length > 0">{{basketList.list.length}}</div>
-              </a>
-            </li>
-            <li ng-repeat="item in sidebarMenu" ng-mouseenter="hideBasket()" toggle-menu-ico toggle-menu-item="item" >
-              <a ng-href="#!/catalog">
-                <img class="ico" ng-src="{{item.ico}}" alt="" />
-                <span class="caption" ng-bind="item.title"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="part-menu" ng-if="sidebarMenuEnabled">
-          <ul>
-            <li>
-              <a href="#!/brands">Бренды</a>
-            </li>
-            <li>
-              <a href="#!/delivery-payment">Доставка и оплата</a>
-            </li>
-            <li>
-              <a href="#!/about">О компании</a>
-            </li>
-            <li>
-              <a href="#!/contacts">Контакты</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="sidebar-basket" ng-class="{open: sidebarBasketIsOpen}" ng-mouseleave="sidebarBasketIsOpen = false">
-        <div class="title">Корзина</div>
-        <div class="basket-list">
-          <div class="basket-item" ng-repeat="item in basketList.list">
-            <div class="image">
-              <img src="images/temp/product-image-basket.jpg" alt="" width="70" height="70" />
-            </div>
-            <div class="name" ng-bind="item.name"></div>
-            <div class="price"><span ng-bind="item.price"></span>.-</div>
-            <div class="remove" ng-click="removeBasketItem(item)"></div>
-          </div>
-        </div>
-        <a href="#!/buy" class="total-cost" ng-if="basketList.totalPrice > 0">Купить за <span ng-bind="basketList.totalPrice"></span>.-</a>
-      </div>
-
-      <div class="main-content">
-        <div ng-view=""></div>
-
-        <div class="footer" ng-if="footerMenuEnabled">
-          <div class="part-menu">
+        <div class="navigation">
+          <div class="navigation_top">
             <ul>
               <li>
-                <a href="#!/brands">Бренды</a>
+                <a href="#!/delivery">Доставка</a>
               </li>
               <li>
-                <a href="#!/delivery-payment">Доставка и оплата</a>
+                <a href="#!/payment">Оплата</a>
               </li>
               <li>
-                <a href="#!/about">О компании</a>
+                <a href="#!/return_guarantee">Гарантии и возврат</a>
+              </li>
+              <li>
+                <a href="#!/faq">Вопросы и ответы</a>
               </li>
               <li>
                 <a href="#!/contacts">Контакты</a>
               </li>
+              <li>
+                <a href="#!/info">Полезная информация</a>
+              </li>
+              <li>
+                <a href="#!/brands">Бренды</a>
+              </li>
+              <li>
+                <a href="#!/about">О компании</a>
+              </li>
             </ul>
+            <div class="item-right contacts">
+              <div class="contacts-item email">
+                <a ng-href="mailto:{{mainEmail}}" ng-bind="mainEmail"></a>
+              </div>
+              <div class="contacts-item phone">
+                <span ng-bind="mainPhone"></span>
+              </div>
+            </div>
           </div>
-          <div class="phone">799 699-06-66</div>
+          <div class="navigation_bottom">
+            <ul>
+              <li ng-repeat="item in navigationMenu" ng-mouseenter="hideBasket()" toggle-menu-ico toggle-menu-item="item" >
+                <a ng-href="#!/catalog">
+                  <span class="caption" ng-bind="item.title"></span>
+                </a>
+              </li>
+            </ul>
+            <div class="item-right basket">
+              <div class="caption">
+                <a href="/buy" rel="nofollow">
+                  <span class="toggle-part">Корзина (</span><span ng-bind="basketCount">0</span><span class="toggle-part">)</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
+      <div class="nav-menu-info" ng-if="pageIsInfo">
+        <ul>
+          <li ng-repeat="item in infoNavMenu" ng-class="{active: item.active}">
+            <a ng-href="{{item.url}}" ng-bind="item.title"></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-content" ng-class="{'container-inner': !pageIsMain}">
+        <div ng-view=""></div>
       </div>
 
     </div>

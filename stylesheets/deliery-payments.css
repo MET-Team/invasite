@@ -1,0 +1,356 @@
+.page-block-delivery-payments .delivery{
+  padding: 40px 0 72px;
+  min-height: 573px;
+}
+
+.page-block-delivery-payments .payment{
+  padding: 40px 0 72px;
+}
+
+.page-block-delivery-payments .payment .payment-grid td{
+  padding: 0 10px 15px 0;
+  width: 33%;
+}
+.page-block-delivery-payments .payment .payment-grid td:last-child{
+  padding-right: 0;
+}
+.page-block-delivery-payments .payment .payment-grid tr:last-child td{
+  padding-bottom: 0;
+}
+.page-block-delivery-payments .payment .payment-grid td.payment-type{
+  vertical-align: middle;
+}
+.page-block-delivery-payments .payment .payment-grid td.payment-type .payment-ico{
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.page-block-delivery-payments .delivery .title, .page-block-delivery-payments .payment .title{
+  font-size: 24px;
+  font-family: 'MuseoSansCyrl-500';
+}
+.page-block-delivery-payments .delivery .text, .page-block-delivery-payments .payment .text{
+  margin-top: 30px;
+  line-height: 28px;
+  font-size: 16px;
+}
+.page-block-delivery-payments .delivery .text, .page-block-delivery-payments .payment .text p{
+  margin-bottom: 15px;
+}
+.page-block-delivery-payments .delivery .text, .page-block-delivery-payments .payment .text p:last-child{
+  margin-bottom: 0;
+}
+.page-block-delivery-payments .payment .ico-credit-system{
+  vertical-align: middle;
+  margin-left: 10px;
+  height: 40px;
+}
+
+.page-block-delivery-payments .delivery .delivery-types{
+  display: table;
+  width: 100%;
+  margin-top: 50px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item{
+  display: table-cell;
+  padding-right: 60px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .title{
+  font-size: 18px;
+  font-family: 'MuseoSansCyrl-500';
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list{
+  margin-top: 33px;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table{
+  width: 100%;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table td{
+  background: none #fff;
+  padding: 14px 20px;
+  color: #000;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table tr.gray td{
+  background: none #f2f2f2;
+}
+.page-block-delivery-payments .delivery .delivery-types .delivery-type-item .delivery-list table tr td:last-child{
+  font-family: 'MuseoSansCyrl-500';
+}
+
+.page-block-delivery-payments .payment .payments-list{
+  margin-top: 50px;
+}
+
+.page-block-delivery-payments .payment .payments-list .payment-item{
+  padding: 30px;
+  background: none #f2f2f2;
+  margin-bottom: 10px;
+}
+.page-block-delivery-payments .payment .payments-list .payments-list-col .payment-item:last-child{
+  margin-bottom: 0;
+}
+
+.page-block-delivery-payments .payment .payments-list .payment-item .ico{
+  margin-bottom: 20px;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .title{
+  font-size: 18px;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text{
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text p{
+  margin-bottom: 20px;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text p:last-child{
+  margin-bottom: 0;
+}
+.page-block-delivery-payments .payment .payments-list .payment-item .text .more{
+  color: #5098de;
+  border-bottom: dotted 1px #5098de;
+  cursor: pointer;
+}
+
+.page-block-delivery-payments .delivery .delivery-navigation{
+  padding: 20px 0 45px;
+  background: none #fff;
+  width: 100%;
+}
+.page-block-delivery-payments .delivery .delivery-navigation:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.page-block-delivery-payments .delivery .delivery-navigation.stuck {
+  position:fixed;
+  top:0;
+  transition: top 0.5s;
+  -webkit-transition: top 0.5s;
+  z-index: 10;
+}
+
+.page-block-delivery-payments .delivery .delivery-navigation ul li{
+  background: none #f2f2f2;
+  padding: 12px 20px;
+  float: left;
+  cursor: pointer;
+  color: #1e2326;
+}
+.page-block-delivery-payments .delivery .delivery-navigation ul li.active{
+  background: none #5098de;
+  color: #fff;
+  cursor: default;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item{
+  margin-bottom: 45px;
+}
+.page-block-delivery-payments .delivery-list .delivery-item p{
+  margin-bottom: 15px;
+  line-height: 26px;
+}
+.page-block-delivery-payments .delivery-list .delivery-item p:last-child{
+  margin-bottom: 0;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item:last-child{
+  margin-bottom: 0;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-item-title{
+  font-size: 18px;
+  font-family: 'MuseoSansCyrl-500';
+  margin-bottom: 25px;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .sub-list .sub-list-item{
+  margin-bottom: 30px;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .sub-list .sub-list-item:last-child{
+  margin-bottom: 0;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .sub-list .sub-list-item .sub-list-item-title{
+  font-family: 'MuseoSansCyrl-500';
+  margin-bottom: 20px;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search{
+  margin-bottom: 20px;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .inner{
+  height: 60px;
+  padding: 10px;
+  background: none #f2f2f2;
+  float: left;
+  position: relative;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item a{
+  font-family: 'MuseoSansCyrl-500';
+  margin-right: 10px;
+  outline: medium none;
+}
+.page-block-delivery-payments .delivery-list .delivery-item a:after{
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: url('../images/ico-blank-link.png') no-repeat 0 0 transparent;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item a.download-scheme{
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'MuseoSansCyrl-700';
+  font-size: 16px;
+  border: solid 2px #5098de;
+  padding: 12px 35px;
+  color: #5098de;
+  text-decoration: none;
+}
+.page-block-delivery-payments .delivery-list .delivery-item a.download-scheme:after{
+  content: '';
+  display: none;
+}
+
+.page-block-delivery-payments .delivery-companies td{
+  padding: 15px;
+}
+.page-block-delivery-payments .delivery-companies td:first-child{
+  padding-left: 0;
+}
+
+.page-block-delivery-payments .notice:before{
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: url('../images/ico-notice.png') no-repeat 0 0 transparent;
+  margin-right: 5px;
+  position: relative;
+  top: -2px;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid{
+  width: 100%;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid td{
+  padding: 15px;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid td:first-child{
+  padding-left: 0;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid td.value{
+  text-align: right;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid td.value .digits{
+  color: #5098de;
+  font-family: 'MuseoSansCyrl-500';
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item-additional .additional-service-list{
+  margin: 20px 0;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item-additional .additional-service-list ul li{
+  margin-bottom: 10px;
+  padding-left: 20px;
+  text-indent: -20px;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-additional .additional-service-list ul li:last-child{
+  margin-bottom: 0;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-additional .additional-service-list ul li:before {
+  content: "• ";
+  color: #5098de;
+  font-size: 28px;
+  line-height: 12px;
+  vertical-align: middle;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-field{
+  position: relative;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-field input{
+  height: 40px;
+  width: 280px;
+  border: medium none;
+  outline: medium none;
+  color: #808080;
+  font-size: 16px;
+  padding: 10px 50px 10px 15px;
+  font-family: 'MuseoSansCyrl-300';
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-field .caret{
+  width: 48px;
+  height: auto;
+  border: medium none;
+  margin: 0;
+  border-left: solid 1px #e6e6e6;
+  background: url('../images/ico-city-search-caret-opened.png') no-repeat 50% 50% #fff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search.opened .search-field .caret{
+  background: url('../images/ico-city-search-caret.png') no-repeat 50% 50% transparent;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-list{
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  right: 10px;
+  border: solid 1px #e6e6e6;
+  background: none #fff;
+  height: 160px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: none;
+  z-index: 11;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search.opened .search-list{
+  display: block;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-list .list-item{
+  font-size: 16px;
+  padding: 12px 15px;
+  font-family: 'MuseoSansCyrl-300';
+  cursor: pointer;
+  color: #808080;
+  border-top: solid 1px #e6e6e6;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-list .list-item:first-child{
+  border-top: medium none;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .search-list .list-item:nth-child(odd){
+  background: none #f2f2f2;
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .delivery-result{
+  position: absolute;
+  left: 320px;
+  top: 20px;
+  white-space: nowrap;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .delivery-result .delivery-enabled{
+  color: #5098de;
+}
+.page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .delivery-result .delivery-disabled{
+  color: #e91a1b;
+}

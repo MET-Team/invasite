@@ -47,10 +47,11 @@ body{
   color: #272e32;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+a{
+  color: #ffc13e;
+}
+a:hover, a:focus, a:active, a:visited{
+  color: #272e32;
 }
 
 .wrapper{
@@ -63,7 +64,115 @@ body{
   box-shadow: none;
 }
 
+.header-layout{
+  position: relative;
+  padding: 22px 50px 20px 180px;
+  min-height: 121px;
+  background: none #fff;
+  text-align: left;
+  line-height: 10px;
+  z-index: 101;
+}
+
+.header-layout .logo{
+  position: absolute;
+  left: 50px;
+  top: 20px;
+}
+.header-layout .logo a{
+  text-decoration: none;
+}
+
+.header-layout .navigation a{
+  color: #000;
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+}
+.header-layout a:hover{
+  opacity: 1;
+}
+
+.header-layout .navigation ul{
+  float: left;
+}
+.header-layout .navigation ul li{
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 30px;
+}
+.header-layout .navigation .navigation_bottom ul li{
+  margin-right: 40px;
+  font-size: 16px;
+}
+.header-layout .navigation ul li:last-child{
+  margin-right: 0;
+}
+
+.header-layout .navigation .navigation_top{
+  padding-bottom: 10px;
+  border-bottom: solid 1px #e6e6e6;
+}
+
+.header-layout .navigation .navigation_bottom{
+  padding-top: 20px;
+  font-size: 16px;
+  font-family: "MuseoSansCyrl-500";
+}
+.header-layout .navigation .navigation_bottom a{
+  opacity: 1;
+}
+
+.header-layout .navigation .item-right{
+  float: right;
+}
+.header-layout .navigation_top:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.header-layout .contacts-item{
+  display: inline-block;
+  margin-right: 30px;
+  vertical-align: middle;
+}
+.header-layout .contacts-item:last-child{
+  margin-right: 0;
+}
+.header-layout .contacts-item a{
+  opacity: 1;
+}
+
+.header-layout .basket{
+  float: right;
+  font-size: 16px;
+  font-family: 'MuseoSansCyrl-500';
+  color: #1e2326;
+  margin-left: 40px;
+}
+.header-layout .basket:after{
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  background: url('../images/ico-basket.png') no-repeat 0 0 transparent;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.header-layout .basket .caption{
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+}
+.header-layout .basket .caption a{
+  text-decoration: none;
+  color: #1e2326;
+}
+
 .sidebar{
+  display: none;
   position: fixed;
   width: 80px;
   left: 0;
@@ -295,14 +404,14 @@ body{
 }
 
 .main-content{
-  left: 80px;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  min-width: 1024px;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s;
-  position: absolute;
+  /*left: 80px;*/
+  /*top: 0;*/
+  /*bottom: 0;*/
+  /*right: 0;*/
+  /*min-width: 1024px;*/
+  /*-webkit-transition: left 0.5s;*/
+  /*transition: left 0.5s;*/
+  position: relative;
 }
 .sidebar-open .main-content{
   left: 260px;

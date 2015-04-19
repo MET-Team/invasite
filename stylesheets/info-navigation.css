@@ -1,0 +1,39 @@
+.page-block.page-block-info-part{
+  width: 1000px;
+  margin: 0 auto;
+  padding-left: 250px;
+  position: relative;
+}
+.page-block.page-block-info-part:before{
+  display: block;
+  content: '';
+  position: absolute;
+  width: 1px;
+  left: 195px;
+  top: 40px;
+  bottom: 50px;
+  background: none #999;
+}
+
+.nav-menu-info{
+  position: absolute;
+  top: 161px;
+  left: 50%;
+  margin-left: -500px;
+  z-index: 100;
+}
+.nav-menu-info ul li{
+  margin-bottom: 13px;
+  padding: 7px 0;
+}
+
+.nav-menu-info ul li.active{
+  border-left: solid 11px #5098de;
+  padding-left: 15px;
+}
+
+.nav-menu-info a{
+  text-decoration: none;
+  font-family: 'MuseoSansCyrl-500';
+  color: #1e2326;
+}
