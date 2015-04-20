@@ -188,10 +188,14 @@
 }
 
 .page-block-catalog .filters .filter-item.filter-carriage-type .btn.btn-dropdown{
-  background-color: #ffc13e;
+  background-color: #fff;
+  color: #808080;
+  border: solid 1px #ccc;
 }
 .page-block-catalog .filters .filter-item.filter-carriage-type .btn.btn-dropdown:hover{
   background-color: #ffca57;
+  color: #fff;
+  border: solid 1px #ffca57;
 }
 .page-block-catalog .filters .filter-item.filter-carriage-type .dropdown-menu{
   background: none #fff;
@@ -220,7 +224,7 @@
   position: relative;
   text-decoration: none;
   color: #272e32;
-  padding: 0 20px 65px;
+  padding: 0 20px 110px;
   background: none #fff;
   box-shadow: 0 2px 2px #dad9d6;
   border-radius: 3px;
@@ -236,47 +240,84 @@
   width: 100%;
 }
 
-.page-block-catalog .product-list .product-item .name{
+.page-block-catalog .product-list .product-item .product-details{
+  font-size: 12px;
+  color: #808080;
   margin-top: 26px;
-  font-size: 18px;
-  line-height: 30px;
+}
+.page-block-catalog .product-list .product-item .product-details .artikul,
+.page-block-catalog .product-list .product-item .product-details .stock-type{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.page-block-catalog .product-list .product-item .product-details .stock-type{
+  margin-left: 20px;
+}
+.page-block-catalog .product-list .product-item .product-details .stock-type .stock-indicator{
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: none #ffc13e;
+}
+.page-block-catalog .product-list .product-item .product-details .stock-type.in-stock .stock-indicator{
+  background: none #4eda6f;
+}
+
+.page-block-catalog .product-list .product-item .name{
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
   font-family: 'MuseoSansCyrl-500';
   color: #000;
 }
-.page-block-catalog .product-list .product-item .description{
-  margin-top: 10px;
-  font-size: 16px;
-  line-height: 28px;
-}
-.page-block-catalog .product-list .product-item .more{
-  position: absolute;
-  font-size: 16px;
-  bottom: 25px;
-  left: 20px;
-}
-.page-block-catalog .product-list .product-item .more:after{
-  content: '';
-  display: block;
-  clear: both;
-}
-.page-block-catalog .product-list .product-item .more .btn-details{
+
+.page-block-catalog .product-list .product-item .product-compare{
   color: #ffc13e;
+  cursor: pointer;
+  margin-top: 15px;
+  font-family: 'MuseoSansCyrl-500';
+  font-size: 14px;
+  position: absolute;
+  left: 20px;
+  bottom: 80px;
+}
+.page-block-catalog .product-list .product-item .product-compare:hover{
+  color: #ffca57;
+}
+
+.page-block-catalog .product-list .product-item .product-footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: solid 1px #f2f2f2;
+  padding: 15px 20px;
+}
+
+.page-block-catalog .product-list .product-item .buy{
+  font-size: 14px;
+  float: right;
+}
+.page-block-catalog .product-list .product-item .buy .btn-buy{
+  color: #333;
   font-family: 'MuseoSansCyrl-700';
-  background: url('../images/ico-brand-detail.png') no-repeat right center transparent;
   line-height: 20px;
-  float: left;
-  padding-right: 30px;
   text-decoration: none;
   display: block;
+  border: solid 1px #ffc13e;
+  border-radius: 3px;
+  padding: 5px 20px;
 }
-.page-block-catalog .product-list .product-item .more .btn-details:hover{
+.page-block-catalog .product-list .product-item .buy .btn-buy:hover{
   color: #ffca57;
 }
 
 .page-block-catalog .product-list .product-item .price{
-  position: absolute;
-  right: 20px;
-  bottom: 21px;
-  font-size: 18px;
+  float: left;
+  font-size: 20px;
   font-family: 'MuseoSansCyrl-700';
+  position: relative;
+  top: 2px;
 }

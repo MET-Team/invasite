@@ -1,4 +1,5 @@
 appControllers = angular.module("appControllers", [
+  'CatalogCtrl',
   'DeliveryCtrl',
   'ProductCtrl',
   'BasketCtrl',
