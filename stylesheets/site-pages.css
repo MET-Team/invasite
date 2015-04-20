@@ -1,3 +1,7 @@
+.page-block-info-part{
+  font-size: 16px;
+}
+
 /* page-block-about */
 .page-block-about{
   position: absolute;
@@ -12,7 +16,7 @@
   margin: 0 auto -240px;
   min-height: 100%;
   height: auto;
-  padding-top: 595px;
+  padding-top: 475px;
 }
 .page-block-about .page-inner:after{
   content: "";
@@ -31,7 +35,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 120px;
+  top: 0;
 }
 
 .page-block-about .page-title{
@@ -91,92 +95,80 @@
 /* page-block-contacts */
 .page-block-contacts{
   font-size: 18px;
-}
-.page-block-contacts .head{
-  min-height: 400px;
-  color: #fff;
-  font-size: 45px;
-  background: url('../images/bg-contacts.png') no-repeat center center transparent;
-  background-size: cover;
-  text-align: center;
-  padding: 140px 40px;
+  padding: 40px 0 72px;
 }
 
-.page-block-contacts .contacts-list{
-  display: table;
-  width: 100%;
-  color: #737373;
-}
-
-.page-block-contacts .page-col{
-  display: table-cell;
-  width: 50%;
-}
-.page-block-contacts .page-col{
-  padding: 50px 40px 80px 60px;
-}
-.page-block-contacts .page-col.page-content{
-  padding-left: 30px;
-}
-
-.page-block-contacts .page-col.page-map .address{
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 28px;
-}
-
-.page-block-contacts .communication-types .communication-type{
-  margin-bottom: 60px;
-}
-.page-block-contacts .communication-types .communication-type:last-child{
-  margin-bottom: 0;
+.page-block-contacts .title{
+  font-size: 24px;
+  font-family: 'MuseoSansCyrl-500'
 }
 
 .page-block-contacts .communication-type .title{
-  font-size: 30px;
+  font-size: 18px;
 }
 .page-block-contacts .communication-type .text{
   margin-top: 20px;
   line-height: 25px;
 }
-
-.page-block-contacts .communication-type .text.email, .page-block-contacts .communication-type .text.phone{
-  font-size: 24px;
-  color: #000;
-}
-
 .page-block-contacts .communication-type .call-order{
-  margin-top: 25px;
+  margin-top: 10px;
   position: relative;
 }
 .page-block-contacts .communication-type .call-order .button{
-  background: none rgba(255, 193, 62, 1);
+  background: none #5098de;
   border: medium none;
-  font-family: 'MuseoSansCyrl-500';
+  font-family: 'MuseoSansCyrl-700';
   font-size: 16px;
   color: #fff;
   cursor: pointer;
-  width: 234px;
-  padding: 12px 0;
+  width: 100%;
+  padding: 10px 0;
   outline: medium none;
-  border-radius: 5px;
 }
 .page-block-contacts .communication-type .call-order .button:hover{
-  background-color: #ffca57;
-}
-.page-block-contacts .communication-type .call-order .button i{
-  background: url('../images/ico-order-button.png') no-repeat 0 0 transparent;
-  width: 16px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 15px;
+  background: none #59a8f7;
 }
 
 .page-block-contacts .communication-type .map-box{
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
-  height: 250px !important;
+  height: 300px !important;
+}
+
+.page-block-contacts .communication-types{
+  margin: 35px 0;
+  display: table;
+  width: 100%;
+}
+.page-block-contacts .communication-types .communication-type{
+  display: table-cell;
+  padding-right: 50px;
+}
+
+.page-block-contacts .communication-type-address{
+  margin-top: 30px;
+}
+
+.page-block-contacts .communication-type-address a.download-scheme{
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'MuseoSansCyrl-700';
+  font-size: 16px;
+  padding: 12px 35px;
+  background: none #ffc13e;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+.map-infowindow{
+  max-width: 350px;
+}
+.map-infowindow .name{
+  font-weight: bold;
+}
+.map-infowindow .address{
+  margin-top: 10px;
 }
 
 /* page-block-brands */
@@ -259,10 +251,14 @@
 .page-block-brand-item .brand-details .ico-close{
   position: absolute;
   right: 30px;
-  top: 30px;
+  top: 27px;
   width: 60px;
   height: 60px;
 }
+.page-block-brand-item .brand-details .ico-close:hover{
+  transform: none;
+}
+
 .page-block-brand-item .brand-details .ico-close a{
   display: block;
   width: 60px;

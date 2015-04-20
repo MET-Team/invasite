@@ -108,8 +108,8 @@
   margin-bottom: 0;
 }
 .page-block-delivery-payments .payment .payments-list .payment-item .text .more{
-  color: #5098de;
-  border-bottom: dotted 1px #5098de;
+  color: #ffc13e;
+  border-bottom: dotted 1px #ffc13e;
   cursor: pointer;
 }
 
@@ -128,7 +128,7 @@
   top:0;
   transition: top 0.5s;
   -webkit-transition: top 0.5s;
-  z-index: 10;
+  z-index: 15;
 }
 
 .page-block-delivery-payments .delivery .delivery-navigation ul li{
@@ -137,9 +137,10 @@
   float: left;
   cursor: pointer;
   color: #1e2326;
+  font-size: 16px;
 }
 .page-block-delivery-payments .delivery .delivery-navigation ul li.active{
-  background: none #5098de;
+  background: none #ffc13e;
   color: #fff;
   cursor: default;
 }
@@ -173,6 +174,7 @@
 .page-block-delivery-payments .delivery-list .delivery-item .sub-list .sub-list-item .sub-list-item-title{
   font-family: 'MuseoSansCyrl-500';
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
 .page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search{
@@ -212,9 +214,9 @@
   cursor: pointer;
   font-family: 'MuseoSansCyrl-700';
   font-size: 16px;
-  border: solid 2px #5098de;
   padding: 12px 35px;
-  color: #5098de;
+  background: none #ffc13e;
+  color: #fff;
   text-decoration: none;
 }
 .page-block-delivery-payments .delivery-list .delivery-item a.download-scheme:after{
@@ -255,7 +257,7 @@
   text-align: right;
 }
 .page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid td.value .digits{
-  color: #5098de;
+  color: #ffc13e;
   font-family: 'MuseoSansCyrl-500';
 }
 
@@ -273,7 +275,7 @@
 }
 .page-block-delivery-payments .delivery-list .delivery-item-additional .additional-service-list ul li:before {
   content: "• ";
-  color: #5098de;
+  color: #ffc13e;
   font-size: 28px;
   line-height: 12px;
   vertical-align: middle;
@@ -349,7 +351,7 @@
   white-space: nowrap;
 }
 .page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .delivery-result .delivery-enabled{
-  color: #5098de;
+  color: #9de365;
 }
 .page-block-delivery-payments .delivery-list .delivery-item .delivery-city-search .delivery-result .delivery-disabled{
   color: #e91a1b;

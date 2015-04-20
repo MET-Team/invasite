@@ -61,6 +61,7 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
 }]).run(function($rootScope, localStorageService){
   $rootScope.mainPhone = '+7 495 777-39-18';
   $rootScope.mainEmail = 'info@invasite.ru';
+  $rootScope.mainAddress = "г. Москва, Киевское ш., стр. 2, БП «Румянцево», офис 520Г";
 
   $rootScope.basketProducts = localStorageService.get('productToBuy') || null;
   $rootScope.basketCount = $rootScope.basketProducts.length || 0;

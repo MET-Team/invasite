@@ -1,30 +1,39 @@
-<div class="page-block page-block-contacts" ng-controller="ContactsCtrl">
-  <div class="head">С нами легко связаться</div>
+<div class="page-block page-block-info-part page-block-contacts" ng-controller="ContactsCtrl">
+  <div class="title">Контакты</div>
 
-  <div class="contacts-list">
-    <div class="page-col page-map">
+  <div class="page-content">
+
+    <div class="communication-types">
+
       <div class="communication-type">
-        <div class="title">Адрес</div>
-        <div class="map-box" googlemap="" id="map-location" markers="mapMarkers"></div>
-        <div class="address">г. Москва, Ленинский проспект, 500м от МКАД, Бизнес-парк «Румянцево», корпус «Г», 11 подъезд, офис 521г</div>
+        <div class="title">Телефон</div>
+        <div class="text" ng-bind="mainPhone"></div>
       </div>
-    </div>
-    <div class="page-col page-content">
-      <div class="communication-types">
-        <div class="communication-type">
-          <div class="title">Почта</div>
-          <div class="text email">invasite@met.ru</div>
-        </div>
 
-        <div class="communication-type">
-          <div class="title">Телефон</div>
-          <div class="text phone">909 699 07 67</div>
-          <div class="call-order">
-            <button class="button"><i></i>Заказать звонок</button>
-          </div>
-        </div>
+      <div class="communication-type">
+        <div class="title">Почта</div>
+        <div class="text" ng-bind="mainEmail"></div>
       </div>
     </div>
+
+    <div class="communication-type">
+      <div class="title">Время работы офиса</div>
+      <div class="text">
+        пн-пт  9:00 - 19:00<br/>
+        сб  11:00 - 15:00<br/>
+        вс - выходной<br/>
+        Прием звонков: ежедневно с 9:00 до 23:00
+      </div>
+    </div>
+
+    <div class="communication-type communication-type-address">
+      <div class="title">Адрес</div>
+      <div class="text" ng-bind="mainAddress"></div>
+
+      <a href="javascript:void(0)" class="download-scheme">Скачать схему проезда</a>
+
+      <div class="map-box" googlemap="" id="map-location" markers="mapMarkers"></div>
+    </div>
+
   </div>
-
 </div>

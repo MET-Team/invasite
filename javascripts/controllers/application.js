@@ -1,7 +1,8 @@
 appControllers = angular.module("appControllers", [
   'DeliveryCtrl',
   'ProductCtrl',
-  'BasketCtrl'
+  'BasketCtrl',
+  'infoCtrl'
 ]);
 
 appControllers.controller('ApplicationCtrl', function($scope, $location, $document, localStorageService, Basket){
@@ -82,7 +83,7 @@ appControllers.controller('ApplicationCtrl', function($scope, $location, $docume
       isInfo: true
     },
     {
-      title: 'Частые вопросы',
+      title: 'Вопросы и ответы',
       url: '/faq',
       isInfo: true
     },
@@ -140,7 +141,16 @@ appControllers.controller('BrandItemCtrl', function($scope, $http){
 });
 
 appControllers.controller('ContactsCtrl', function($scope, $http){
-
+  $scope.mapMarkers = [
+    {
+      "name": "Invasite",
+      "address": "г. Москва, Ленинский проспект, 500м от МКАД, Бизнес-парк «Румянцево», корпус «Г», 11 подъезд, офис 521г",
+      "location": {
+        "latitude": "55.634317",
+        "longitude": "37.439019"
+      }
+    }
+  ]
 });
 
 

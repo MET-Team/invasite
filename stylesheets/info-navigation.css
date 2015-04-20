@@ -19,21 +19,22 @@
   position: absolute;
   top: 161px;
   left: 50%;
-  margin-left: -500px;
+  margin-left: -485px;
   z-index: 100;
 }
 .nav-menu-info ul li{
-  margin-bottom: 13px;
+  margin-bottom: 8px;
   padding: 7px 0;
-}
-
-.nav-menu-info ul li.active{
-  border-left: solid 11px #5098de;
-  padding-left: 15px;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .nav-menu-info a{
   text-decoration: none;
   font-family: 'MuseoSansCyrl-500';
-  color: #1e2326;
+  color: #000;
+}
+
+.nav-menu-info ul li.active a{
+  color: #ffc13e;
 }

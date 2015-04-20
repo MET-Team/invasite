@@ -47,10 +47,10 @@ body{
   color: #272e32;
 }
 
-a{
+a, a:visited{
   color: #ffc13e;
 }
-a:hover, a:focus, a:active, a:visited{
+a:hover, a:focus, a:active{
   color: #272e32;
 }
 
