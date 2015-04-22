@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html id="ng-app" ng-app="App">
   <head>
     <meta charset="UTF-8">
-    <title>Invasite</title>
+
+    <title ng-bind="metaTags.pageTitle"></title>
+    <meta name="keywords" content="{{metaTags.pageKeyWords}}" />
+    <meta name="description" content="{{metaTags.pageDescription}}" />
+
     <link rel="stylesheet" href="stylesheets/reset.css" />
     <link rel="stylesheet" href="stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="stylesheets/style.css" />
 
@@ -15,6 +20,7 @@
     <link rel="stylesheet" href="stylesheets/faq.css" />
 
     <link rel="stylesheet" href="stylesheets/catalog.css" />
+    <link rel="stylesheet" href="stylesheets/product-list.css" />
     <link rel="stylesheet" href="stylesheets/product.css" />
     <link rel="stylesheet" href="stylesheets/buy.css" />
     <link rel="stylesheet" href="stylesheets/info.css" />
@@ -24,27 +30,44 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="javascripts/vendor/bootstrap.js"></script>
 
-    <script src="javascripts/angular/angular.min.js"></script>
+    <script src="javascripts/vendor/detect.js"></script>
 
-    <script src="javascripts/angular/angular-route.min.js"></script>
-    <script src="javascripts/angular/angular-animate.min.js"></script>
-    <script src="javascripts/angular/angular-sanitize.min.js"></script>
+    <!--[if lte IE 9]>
+      <script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js" slave="http://white-m.ru/proxy.html"></script>
+    <![endif]-->
+
+    <script src="javascripts/vendor/angular/angular.min.js"></script>
+
+    <script src="javascripts/vendor/angular/angular-route.min.js"></script>
+    <script src="javascripts/vendor/angular/angular-animate.min.js"></script>
+    <script src="javascripts/vendor/angular/angular-sanitize.min.js"></script>
 
     <script src="javascripts/vendor/gmaps.js"></script>
 
-    <script src="javascripts/angular/localStorage.js"></script>
+    <script src="javascripts/vendor/angular/localStorage.js"></script>
     <script src="javascripts/directives/gmaps-ng.js"></script>
 
     <script src="javascripts/vendor/waypoint/waypoints.min.js"></script>
     <script src="javascripts/vendor/waypoint/waypoints-sticky.min.js"></script>
 
-    <script src="javascripts/angular-strap/angular-strap.js"></script>
-    <script src="javascripts/angular-strap/angular-strap.tpl.js"></script>
-    <script src="javascripts/angular-strap/modules/parse-options.js"></script>
-    <script src="javascripts/angular-strap/modules/tooltip.js"></script>
-    <script src="javascripts/angular-strap/modules/tooltip.tpl.js"></script>
-    <script src="javascripts/angular-strap/modules/select.js"></script>
-    <script src="javascripts/angular-strap/modules/select.tpl.js"></script>
+    <script src="javascripts/vendor/spritespin.js"></script>
+    <script src="javascripts/directives/spritespin-ng.js"></script>
+
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+    <script src="javascripts/vendor/3D/object2vr_player.js"></script>
+    <script src="javascripts/vendor/3D/skin.js"></script>
+    <script src="javascripts/vendor/angular-object2vr.js"></script>
+
+    <script src="javascripts/vendor/angular-strap/angular-strap.js"></script>
+    <script src="javascripts/vendor/angular-strap/angular-strap.tpl.js"></script>
+
+    <script src="javascripts/vendor/angular-strap/modules/tooltip.js"></script>
+    <script src="javascripts/vendor/angular-strap/modules/tooltip.tpl.js"></script>
+
+    <script src="javascripts/vendor/angular-strap/modules/select.js"></script>
+    <script src="javascripts/vendor/angular-strap/modules/select.tpl.js"></script>
+    <script src="javascripts/vendor/angular-strap/modules/parse-options.js"></script>
 
     <script src="javascripts/vendor/jquery.matchHeight-min.js"></script>
     <script src="javascripts/directives/matchHeight-ng.js"></script>

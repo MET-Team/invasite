@@ -153,5 +153,3 @@ appControllers.controller('ContactsCtrl', function($scope, $http){
     }
   ]
 });
-
-

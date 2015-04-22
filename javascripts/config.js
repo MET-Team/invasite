@@ -14,8 +14,8 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       templateUrl: "javascripts/templates/product.html",
       reloadOnSearch: false
     })
-    .when("/buy", {
-      templateUrl: "javascripts/templates/buy.html",
+    .when("/basket", {
+      templateUrl: "javascripts/templates/basket.html",
       reloadOnSearch: false
     })
 
@@ -59,9 +59,24 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
     });
 
 }]).run(function($rootScope, localStorageService){
+  $rootScope.domain = "http://white-m.ru";
+  $rootScope.site_id = 4;
+
   $rootScope.mainPhone = '+7 495 777-39-18';
   $rootScope.mainEmail = 'info@invasite.ru';
   $rootScope.mainAddress = "г. Москва, Киевское ш., стр. 2, БП «Румянцево», офис 520Г";
+
+  $rootScope.comparedProducts = [];
+  $rootScope.searchString = null;
+
+  $rootScope.userPassword = 'q1w2e3r4t5y6';
+  $rootScope.userData = $rootScope.userData || {};
+
+  $rootScope.metaTags = {
+    pageTitle: 'Invasite',
+    pageKeyWords: 'Invasite',
+    pageDescription: 'Invasite'
+  };
 
   $rootScope.basketProducts = localStorageService.get('productToBuy') || null;
   $rootScope.basketCount = $rootScope.basketProducts.length || 0;

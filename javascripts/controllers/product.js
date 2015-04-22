@@ -1,13 +1,163 @@
-angular.module('ProductCtrl', []).controller('ProductCtrl', function($scope, $http, $filter, localStorageService, $location, Basket){
+angular.module('ProductCtrl', [
+  'spritespin-ng',
+  'angular-object2vr'
+])
+.controller('ProductCtrl', function($scope, $http, $filter, $location, $routeParams, $rootScope, localStorageService, $sce, $templateCache){
 
-  $scope.product = [];
-  $scope.basketList = [];
+  $scope.productId = 15 || $routeParams.productId;
 
-  $http.get('javascripts/factories/products/item.json')
+  $scope.product = {};
+
+  $scope.functionTypes = [];
+  $scope.functionsList = [];
+
+  $scope.functionTypeSelected = 0;
+  $scope.functionsSelected = [];
+
+  $scope.functionTotalOpened = false;
+
+  $scope.additionalPrice = 0;
+  $scope.totalPrice = 0;
+
+  $scope.optionsCountLabel = '';
+
+  $scope.carriageTypeIdToCaption = {
+    6: 'active',
+    1: 'mechanic',
+    2: 'electric'
+  };
+
+  $rootScope.comparedProducts = $rootScope.comparedProducts || [];
+
+  $scope.compareDisabled = false;
+  $scope.compareTechSpecs = [];
+
+  $scope.photoMoreVisible = false;
+  $scope.charactersMoreVisible = false;
+
+  $scope.comparedProductsExists = function(product){
+    if($scope.compareDisabled){
+      return true;
+    }
+
+    for(item in $rootScope.comparedProducts){
+      if($rootScope.comparedProducts.hasOwnProperty(item)) {
+        if ($rootScope.comparedProducts[item].id == product.id) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  $scope.recalcTotalPrice = function(){
+
+    $scope.totalPrice = $scope.product.price;
+
+    $scope.additionalPrice = 0;
+
+    if($scope.functionsSelected.length > 0){
+      for(item in $scope.functionsSelected){
+        $scope.additionalPrice = $scope.additionalPrice + $scope.functionsSelected[item].price;
+        $scope.totalPrice = $scope.totalPrice + $scope.functionsSelected[item].price;
+      }
+    }
+
+    $scope.optionsCountLabel = $filter('declOfNum')($scope.functionsSelected.length, ['опция', 'опции', 'опций']);
+
+  };
+
+  $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productId)
     .success(function(data){
       $scope.product = data;
+
+      $rootScope.metaTags.pageTitle = $scope.product.meta_tags;
+      $rootScope.metaTags.pageKeyWords = $scope.product.keywords;
+      $rootScope.metaTags.pageDescription = $scope.product.page_description;
+
+      $scope.totalPrice = $scope.product.price;
+      $scope.recalcTotalPrice();
+
+      $scope.compareDisabled = $scope.comparedProductsExists($scope.product);
+
+      $scope.threedConfig = {
+        input: {
+          width: 506,
+          height: 506,
+          columns: 16,
+          rows: 6,
+          states: 1,
+          fileextension: 'jpg',
+          images: $scope.product.images
+        },
+        control: {
+          wrapx: "1",
+          wrapy: "0",
+          revx: "0",
+          revy: "0",
+          swapxy: "0",
+          controller: "1",
+          sensitivity: "10",
+          lockedmouse: "0",
+          lockedkeyboard: "1",
+          lockedwheel: "1",
+          invertwheel: "0",
+          speedwheel: "0.05",
+          dblclickfullscreen: "1",
+          automovemode: "1"
+        },
+        view: {
+          start: {
+            column: 14,
+            row: 4,
+            state: 0
+          },
+          zoom: {
+            min: "1",
+            "default": "1",
+            max: "2",
+            centerx: "0",
+            centery: "0"
+          },
+          viewer: {
+            background: 1,
+            backgroundcolor: "0xffffff",
+            imagescaling: 1
+          }
+        },
+        autorotate: {
+          speed: 0.05,
+          start: 0,
+          delay: 5
+        }
+      };
+
+      if($scope.product.video_embed_code){
+        $scope.videoPath = $sce.trustAsResourceUrl('//www.youtube.com/embed/' + $scope.product.video_embed_code);
+      }
+
+      $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productId +'/tech_specs')
+        .success(function(data){
+          if(data.length) {
+            $scope.characters = data;
+            $scope.compareTechSpecs = data;
+          }else{
+            $scope.compareDisabled = true;
+          }
+        }).error(function(){
+          console.error('Произошла ошибка');
+        });
+
+      $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productId +'/photo_elements')
+        .success(function(data){
+          $scope.photo_elements = data;
+        }).error(function(){
+          console.error('Произошла ошибка');
+        });
+
     }).error(function(){
       console.error('Произошла ошибка');
+//      $location.path('/404');
     });
 
   $scope.showOptionsByType = function(index){
@@ -15,81 +165,126 @@ angular.module('ProductCtrl', []).controller('ProductCtrl', function($scope, $ht
     $scope.functionTypeSelected = index;
   };
 
-  $scope.buyProduct = function(){
-    $scope.basketList.push({
+  $scope.configureOptions = null;
+
+  $scope.toggleFunction = function(functionItem){
+
+    var functionSelectedIndex = $scope.functionsSelected.indexOf(functionItem);
+
+    if(functionSelectedIndex > -1){
+      $scope.functionsSelected.splice(functionSelectedIndex, 1)
+    }else{
+      $scope.functionsSelected.push(functionItem);
+    }
+
+    if($scope.functionsSelected.length == 0){
+      $scope.functionTotalOpened = false;
+    }
+
+    $scope.recalcTotalPrice();
+
+  };
+
+  $scope.toggleSelectedFunctionsList = function(){
+    $scope.functionTotalOpened = $scope.functionTotalOpened ? false : true;
+  };
+
+  $scope.buyProduct = function(buttonType){
+    var productToBuy = {
+      id: $scope.product.id,
       name: $scope.product.name,
-      price: $scope.product.price
-    });
+      art: $scope.product.art,
+      price: $scope.product.price,
+      photo: $scope.product.photo
+    };
 
-    $scope.totalPrice = 0;
-    if($scope.basketList.length > 0){
-      for(item in $scope.basketList){
-        $scope.totalPrice += $scope.basketList[item].price;
+    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
+
+    localStorageService.set('productToBuy', productToBuy);
+    $rootScope.basketCount++;
+
+    $location.path('/buy').hash('contacts');
+  };
+
+  $scope.compareProduct = function(product){
+    if(!$scope.compareDisabled){
+      if(!$scope.comparedProductsExists(product)){
+        if($scope.compareTechSpecs && $scope.compareTechSpecs.length) {
+          product.characters = $scope.compareTechSpecs;
+          $scope.compareTechSpecs = [];
+
+          $rootScope.comparedProducts.push(product);
+          $scope.compareDisabled = true;
+        }
       }
-    }
-
-    localStorageService.set('basketList', $scope.basketList);
-
-    Basket.list = $scope.basketList;
-    Basket.totalPrice = $scope.totalPrice;
-  };
-
-  $scope.refundPopupShow = false;
-  $scope.additionalTextShow = false;
-
-  $scope.prevArrowDisabled = true;
-  $scope.nextArrowDisabled = false;
-
-  $scope.additionalTextItemVisible = 0;
-
-  $scope.prevItem = function(){
-    if($scope.additionalTextItemVisible > 0) {
-      $scope.additionalTextItemVisible--;
-    }
-    $scope.checkEnable();
-  };
-
-  $scope.nextItem = function(){
-    if($scope.additionalTextItemVisible < $scope.product.additional_text.length-1) {
-      $scope.additionalTextItemVisible++;
-    }
-    $scope.checkEnable();
-  };
-
-  $scope.checkEnable = function(){
-    if($scope.additionalTextItemVisible == 0){
-      $scope.prevArrowDisabled = true;
-    }
-    if($scope.additionalTextItemVisible > 0){
-      $scope.prevArrowDisabled = false;
-    }
-
-    if($scope.additionalTextItemVisible == $scope.product.additional_text.length-1) {
-      $scope.nextArrowDisabled = true;
-    }
-    if($scope.additionalTextItemVisible < $scope.product.additional_text.length-1) {
-      $scope.nextArrowDisabled = false;
+      localStorageService.set('comparedProducts', $rootScope.comparedProducts);
     }
   };
 
-  $scope.viewItems = ['Вращение', '3D'];
+  $scope.viewItems = ['360&deg;', '3D'];
   $scope.viewItemSelected = 0;
   $scope.hintEnabled = false;
 
   $scope.changeView = function(index){
     $scope.viewItemSelected = index;
-    if($scope.viewItemSelected == 1){
-      $scope.hintEnabled = true;
-    }
+    $scope.hintEnabled = $scope.viewItemSelected == 1 ? true : false;
   };
 
   $scope.continueView = function(){
     $scope.hintEnabled = false;
   };
 
-  $scope.showHiddenCharacters = false;
-  $scope.toggleMoreCharacters = function(){
-    $scope.showHiddenCharacters = $scope.showHiddenCharacters ? false : true;
+  $scope.transformationsSpinConfig = {
+    disableAnimation: true,
+    frameTime: '300'
+  };
+
+  $scope.spinObj = {
+    spinReady: false
+  };
+
+  $scope.togglePhotoMoreVisible = function(){
+    $scope.photoMoreVisible = $scope.photoMoreVisible ? false : true;
+  };
+
+  $scope.toggleCharactersMoreVisible = function(){
+    $scope.charactersMoreVisible = $scope.charactersMoreVisible ? false : true;
+  };
+
+  $scope.OrderTestDriveFormIsOpen = false;
+
+  $scope.toggleOrderTestDriveForm = function(){
+    $scope.orderTestDriveData = {};
+    $scope.OrderTestDriveFormIsOpen = $scope.OrderTestDriveFormIsOpen ? false : true;
+    if($scope.OrderTestDriveFormIsOpen){
+      ga('send', 'event', 'test-drive', 'click', 'open test-drive product form');
+    }
+  };
+
+  $scope.orderTestDrive = function(){
+    $scope.sendMail('test-drive', $scope.orderTestDriveData);
+
+    ga('send', 'event', 'test-drive', 'click', 'send test-drive product form');
+
+    $scope.toggleOrderTestDriveForm();
+  };
+
+  $scope.creditBuy = function(){
+    window.open('/credit/'+ $scope.product.id, '_blank');
+  };
+
+  $scope.charactersTabs = [
+    {
+      title: 'Описание'
+    },
+    {
+      title: 'Технические характеристики'
+    }
+  ];
+  $scope.charactersActiveTab = 1;
+
+  $scope.selectTab = function(index) {
+    $scope.charactersActiveTab = index;
   };
 
 });
