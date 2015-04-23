@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html id="ng-app" ng-app="App">
   <head>
+    <base href="/">
+
     <meta charset="UTF-8">
 
     <title ng-bind="metaTags.pageTitle"></title>
     <meta name="keywords" content="{{metaTags.pageKeyWords}}" />
     <meta name="description" content="{{metaTags.pageDescription}}" />
+
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="stylesheets/reset.css" />
     <link rel="stylesheet" href="stylesheets/bootstrap.css" />
@@ -18,12 +23,15 @@
     <link rel="stylesheet" href="stylesheets/deliery-payments.css" />
     <link rel="stylesheet" href="stylesheets/return-guarantee.css" />
     <link rel="stylesheet" href="stylesheets/faq.css" />
+    <link rel="stylesheet" href="stylesheets/info.css" />
 
     <link rel="stylesheet" href="stylesheets/catalog.css" />
+    <link rel="stylesheet" href="stylesheets/catalog-filters.css" />
     <link rel="stylesheet" href="stylesheets/product-list.css" />
+
     <link rel="stylesheet" href="stylesheets/product.css" />
+
     <link rel="stylesheet" href="stylesheets/buy.css" />
-    <link rel="stylesheet" href="stylesheets/info.css" />
 
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
@@ -69,6 +77,8 @@
     <script src="javascripts/vendor/angular-strap/modules/select.tpl.js"></script>
     <script src="javascripts/vendor/angular-strap/modules/parse-options.js"></script>
 
+    <script src="javascripts/vendor/angular-strap/modules/collapse.js"></script>
+
     <script src="javascripts/vendor/jquery.matchHeight-min.js"></script>
     <script src="javascripts/directives/matchHeight-ng.js"></script>
 
@@ -82,8 +92,6 @@
     <script src="javascripts/controllers/product.js"></script>
     <script src="javascripts/controllers/basket.js"></script>
     <script src="javascripts/controllers/info.js"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   </head>
   <body>

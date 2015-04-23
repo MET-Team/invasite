@@ -1,0 +1,139 @@
+.page-block-catalog .filters{
+  text-align: center;
+}
+
+.page-block-catalog .filters .filter-item{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 20px;
+  border: medium none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #808080;
+  background: none #f2f1ed;
+  -webkit-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -moz-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -o-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+}
+.page-block-catalog .filters .filter-item:hover{
+  background-color: #ffc13e;
+  color: #fff;
+}
+
+.page-block-catalog .filters .filter-item:last-child{
+  margin-right: 0;
+}
+.page-block-catalog .filters .filter-item.checked{
+  color: #fff;
+  background-color: #ffc13e;
+}
+
+.page-block-catalog .filters .filter-type{
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: none #fff;
+  border-radius: 5px;
+  position: relative;
+  padding: 0;
+  border: medium none;
+}
+
+.page-block-catalog .filters .filter-item .btn.btn-dropdown{
+  padding: 8px 35px 8px 20px;
+  color: #808080;
+  font-size: 16px;
+  border: solid 1px #ccc;
+  text-align: left;
+  outline: medium none;
+  min-width: 149px;
+  -webkit-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -moz-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  -o-transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+  transition: color .3s ease, opacity .3s ease, border-color .3s ease, background-color .3s ease;
+}
+.page-block-catalog .filters .filter-item.filter-price .btn.btn-dropdown{
+  padding-right: 40px;
+}
+
+.page-block-catalog .filters .filter-item .btn.btn-dropdown .caret{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+}
+.page-block-catalog .filters .filter-item .dropdown-menu{
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  left: 0!important;
+  top: 100%!important;
+  font-size: 16px;
+}
+.page-block-catalog .filters .filter-item.filter-price .dropdown-menu{
+  width: auto;
+  max-width: none;
+}
+
+.page-block-catalog .filters .filter-item .dropdown-menu li a{
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.page-block-catalog .filters .filter-item .btn.btn-dropdown{
+  color: #fff;
+  background-color: #807d79;
+  border: medium none;
+}
+.page-block-catalog .filters .filter-item .btn.btn-dropdown:hover{
+  background-color: #999791;
+}
+.page-block-catalog .filters .filter-item .dropdown-menu{
+  background: none #807d79;
+}
+.page-block-catalog .filters .filter-item .dropdown-menu > li > a{
+  color: #fff;
+  background: none #807d79;
+  border-top: solid 1px #999691;
+  border-bottom: solid 1px #666461;
+}
+.page-block-catalog .filters .filter-item .dropdown-menu > li:first-child > a{
+  border-top: medium none;
+}
+.page-block-catalog .filters .filter-item .dropdown-menu > li:last-child > a{
+  border-bottom: medium none;
+}
+
+.page-block-catalog .filters .filter-item .dropdown-menu > li > a:hover,
+.page-block-catalog .filters .filter-item .dropdown-menu > .active a{
+  background: none #999691;
+  color: #fff;
+}
+
+.page-block-catalog .filters .filter-item.filter-carriage-type .btn.btn-dropdown{
+  background-color: #fff;
+  color: #808080;
+  border: solid 1px #ccc;
+}
+.page-block-catalog .filters .filter-item.filter-carriage-type .btn.btn-dropdown:hover{
+  background-color: #ffca57;
+  color: #fff;
+  border: solid 1px #ffca57;
+}
+.page-block-catalog .filters .filter-item.filter-carriage-type .dropdown-menu{
+  background: none #fff;
+}
+.page-block-catalog .filters .filter-item.filter-carriage-type .dropdown-menu > li > a{
+  color: #808080;
+  background: none #fff;
+  border-top: medium none;
+  border-bottom: medium none;
+}
+.page-block-catalog .filters .filter-item.filter-carriage-type .dropdown-menu > li > a:hover,
+.page-block-catalog .filters .filter-item.filter-carriage-type .dropdown-menu > .active > a{
+  background: none #ffc13e;
+  color: #fff;
+}

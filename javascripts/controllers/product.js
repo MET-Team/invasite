@@ -1,6 +1,7 @@
 angular.module('ProductCtrl', [
   'spritespin-ng',
-  'angular-object2vr'
+  'angular-object2vr',
+  'mgcrea.ngStrap.collapse'
 ])
 .controller('ProductCtrl', function($scope, $http, $filter, $location, $routeParams, $rootScope, localStorageService, $sce, $templateCache){
 
@@ -34,6 +35,26 @@ angular.module('ProductCtrl', [
 
   $scope.photoMoreVisible = false;
   $scope.charactersMoreVisible = false;
+
+  $scope.panels = [
+    {
+      "title": "Описание",
+      "body": ""
+    },
+    {
+      "title": "Доставка по России и СНГ",
+      "body": "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee."
+    },
+    {
+      "title": "Получить коляску бесплатно",
+      "body": "<div>123123123</div>"
+    },
+    {
+      "title": "Возврат и гарантии",
+      "body": "<div>123123123</div>"
+    }
+  ];
+  $scope.panels.activePanel = 0;
 
   $scope.comparedProductsExists = function(product){
     if($scope.compareDisabled){
@@ -74,6 +95,8 @@ angular.module('ProductCtrl', [
       $rootScope.metaTags.pageTitle = $scope.product.meta_tags;
       $rootScope.metaTags.pageKeyWords = $scope.product.keywords;
       $rootScope.metaTags.pageDescription = $scope.product.page_description;
+
+      $scope.panels[0].body = $scope.product.description;
 
       $scope.totalPrice = $scope.product.price;
       $scope.recalcTotalPrice();
@@ -198,7 +221,7 @@ angular.module('ProductCtrl', [
       photo: $scope.product.photo
     };
 
-    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
+//    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
 
     localStorageService.set('productToBuy', productToBuy);
     $rootScope.basketCount++;
@@ -257,14 +280,14 @@ angular.module('ProductCtrl', [
     $scope.orderTestDriveData = {};
     $scope.OrderTestDriveFormIsOpen = $scope.OrderTestDriveFormIsOpen ? false : true;
     if($scope.OrderTestDriveFormIsOpen){
-      ga('send', 'event', 'test-drive', 'click', 'open test-drive product form');
+//      ga('send', 'event', 'test-drive', 'click', 'open test-drive product form');
     }
   };
 
   $scope.orderTestDrive = function(){
     $scope.sendMail('test-drive', $scope.orderTestDriveData);
 
-    ga('send', 'event', 'test-drive', 'click', 'send test-drive product form');
+//    ga('send', 'event', 'test-drive', 'click', 'send test-drive product form');
 
     $scope.toggleOrderTestDriveForm();
   };

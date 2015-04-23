@@ -339,38 +339,55 @@
 }
 
 .page-block-product .main-card .card-container .card-col.card-details .other{
-  margin-top: 28px;
+  margin-top: 25px;
 }
-.page-block-product .main-card .card-container .card-col.card-details .other .other-item{
-  margin-bottom: 23px;
-}
-.page-block-product .main-card .card-container .card-col.card-details .other .other-item:last-child{
-  margin-bottom: 0;
-}
-.page-block-product .main-card .card-container .card-col.card-details .other .other-item .ico{
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-.page-block-product .main-card .card-container .card-col.card-details .other .other-item.delivery .ico{
-  width: 42px;
-  height: 25px;
-  background: url('../images/ico-other-delivery.png') no-repeat 0 0 transparent;
-}
-.page-block-product .main-card .card-container .card-col.card-details .other .other-item.refunds .ico{
-  width: 25px;
-  height: 25px;
-  background: url('../images/ico-other-refunds.png') no-repeat 0 0 transparent;
-  margin-right: 19px;
-  margin-left: 8px;
-}
-.page-block-product .main-card .card-container .card-col.card-details .other .other-item.refunds .more{
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-title{
   cursor: pointer;
-  color: #5098de;
-  border-bottom: dotted 1px #5098de;
-  margin-left: 8px;
-  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  color: #000;
 }
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-title:after{
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  background: url('../images/ico-collapse.png') no-repeat 0 0 transparent;
+}
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-title.active:after{
+  transform: rotate(90deg);
+}
+
+.page-block-product .main-card .card-container .card-col.card-details .other .panel{
+  border: medium none;
+  box-shadow: none;
+}
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-heading{
+  background: none transparent;
+  border: medium none;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 9px;
+}
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-heading:first-child{
+  padding-top: 0;
+}
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-body{
+  font-size: 16px;
+  color: #808080;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: medium none;
+  padding: 0 20px 0 0;
+  margin-top: 9px;
+  margin-bottom: 15px;
+}
+
 
 .page-block-product .main-card .card-container .card-col.card-details .card-header{
   font-size: 16px;

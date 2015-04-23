@@ -58,6 +58,8 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       reloadOnSearch: false
     });
 
+  $location.html5Mode(true);
+
 }]).run(function($rootScope, localStorageService){
   $rootScope.domain = "http://white-m.ru";
   $rootScope.site_id = 4;
