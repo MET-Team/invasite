@@ -1,0 +1,43 @@
+<div class="page-block page-block-search" ng-controller="SearchCtrl">
+  <div class="title">
+    <div ng-if="productsList.length > 0">Найден <span ng-bind="productsList.length"></span> товар</div>
+    <div ng-if="productsList.length == 0">Ничего не найдено</div>
+  </div>
+
+  <div class="product-list">
+
+    <div class="product-item equal-height" ng-repeat="item in productsList">
+      <div class="image">
+        <img src="images/temp/product-image.jpg" alt="" />
+      </div>
+      <div class="product-details">
+        <div class="artikul">
+          Арт: <span ng-bind="item.art"></span>
+        </div>
+        <div class="stock-type" ng-class="{'in-stock': item.in_stock}">
+          <div class="stock-indicator"></div>
+          <span ng-if="item.in_stock">В наличии</span>
+          <span ng-if="!item.in_stock">Нет в наличии</span>
+        </div>
+      </div>
+      <div class="name" ng-bind="item.name"></div>
+      <div class="product-compare">+ Добавить к сравнению</div>
+
+      <div class="product-footer">
+        <div class="buy">
+          <a ng-href="/catalog/1" class="btn-buy">Купить</a>
+        </div>
+        <div class="price"><span ng-bind="item.price"></span>.-</div>
+      </div>
+    </div>
+
+    <!--<a ng-href="/catalog/{{item.type}}/{{item.id}}" class="product-item" ng-repeat="item in productsList">-->
+        <!--<div class="price"><span ng-bind="item.price"></span> руб.</div>-->
+        <!--<div class="image">-->
+          <!--<img ng-src="{{domain + item.photo.image.thumb.url}}" alt="" width="272" height="272" />-->
+        <!--</div>-->
+        <!--<div class="artikul">Арт: <span ng-bind="item.art"></span></div>-->
+        <!--<div class="name" ng-bind="item.name"></div>-->
+      <!--</a>-->
+  </div>
+</div>

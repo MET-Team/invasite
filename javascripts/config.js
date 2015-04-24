@@ -1,60 +1,71 @@
 App.config(['$routeProvider', '$locationProvider', function($routes, $location) {
 
-  $location.hashPrefix('!');
-
   $routes.when("/", {
-    templateUrl: "javascripts/templates/about.html",
+    templateUrl: "/javascripts/templates/about.html",
     reloadOnSearch: false
   })
     .when("/catalog", {
-      templateUrl: "javascripts/templates/catalog.html",
+      templateUrl: "/javascripts/templates/catalog.html",
       reloadOnSearch: false
     })
+//    .when("/catalog/:productGroupName", {
+//      templateUrl: "/javascripts/templates/catalog.html",
+//      reloadOnSearch: false
+//    })
     .when("/catalog/:productId", {
-      templateUrl: "javascripts/templates/product.html",
+      templateUrl: "/javascripts/templates/product.html",
       reloadOnSearch: false
     })
+
     .when("/basket", {
-      templateUrl: "javascripts/templates/basket.html",
+      templateUrl: "/javascripts/templates/basket.html",
       reloadOnSearch: false
     })
 
     .when("/delivery", {
-      templateUrl: "javascripts/templates/delivery.html"
+      templateUrl: "/javascripts/templates/delivery.html"
     })
     .when("/payment", {
-      templateUrl: "javascripts/templates/payment.html"
+      templateUrl: "/javascripts/templates/payment.html"
     })
     .when("/faq", {
-      templateUrl: "javascripts/templates/faq.html"
+      templateUrl: "/javascripts/templates/faq.html"
     })
     .when("/return_guarantee", {
-      templateUrl: "javascripts/templates/return_guarantee.html"
+      templateUrl: "/javascripts/templates/return_guarantee.html"
     })
 
     .when("/about", {
-      templateUrl: "javascripts/templates/about.html",
+      templateUrl: "/javascripts/templates/about.html",
       reloadOnSearch: false
     })
     .when("/contacts", {
-      templateUrl: "javascripts/templates/contacts.html",
+      templateUrl: "/javascripts/templates/contacts.html",
       reloadOnSearch: false
     })
     .when("/info", {
-      templateUrl: "javascripts/templates/info.html",
+      templateUrl: "/javascripts/templates/info.html",
       reloadOnSearch: false
     })
     .when("/brands", {
-      templateUrl: "javascripts/templates/brands.html",
+      templateUrl: "/javascripts/templates/brands.html",
       reloadOnSearch: false
     })
     .when("/brands/:brandId", {
-      templateUrl: "javascripts/templates/brand-item.html",
+      templateUrl: "/javascripts/templates/brand-item.html",
       reloadOnSearch: false
     })
 
+    .when("/product_compare", {
+      templateUrl: "/javascripts/templates/product_compare.html"
+    })
+
+    .when("/search", {
+      templateUrl: "/javascripts/templates/search.html"
+    })
+
     .otherwise({
-      templateUrl: 'javascripts/templates/404.html',
+      templateUrl: '/javascripts/templates/404.html',
       reloadOnSearch: false
     });
 
@@ -80,6 +91,6 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
     pageDescription: 'Invasite'
   };
 
-  $rootScope.basketProducts = localStorageService.get('productToBuy') || null;
+  $rootScope.basketProducts = localStorageService.get('productToBuy') || [];
   $rootScope.basketCount = $rootScope.basketProducts.length || 0;
 });

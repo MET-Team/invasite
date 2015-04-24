@@ -1,6 +1,6 @@
 angular.module('BasketCtrl', []).controller('BasketCtrl', function($scope, $http, localStorageService){
 
-  $scope.basketList = localStorageService.get('basketList');
+  $scope.basketList = localStorageService.get('basketList') || [];
 
   $scope.removeItem = function(item){
     var itemIndex = $scope.basketList.indexOf(item);

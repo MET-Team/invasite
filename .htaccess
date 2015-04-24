@@ -1,0 +1,22 @@
+RewriteEngine On
+
+<IfModule mod_headers.c>
+  RequestHeader set X-Prerender-Token "eDiVpgW1asMy8IGbfrb3"
+</IfModule>
+
+<IfModule mod_proxy_http.c>
+  RewriteCond %{HTTP_USER_AGENT} baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|Googlebot|Yandex|Googlebot-Mobile|Googlebot-Image|MSNBot-Products|Mediapartners-Google|Slurp|WebCrawler|ZyBorg|scooter|StackRambler|Aport|Mail\.Ru|lycos|WebAlta|Teoma|yahoo|Yahoo\!\ Slurp|msnbot|msnbot-media|msnbot-news|ia_archiver|FAST [NC,OR]
+  RewriteCond %{QUERY_STRING} _escaped_fragment_
+
+  # Only proxy the request to Prerender if it's a request for HTML
+  RewriteRule ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent|\.ttf|\.woff))(index\.php)?(.*) http://service.prerender.io/%{REQUEST_SCHEME}://%{HTTP_HOST}/$3 [P,L]
+</IfModule>
+
+RewriteRule ^users/?$     php/users.php [L,QSA]
+RewriteRule ^send_mail/?$     php/sendMail.php [L,QSA]
+RewriteRule ^credit/([0-9]+)/?$     /credit.php?product_id=$1 [L,QSA]
+
+RewriteCond     %{REQUEST_URI} !^(/index\.html|/img|/js|/css|/robots\.txt|/favicon\.ico)
+RewriteCond     %{REQUEST_FILENAME} !-f
+RewriteCond     %{REQUEST_FILENAME} !-d
+RewriteRule .*   /index.html [L]

@@ -3,10 +3,11 @@ appControllers = angular.module("appControllers", [
   'DeliveryCtrl',
   'ProductCtrl',
   'BasketCtrl',
-  'infoCtrl'
+  'infoCtrl',
+  'productCompareCtrl'
 ]);
 
-appControllers.controller('ApplicationCtrl', function($scope, $location, $document, localStorageService, Basket){
+appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $location, $document, localStorageService, Basket){
 
   $scope.pageIsMain = false;
   $scope.pageIsInfo = false;
@@ -20,8 +21,30 @@ appControllers.controller('ApplicationCtrl', function($scope, $location, $docume
   var Today = new Date();
   $scope.currentDate = Today.getTime();
 
-  $scope.toggleSidebarMenu = function(){
-    $scope.sidebarMenuIsOpen = $scope.sidebarMenuIsOpen ? false : true;
+  $scope.searchFormActive = false;
+
+  $scope.searchString = $location.search().query || '';
+  if($scope.searchString){
+    $scope.searchFormActive = true;
+  }
+
+  $scope.toggleSearchForm = function(){
+
+    if($scope.searchString != ''){
+      $rootScope.searchString = $scope.searchString;
+      $location.search('query', $scope.searchString).path("/search").replace();
+    }else{
+      $scope.searchFormActive = $scope.searchFormActive ? false : true;
+      if(!$scope.searchFormActive) {
+        $scope.searchString = '';
+      }
+    }
+  };
+
+  $scope.toggleSearchFormBlur = function(){
+    if($scope.searchString == ''){
+      $scope.searchFormActive = false;
+    }
   };
 
   $scope.toggleOrderCallForm = function(){
@@ -152,4 +175,52 @@ appControllers.controller('ContactsCtrl', function($scope, $http){
       }
     }
   ]
+});
+
+appControllers.controller('SearchCtrl', function($scope, $location, $http, $rootScope){
+
+  $scope.carriageTypeIdToCaption = {
+    6: 'active',
+    1: 'mechanic',
+    2: 'electric'
+  };
+
+  $scope.searchString = $location.search().query;
+
+  $scope.searchProducts = function(){
+    if($scope.searchString){
+      $http.get($rootScope.domain +'/api/v1/sites/4/products', {
+        params: {
+          name_cont: $scope.searchString
+        }
+      }).success(function(data){
+        $scope.productsList = data;
+
+        if($scope.productsList.length > 0){
+          for(index in $scope.productsList){
+            $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productsList[index].id)
+              .success(function(data){
+                if(data){
+                  $scope.productsList[index].type = $scope.carriageTypeIdToCaption[data.kind_id];
+                }
+              }).error(function(){
+                console.error('Произошла ошибка');
+              });
+          }
+        }
+      }).error(function(){
+        console.error('Произошла ошибка');
+      });
+    }
+  };
+
+  $scope.searchProducts();
+
+  $scope.$on('$locationChangeSuccess', function() {
+    $rootScope.searchString = $rootScope.searchString || '';
+
+    $scope.searchString = $rootScope.searchString;
+    $scope.searchProducts();
+  });
+
 });

@@ -37,7 +37,6 @@
 /*}*/
 
 .info-container{
-  padding-left: 350px;
   position: relative;
 }
 
@@ -68,12 +67,16 @@
 
 .main-menu .menu-item:hover{
   background: none #ffc13e;
-  /*color: #fff;*/
+  border-bottom: solid 1px #ffc13e;
+  color: #fff;
+}
+.main-menu .menu-item:last-child:hover{
+  border-bottom: medium none;
 }
 
 .menu-item-content{
   position: absolute;
-  left: 350px;
+  left: 0;
   top: 0;
   bottom: 0;
   right: 0;
@@ -124,7 +127,7 @@
 
 .menu-item-content .content{
   font-size: 18px;
-  margin-top: 49px;
+  margin-top: 25px;
   line-height: 29px;
   padding-bottom: 50px;
 }
