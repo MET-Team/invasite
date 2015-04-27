@@ -8,7 +8,7 @@
 
     <div class="product-item equal-height" ng-repeat="item in productsList">
       <div class="image">
-        <img src="images/temp/product-image.jpg" alt="" />
+        <img ng-src="{{domain + item.photo.image.thumb.url}}" alt="" width="272" height="272" />
       </div>
       <div class="product-details">
         <div class="artikul">
@@ -25,7 +25,7 @@
 
       <div class="product-footer">
         <div class="buy">
-          <a ng-href="/catalog/1" class="btn-buy">Купить</a>
+          <a ng-href="/catalog/{{item.id}}" class="btn-buy">Купить</a>
         </div>
         <div class="price"><span ng-bind="item.price"></span>.-</div>
       </div>
