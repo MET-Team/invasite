@@ -212,21 +212,37 @@ angular.module('ProductCtrl', [
     $scope.functionTotalOpened = $scope.functionTotalOpened ? false : true;
   };
 
-  $scope.buyProduct = function(buttonType){
-    var productToBuy = {
+//  $scope.buyProduct = function(buttonType){
+//    var basketList = {
+//      id: $scope.product.id,
+//      name: $scope.product.name,
+//      art: $scope.product.art,
+//      price: $scope.product.price,
+//      photo: $scope.product.photo
+//    };
+//
+////    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
+//
+//    localStorageService.set('basketList', basketList);
+//    $rootScope.basketCount++;
+//
+//    $location.path('/buy').hash('contacts');
+//  };
+
+  $scope.buyProduct = function(){
+
+    $rootScope.basketList.push({
       id: $scope.product.id,
       name: $scope.product.name,
       art: $scope.product.art,
       price: $scope.product.price,
       photo: $scope.product.photo
-    };
+    });
 
 //    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
 
-    localStorageService.set('productToBuy', productToBuy);
+    localStorageService.set('basketList', $rootScope.basketList);
     $rootScope.basketCount++;
-
-    $location.path('/buy').hash('contacts');
   };
 
   $scope.compareProduct = function(product){

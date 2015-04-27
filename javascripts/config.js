@@ -91,6 +91,6 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
     pageDescription: 'Invasite'
   };
 
-  $rootScope.basketProducts = localStorageService.get('productToBuy') || [];
-  $rootScope.basketCount = $rootScope.basketProducts.length || 0;
+  $rootScope.basketList = localStorageService.get('basketList') || [];
+  $rootScope.basketCount = $rootScope.basketList.length || 0;
 });

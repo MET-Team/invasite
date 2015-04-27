@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="/stylesheets/catalog.css" />
     <link rel="stylesheet" href="/stylesheets/catalog-filters.css" />
     <link rel="stylesheet" href="/stylesheets/product-list.css" />
+    <link rel="stylesheet" href="/stylesheets/product-compare.css" />
 
     <link rel="stylesheet" href="/stylesheets/product.css" />
 
@@ -161,6 +162,11 @@
                 </a>
               </li>
             </ul>
+
+            <a ng-href="/product_compare" class="compared-products" ng-if="comparedProducts.length > 0 && enableCompareShortcut">
+              К сравнению ({{comparedProducts.length}})
+            </a>
+
             <div class="item-right basket">
               <div class="caption">
                 <a href="/basket" rel="nofollow">

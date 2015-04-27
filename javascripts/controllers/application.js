@@ -16,6 +16,8 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
   $scope.OrderCallFormIsOpen = false;
   $scope.HeaderOrderCallFormIsOpen = false;
 
+  $scope.enableCompareShortcut = true;
+
   $scope.orderCallData = {};
 
   var Today = new Date();
