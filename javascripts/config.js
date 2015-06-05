@@ -9,6 +9,42 @@ Invasite.config(['$routeProvider', '$locationProvider', function($routes, $locat
       reloadOnSearch: false
     })
 
+    // типы колясок
+    .when("/catalog/:productGroupName/electric", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+    .when("/catalog/:productGroupName/electric/:productId", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+
+    .when("/catalog/:productGroupName/mechanic", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+    .when("/catalog/:productGroupName/mechanic/:productId", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+
+    .when("/catalog/:productGroupName/active", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+    .when("/catalog/:productGroupName/active/:productId", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+
+    .when("/catalog/:productGroupName/detskie", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+    .when("/catalog/:productGroupName/detskie/:productId", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+
+    .when("/catalog/:productGroupName/dlya_polnih", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+    .when("/catalog/:productGroupName/dlya_polnih/:productId", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+
     // остальные группы
     .when("/catalog/:productGroupName", {
       templateUrl: "/javascripts/templates/catalog.html",
@@ -17,14 +53,6 @@ Invasite.config(['$routeProvider', '$locationProvider', function($routes, $locat
     .when("/catalog/:productGroupName/:productId", {
       templateUrl: "/javascripts/templates/product.html",
       reloadOnSearch: false
-    })
-
-    // типы колясок
-    .when("/catalog/:productGroupName/:carriageType", {
-      templateUrl: "/javascripts/templates/catalog.html"
-    })
-    .when("/catalog/:productGroupName/:carriageType/:productId", {
-      templateUrl: "/javascripts/templates/catalog.html"
     })
 
     .when("/basket", {
@@ -90,6 +118,38 @@ Invasite.config(['$routeProvider', '$locationProvider', function($routes, $locat
   $rootScope.mainPhone = '+7 495 777-39-18';
   $rootScope.mainEmail = 'info@invasite.ru';
   $rootScope.mainAddress = "г. Москва, Киевское ш., стр. 2, БП «Румянцево», офис 520Г";
+
+  $rootScope.carriageTypeSelected = 'mechanic';
+  $rootScope.carriageType = {
+    list: [
+      {
+        value: "mechanic",
+        title: "Механические коляски",
+        id: 1
+      },
+      {
+        value: "electric",
+        title: "Электрические коляски",
+        id: 2
+      },
+      {
+        value: "active",
+        title: "Активные коляски",
+        id: 6
+      },
+      {
+        value: "detskie",
+        title: "Детские коляски",
+        id: 3
+      },
+      {
+        value: "dlya_polnih",
+        title: "Для полных",
+        id: 5
+      }
+    ],
+    selected: 'mechanic'
+  };
 
   $rootScope.comparedProducts = Compare.fetch_all();
 

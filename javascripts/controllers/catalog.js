@@ -2,37 +2,9 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($rootScope,
 
   $scope.catalogGroupSelected = $routeParams.productGroupName || 'carriage';
 
-  $scope.carriageType = {
-    list: [
-      {
-        value: "mechanic",
-        title: "Механические коляски",
-        id: 1
-      },
-      {
-        value: "electric",
-        title: "Электрические коляски",
-        id: 2
-      },
-      {
-        value: "active",
-        title: "Активные коляски",
-        id: 6
-      }
-      ,
-      {
-        value: "child",
-        title: "Детские коляски",
-        id: 3
-      }
-    ]
-  };
-  $scope.carriageType.selected = $routeParams.carriageType || 'mechanic';
-
-  $scope.carriageTypeSelected = 'mechanic';
-
-  $scope.$watch('carriageType.selected', function(newValue, oldValue){
+  $rootScope.$watch('carriageType.selected', function(newValue, oldValue){
     if($scope.catalogGroupSelected == 'carriages' && newValue != oldValue){
+      $rootScope.carriageType.selected = $rootScope.carriageTypeSelected ;
       $scope.changeCarriageType(newValue);
     }
   });
@@ -119,12 +91,12 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($rootScope,
     var searchParams = {},
       kindId = 0;
 
-    var carriageType = $scope.carriageTypeSelected;
-    for(carriageItem in $scope.carriageType){
-      if($scope.carriageType.hasOwnProperty(carriageItem)){
-        if($scope.carriageType[carriageItem].value == carriageType){
-          kindId = $scope.carriageType[carriageItem].id;
-          searchParams.kind_id_eq = $scope.carriageType[carriageItem].id;
+    var carriageType = $rootScope.carriageTypeSelected;
+    for(carriageItem in $rootScope.carriageType){
+      if($rootScope.carriageType.hasOwnProperty(carriageItem)){
+        if($rootScope.carriageType[carriageItem].value == carriageType){
+          kindId = $rootScope.carriageType[carriageItem].id;
+          searchParams.kind_id_eq = $rootScope.carriageType[carriageItem].id;
         }
       }
     }
@@ -157,13 +129,10 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($rootScope,
   $scope.getProducts();
 
   $scope.changeCarriageType = function(type){
-
-    console.log(type);
-
     $location.path('/catalog/carriages/' + type);
 
-    $scope.carriageTypeSelected = type;
-//    $scope.getCarriageOptions();
+    $rootScope.carriageTypeSelected = type;
+    $rootScope.carriageType.selected = type;
     $scope.activeOptionsFilter = [];
   };
 
