@@ -1,7 +1,7 @@
 <div class="page-block page-block-catalog" ng-controller="CatalogCtrl">
   <div class="catalog-head">
     <div class="filters">
-      <div class="filter-item filter-type filter-carriage-type btn btn-default">
+      <div class="filter-item filter-type filter-carriage-type btn btn-default" ng-if="catalogGroupSelected == 'carriages'">
         <button type="button" class="btn btn-default btn-dropdown" ng-model="carriageType.selected" data-html="1" ng-options="item.value as item.title for item in carriageType.list" data-placeholder="" data-selected-caption="Категория:" bs-select></button>
       </div>
 
@@ -23,28 +23,32 @@
   </div>
 
   <div class="product-list">
-    <div class="product-item equal-height" ng-repeat="item in productsList">
+    <div class="product-item equal-height" ng-repeat="product in productsList">
       <div class="image">
-        <img src="images/temp/product-image.jpg" alt="" />
+        <a ng-href="/catalog/wehicle/{{product.href}}">
+          <img ng-src="{{domain + product.photo.image.thumb.url}}" alt="{{product.name}}" width="272" height="272" />
+        </a>
       </div>
       <div class="product-details">
         <div class="artikul">
-          Арт: <span ng-bind="item.artikul"></span>
+          Арт: <span ng-bind="product.artikul"></span>
         </div>
-        <div class="stock-type" ng-class="{'in-stock': item.in_stock}">
+        <div class="stock-type" ng-class="{'in-stock': product.in_stock}">
           <div class="stock-indicator"></div>
-          <span ng-if="item.in_stock">В наличии</span>
-          <span ng-if="!item.in_stock">Нет в наличии</span>
+          <span ng-if="product.in_stock">В наличии</span>
+          <span ng-if="!product.in_stock">Нет в наличии</span>
         </div>
       </div>
-      <div class="name" ng-bind="item.name"></div>
-      <div class="product-compare">+ Добавить к сравнению</div>
+      <div class="name">
+        <a ng-href="/catalog/wehicle/{{product.href}}" ng-bind="product.name"></a>
+      </div>
+      <div class="product-compare" ng-click="compareProduct(product)" ng-class="{disabled: product.compareDisabled}">+ Добавить к сравнению</div>
 
       <div class="product-footer">
         <div class="buy">
-          <a ng-href="/catalog/1" class="btn-buy">Купить</a>
+          <a ng-href="/catalog/wehicle/{{product.href}}" class="btn-buy">Купить</a>
         </div>
-        <div class="price"><span ng-bind="item.price"></span>.-</div>
+        <div class="price"><span ng-bind="product.price"></span>.-</div>
       </div>
     </div>
   </div>

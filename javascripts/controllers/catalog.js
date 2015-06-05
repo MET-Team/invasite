@@ -1,27 +1,41 @@
-angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($scope, $http, $location, $filter){
+angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($rootScope, $scope, $http, $location, $routeParams, $filter, Compare){
+
+  $scope.catalogGroupSelected = $routeParams.productGroupName || 'carriage';
 
   $scope.carriageType = {
     list: [
       {
         value: "mechanic",
-        title: "Механические коляски"
+        title: "Механические коляски",
+        id: 1
       },
       {
         value: "electric",
-        title: "Электрические коляски"
+        title: "Электрические коляски",
+        id: 2
       },
       {
         value: "active",
-        title: "Активные коляски"
+        title: "Активные коляски",
+        id: 6
       }
       ,
       {
         value: "child",
-        title: "Детские коляски"
+        title: "Детские коляски",
+        id: 3
       }
-    ],
-    selected: "mechanic"
+    ]
   };
+  $scope.carriageType.selected = $routeParams.carriageType || 'mechanic';
+
+  $scope.carriageTypeSelected = 'mechanic';
+
+  $scope.$watch('carriageType.selected', function(newValue, oldValue){
+    if($scope.catalogGroupSelected == 'carriages' && newValue != oldValue){
+      $scope.changeCarriageType(newValue);
+    }
+  });
 
   $scope.brand = {
     list: [
@@ -101,13 +115,40 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($scope, $ht
   $scope.activeOptionsFilter = [];
 
   $scope.getProducts = function(){
+
+    var searchParams = {},
+      kindId = 0;
+
     var carriageType = $scope.carriageTypeSelected;
+    for(carriageItem in $scope.carriageType){
+      if($scope.carriageType.hasOwnProperty(carriageItem)){
+        if($scope.carriageType[carriageItem].value == carriageType){
+          kindId = $scope.carriageType[carriageItem].id;
+          searchParams.kind_id_eq = $scope.carriageType[carriageItem].id;
+        }
+      }
+    }
 
-    $scope.productsList = [];
+    if(kindId > 0) {
+      $http.get($rootScope.domain + '/api/v1/kinds/' + kindId + '/filters')
+        .success(function (data) {
+          $scope.carriageOptions = data;
+        }).error(function () {
+          console.error('Произошла ошибка');
+        });
+    }
 
-    $http.get('javascripts/factories/products/list.json')
+    $http.get($rootScope.domain +'/api/v1/sites/'+ $rootScope.site_id +'/products')
       .success(function(data){
         $scope.productsList = data;
+        $scope.productsList.forEach(function(productItem){
+
+          productItem.href = productItem.id;
+
+          if(Compare.comparedProductsExists(productItem)){
+            productItem.compareDisabled = true;
+          }
+        });
       }).error(function(){
         console.error('Произошла ошибка');
       });
@@ -115,11 +156,15 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($scope, $ht
 
   $scope.getProducts();
 
-  $scope.changeType = function(type){
+  $scope.changeCarriageType = function(type){
+
+    console.log(type);
+
+    $location.path('/catalog/carriages/' + type);
+
     $scope.carriageTypeSelected = type;
-    $scope.getCarriageOptions();
+//    $scope.getCarriageOptions();
     $scope.activeOptionsFilter = [];
-    $scope.getProducts();
   };
 
   $scope.filterOptions = function (filter_item) {
@@ -131,7 +176,7 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($scope, $ht
       $scope.activeOptionsFilter.push(filter_item);
     }
 
-//    $scope.getProducts();
+    $scope.getProducts();
 
   };
 
@@ -140,6 +185,13 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($scope, $ht
   $scope.togglePriceOrderProperty = function(){
     $scope.priceOrderProperty = $scope.priceOrderProperty == 'price' ? '-price' : 'price';
     $scope.getProducts();
+  };
+
+  $scope.compareProduct = function(productListItem){
+    if(!productListItem.compareDisabled) {
+      Compare.add(productListItem.id);
+      productListItem.compareDisabled = true;
+    }
   };
 
 });

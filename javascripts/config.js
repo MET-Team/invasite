@@ -1,4 +1,4 @@
-App.config(['$routeProvider', '$locationProvider', function($routes, $location) {
+Invasite.config(['$routeProvider', '$locationProvider', function($routes, $location) {
 
   $routes.when("/", {
     templateUrl: "/javascripts/templates/about.html",
@@ -8,13 +8,23 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       templateUrl: "/javascripts/templates/catalog.html",
       reloadOnSearch: false
     })
-//    .when("/catalog/:productGroupName", {
-//      templateUrl: "/javascripts/templates/catalog.html",
-//      reloadOnSearch: false
-//    })
-    .when("/catalog/:productId", {
+
+    // остальные группы
+    .when("/catalog/:productGroupName", {
+      templateUrl: "/javascripts/templates/catalog.html",
+      reloadOnSearch: false
+    })
+    .when("/catalog/:productGroupName/:productId", {
       templateUrl: "/javascripts/templates/product.html",
       reloadOnSearch: false
+    })
+
+    // типы колясок
+    .when("/catalog/:productGroupName/:carriageType", {
+      templateUrl: "/javascripts/templates/catalog.html"
+    })
+    .when("/catalog/:productGroupName/:carriageType/:productId", {
+      templateUrl: "/javascripts/templates/catalog.html"
     })
 
     .when("/basket", {
@@ -22,6 +32,7 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       reloadOnSearch: false
     })
 
+    // инфо-разделы
     .when("/delivery", {
       templateUrl: "/javascripts/templates/delivery.html"
     })
@@ -47,6 +58,7 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
       templateUrl: "/javascripts/templates/info.html",
       reloadOnSearch: false
     })
+
     .when("/brands", {
       templateUrl: "/javascripts/templates/brands.html",
       reloadOnSearch: false
@@ -71,7 +83,7 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
 
   $location.html5Mode(true);
 
-}]).run(function($rootScope, localStorageService){
+}]).run(function($rootScope, localStorageService, Compare){
   $rootScope.domain = "http://white-m.ru";
   $rootScope.site_id = 4;
 
@@ -79,7 +91,8 @@ App.config(['$routeProvider', '$locationProvider', function($routes, $location) 
   $rootScope.mainEmail = 'info@invasite.ru';
   $rootScope.mainAddress = "г. Москва, Киевское ш., стр. 2, БП «Румянцево», офис 520Г";
 
-  $rootScope.comparedProducts = [];
+  $rootScope.comparedProducts = Compare.fetch_all();
+
   $rootScope.searchString = null;
 
   $rootScope.userPassword = 'q1w2e3r4t5y6';

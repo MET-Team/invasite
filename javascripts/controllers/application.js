@@ -65,7 +65,7 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
   $scope.catalogGroups = [
     {
       "title": 'Коляски',
-      "name": 'wehicles',
+      "name": 'carriages',
       "ico": 'images/menu/ico-2.png',
       "ico-hover": 'images/menu/ico-2-hover.png'
     },
