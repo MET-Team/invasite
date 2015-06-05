@@ -72,6 +72,7 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
     {
       "title": 'Ходунки',
       "name": 'walkers',
+      "group_id": 7,
       "ico": 'images/menu/ico-3.png',
       "ico-hover": 'images/menu/ico-3-hover.png'
     }
@@ -79,6 +80,7 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
     {
       "title": 'Подъемники',
       "name": 'lifts',
+      "group_id": 8,
       "ico": 'images/menu/ico-4.png',
       "ico-hover": 'images/menu/ico-4-hover.png'
     }
@@ -86,6 +88,7 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
     {
       "title": 'Роллаторы',
       "name": 'rollators',
+      "group_id": 10,
       "ico": 'images/menu/ico-5.png',
       "ico-hover": 'images/menu/ico-5-hover.png'
     }
@@ -93,6 +96,7 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
     {
       "title": 'Аксессуары',
       "name": 'accessories',
+      "group_id": 9,
       "ico": 'images/menu/ico-6.png',
       "ico-hover": 'images/menu/ico-6-hover.png'
     }

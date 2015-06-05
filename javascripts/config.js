@@ -113,7 +113,7 @@ Invasite.config(['$routeProvider', '$locationProvider', function($routes, $locat
 
 }]).run(function($rootScope, localStorageService, Compare){
   $rootScope.domain = "http://white-m.ru";
-  $rootScope.site_id = 4;
+  $rootScope.site_id = 5;
 
   $rootScope.mainPhone = '+7 495 777-39-18';
   $rootScope.mainEmail = 'info@invasite.ru';
@@ -148,7 +148,7 @@ Invasite.config(['$routeProvider', '$locationProvider', function($routes, $locat
         id: 5
       }
     ],
-    selected: 'mechanic'
+    selected: $rootScope.carriageTypeSelected
   };
 
   $rootScope.comparedProducts = Compare.fetch_all();

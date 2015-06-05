@@ -77,6 +77,8 @@ angular.module('ProductCtrl', [
     .success(function(data){
       $scope.product = data;
 
+      console.log($scope.product);
+
       $rootScope.metaTags.pageTitle = $scope.product.meta_tags;
       $rootScope.metaTags.pageKeyWords = $scope.product.keywords;
       $rootScope.metaTags.pageDescription = $scope.product.page_description;

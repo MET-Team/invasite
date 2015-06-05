@@ -5,7 +5,7 @@
         <button type="button" class="btn btn-default btn-dropdown" ng-model="carriageType.selected" data-html="1" ng-options="item.value as item.title for item in carriageType.list" data-placeholder="" data-selected-caption="Категория:" bs-select></button>
       </div>
 
-      <div class="filter-item btn btn-default" ng-repeat="item in features" ng-bind="item" ng-click="filterOptions($index)" ng-class="{checked: activeOptionsFilter.indexOf($index) > -1}"></div>
+      <div class="filter-item btn btn-default" ng-repeat="item in carriageOptions" ng-bind="item.name" ng-click="filterOptions(item.id)" ng-class="{checked: activeOptionsFilter.indexOf(item.id) > -1}"></div>
 
       <div class="filter-item filter-type filter-brand btn btn-default">
         <button type="button" class="btn btn-default btn-dropdown" ng-model="brand.selected" data-html="1" ng-options="item.value as item.title for item in brand.list" data-placeholder="Бренд" data-selected-caption="Бренд:" bs-select></button>
@@ -25,7 +25,7 @@
   <div class="product-list">
     <div class="product-item equal-height" ng-repeat="product in productsList">
       <div class="image">
-        <a ng-href="/catalog/wehicle/{{product.href}}">
+        <a ng-href="/catalog/{{product.href}}">
           <img ng-src="{{domain + product.photo.image.thumb.url}}" alt="{{product.name}}" width="272" height="272" />
         </a>
       </div>
@@ -40,13 +40,13 @@
         </div>
       </div>
       <div class="name">
-        <a ng-href="/catalog/wehicle/{{product.href}}" ng-bind="product.name"></a>
+        <a ng-href="/catalog/{{product.href}}" ng-bind="product.name"></a>
       </div>
       <div class="product-compare" ng-click="compareProduct(product)" ng-class="{disabled: product.compareDisabled}">+ Добавить к сравнению</div>
 
       <div class="product-footer">
         <div class="buy">
-          <a ng-href="/catalog/wehicle/{{product.href}}" class="btn-buy">Купить</a>
+          <a ng-href="/catalog/{{product.href}}" class="btn-buy">Купить</a>
         </div>
         <div class="price"><span ng-bind="product.price"></span>.-</div>
       </div>

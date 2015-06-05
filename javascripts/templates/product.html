@@ -67,10 +67,10 @@
 
             <div class="artikul">Артикул: <span ng-bind="product.art"></span></div>
 
-            <div class="stock-type" ng-class="{'in-stock': item.in_stock}">
+            <div class="stock-type" ng-class="{'in-stock': product.in_stock}">
               <div class="stock-indicator"></div>
-              <span ng-if="item.in_stock">В наличии</span>
-              <span ng-if="!item.in_stock">Нет в наличии</span>
+              <span ng-if="product.in_stock">В наличии</span>
+              <span ng-if="!product.in_stock">Нет в наличии</span>
             </div>
           </div>
           <div class="name" ng-bind="product.name"></div>
