@@ -3,9 +3,9 @@ angular.module('ProductCtrl', [
   'angular-object2vr',
   'mgcrea.ngStrap.collapse'
 ])
-.controller('ProductCtrl', function($scope, $http, $filter, $location, $routeParams, $rootScope, localStorageService, $sce, $templateCache){
+.controller('ProductCtrl', function($scope, $http, $filter, $location, $routeParams, $rootScope, localStorageService, $sce, $templateCache, Compare){
 
-  $scope.productId = 15 || $routeParams.productId;
+  $scope.productId = $routeParams.productId;
 
   $scope.product = {};
 
@@ -56,21 +56,6 @@ angular.module('ProductCtrl', [
   ];
   $scope.panels.activePanel = 0;
 
-  $scope.comparedProductsExists = function(product){
-    if($scope.compareDisabled){
-      return true;
-    }
-
-    for(item in $rootScope.comparedProducts){
-      if($rootScope.comparedProducts.hasOwnProperty(item)) {
-        if ($rootScope.comparedProducts[item].id == product.id) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
-
   $scope.recalcTotalPrice = function(){
 
     $scope.totalPrice = $scope.product.price;
@@ -101,7 +86,7 @@ angular.module('ProductCtrl', [
       $scope.totalPrice = $scope.product.price;
       $scope.recalcTotalPrice();
 
-      $scope.compareDisabled = $scope.comparedProductsExists($scope.product);
+      $scope.compareDisabled = Compare.comparedProductsExists($scope.product);
 
       $scope.threedConfig = {
         input: {
@@ -180,7 +165,7 @@ angular.module('ProductCtrl', [
 
     }).error(function(){
       console.error('Произошла ошибка');
-//      $location.path('/404');
+      $location.path('/404');
     });
 
   $scope.showOptionsByType = function(index){
@@ -212,51 +197,49 @@ angular.module('ProductCtrl', [
     $scope.functionTotalOpened = $scope.functionTotalOpened ? false : true;
   };
 
-//  $scope.buyProduct = function(buttonType){
-//    var basketList = {
-//      id: $scope.product.id,
-//      name: $scope.product.name,
-//      art: $scope.product.art,
-//      price: $scope.product.price,
-//      photo: $scope.product.photo
-//    };
-//
-////    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
-//
-//    localStorageService.set('basketList', basketList);
-//    $rootScope.basketCount++;
-//
-//    $location.path('/buy').hash('contacts');
-//  };
-
   $scope.buyProduct = function(){
 
-    $rootScope.basketList.push({
+    var basketItem = {
       id: $scope.product.id,
       name: $scope.product.name,
       art: $scope.product.art,
       price: $scope.product.price,
-      photo: $scope.product.photo
+      photo: $scope.product.photo,
+      count: 1
+    };
+
+    var existingProduct = null;
+    $rootScope.basketList.map(function(listItem){
+      if(listItem.id == $scope.product.id){
+        existingProduct = listItem;
+        listItem.count++;
+      }
     });
+
+    if(!existingProduct){
+      $rootScope.basketList.push(basketItem);
+    }
 
 //    ga('send', 'event', 'button-buy', 'click', 'buy-button-'+ buttonType);
 
     localStorageService.set('basketList', $rootScope.basketList);
-    $rootScope.basketCount++;
+    $rootScope.basketCount = $rootScope.basketList.length;
   };
 
-  $scope.compareProduct = function(product){
+  $scope.compareProduct = function(){
+    var compareProduct = $scope.product;
+
     if(!$scope.compareDisabled){
-      if(!$scope.comparedProductsExists(product)){
+      if(!Compare.comparedProductsExists(compareProduct)){
         if($scope.compareTechSpecs && $scope.compareTechSpecs.length) {
-          product.characters = $scope.compareTechSpecs;
+          compareProduct.characters = $scope.compareTechSpecs;
           $scope.compareTechSpecs = [];
 
-          $rootScope.comparedProducts.push(product);
+          Compare.add(compareProduct);
+
           $scope.compareDisabled = true;
         }
       }
-      localStorageService.set('comparedProducts', $rootScope.comparedProducts);
     }
   };
 

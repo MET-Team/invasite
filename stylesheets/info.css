@@ -105,6 +105,8 @@
 .menu-item-content .title{
   font-size: 36px;
   font-family: 'MuseoSansCyrl-700';
+  width: 720px;
+  margin: 0 auto;
 }
 
 .menu-item-content .title-2{
@@ -127,9 +129,10 @@
 
 .menu-item-content .content{
   font-size: 18px;
-  margin-top: 25px;
   line-height: 29px;
   padding-bottom: 50px;
+  width: 720px;
+  margin: 25px auto 0;
 }
 .menu-item-content .content p{
   margin-bottom: 35px;

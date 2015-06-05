@@ -62,32 +62,37 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
     console.log($scope.orderCallData)
   };
 
-  $scope.navigationMenu = [
+  $scope.catalogGroups = [
     {
       "title": 'Коляски',
+      "name": 'wehicles',
       "ico": 'images/menu/ico-2.png',
       "ico-hover": 'images/menu/ico-2-hover.png'
     },
     {
       "title": 'Ходунки',
+      "name": 'walkers',
       "ico": 'images/menu/ico-3.png',
       "ico-hover": 'images/menu/ico-3-hover.png'
     }
     ,
     {
       "title": 'Подъемники',
+      "name": 'lifts',
       "ico": 'images/menu/ico-4.png',
       "ico-hover": 'images/menu/ico-4-hover.png'
     }
     ,
     {
-      "title": 'Туалеты',
+      "title": 'Роллаторы',
+      "name": 'rollators',
       "ico": 'images/menu/ico-5.png',
       "ico-hover": 'images/menu/ico-5-hover.png'
     }
     ,
     {
       "title": 'Аксессуары',
+      "name": 'accessories',
       "ico": 'images/menu/ico-6.png',
       "ico-hover": 'images/menu/ico-6-hover.png'
     }
@@ -118,16 +123,6 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
       title: 'Контакты',
       url: '/contacts',
       isInfo: true
-    },
-    {
-      title: 'Бренды',
-      url: '/brands',
-      isInfo: false
-    },
-    {
-      title: 'О компании',
-      url: '/about',
-      isInfo: false
     }
   ];
 

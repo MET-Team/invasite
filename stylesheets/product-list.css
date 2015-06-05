@@ -23,6 +23,9 @@
 .product-list .product-item .image img{
   width: 100%;
 }
+.product-list .product-item .image img a{
+  text-decoration: none;
+}
 
 .product-list .product-item .product-details{
   font-size: 12px;
@@ -56,6 +59,10 @@
   font-family: 'MuseoSansCyrl-500';
   color: #000;
 }
+.product-list .product-item .name a{
+  color: #000;
+  text-decoration: none;
+}
 
 .product-list .product-item .product-compare{
   color: #ffc13e;
@@ -66,6 +73,10 @@
   position: absolute;
   left: 20px;
   bottom: 80px;
+}
+.product-list .product-item .product-compare.disabled{
+  cursor: default;
+  opacity: 0.5;
 }
 .product-list .product-item .product-compare:hover{
   color: #ffca57;

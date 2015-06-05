@@ -1,41 +1,48 @@
 [
   {
+    "id": 1,
     "name": "Кресло-коляска c вертикализатором Invacare Dragon",
     "price": 430000,
     "artikul": 4567,
     "in_stock": true
   },
   {
+    "id": 2,
     "name": "Кресло-коляска с электроприводом Invacare Bora",
     "price": 210000,
     "artikul": 4567,
     "in_stock": true
   },
   {
+    "id": 3,
     "name": "Кресло-коляска с функцией подъема сидения Invacare TDX",
     "price": 540000,
     "artikul": 4567,
     "in_stock": false
   },
   {
+    "id": 4,
     "name": "Электрическое кресло-коляска Invacare Kite",
     "price": 265078,
     "artikul": 4567,
     "in_stock": true
   },
   {
+    "id": 5,
     "name": "Коляска инвалидная электрическая Invacare P9000 XDT",
     "price": 97500,
     "artikul": 4567,
     "in_stock": false
   },
   {
+    "id": 6,
     "name": "Кресло-коляска электрическое Invacare Storm",
     "price": 350000,
     "artikul": 4567,
     "in_stock": false
   },
   {
+    "id": 7,
     "name": "Коляска с электроприводом Invacare Stream",
     "price": 148000,
     "artikul": 4567,

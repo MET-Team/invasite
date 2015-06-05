@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="ng-app" ng-app="App">
+<html id="ng-app" ng-app="Invasite">
   <head>
     <base href="/">
 
@@ -98,6 +98,8 @@
     <script src="/javascripts/controllers/info.js"></script>
     <script src="/javascripts/controllers/search.js"></script>
 
+    <script src="/javascripts/models/compare.js"></script>
+
   </head>
   <body>
     <div class="wrapper" ng-controller="ApplicationCtrl" ng-class="{'sidebar-open': sidebarMenuIsOpen}">
@@ -145,20 +147,11 @@
                 </form>
               </li>
             </ul>
-
-            <div class="item-right contacts">
-              <div class="contacts-item email">
-                <a ng-href="mailto:{{mainEmail}}" ng-bind="mainEmail"></a>
-              </div>
-              <div class="contacts-item phone">
-                <span ng-bind="mainPhone"></span>
-              </div>
-            </div>
           </div>
           <div class="navigation_bottom">
             <ul>
-              <li ng-repeat="item in navigationMenu" ng-mouseenter="hideBasket()" toggle-menu-ico toggle-menu-item="item" >
-                <a ng-href="/catalog">
+              <li ng-repeat="item in catalogGroups" ng-mouseenter="hideBasket()" toggle-menu-ico toggle-menu-item="item" >
+                <a ng-href="/catalog/{{item.name}}">
                   <span class="caption" ng-bind="item.title"></span>
                 </a>
               </li>
@@ -173,6 +166,15 @@
                 <a href="/basket" rel="nofollow">
                   <span class="toggle-part">Корзина (</span><span ng-bind="basketCount">0</span><span class="toggle-part">)</span>
                 </a>
+              </div>
+            </div>
+
+            <div class="item-right contacts">
+              <div class="contacts-item email">
+                <a ng-href="mailto:{{mainEmail}}" ng-bind="mainEmail"></a>
+              </div>
+              <div class="contacts-item phone">
+                <span ng-bind="mainPhone"></span>
               </div>
             </div>
           </div>

@@ -347,6 +347,10 @@
   position: relative;
   color: #000;
 }
+.page-block-product .main-card .card-container .card-col.card-details .other .panel-title:hover{
+  color: #ffc13e;
+}
+
 .page-block-product .main-card .card-container .card-col.card-details .other .panel-title:after{
   content: '';
   display: block;
@@ -625,6 +629,10 @@
   text-align: left;
   background: none #f7f7f7;
   box-shadow: none;
+}
+.page-block-product .technical-characteristics .characters-grid .col-images .product-mini-card .product-compare.disabled{
+  cursor: default;
+  opacity: 0.5;
 }
 
 .page-block-product .technical-characteristics .characters-grid .grid-col.col-left table{

@@ -34,10 +34,10 @@
 .header-layout .navigation ul li{
   display: inline-block;
   font-size: 14px;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 .header-layout .navigation .navigation_bottom ul li{
-  margin-right: 40px;
+  margin-right: 30px;
   font-size: 16px;
 }
 .header-layout .navigation ul li:last-child{
@@ -72,6 +72,7 @@
   display: inline-block;
   margin-right: 30px;
   vertical-align: middle;
+  font-size: 14px;
 }
 .header-layout .contacts-item:last-child{
   margin-right: 0;
@@ -82,13 +83,14 @@
 
 .header-layout a.compared-products{
   position: absolute;
-  right: 160px;
+  left: 550px;
   top: 0;
   color: #fff;
   background: none #ffc13e;
-  padding: 20px 35px;
+  padding: 20px 31px;
   display: inline-block;
   text-decoration: none;
+  font-size: 14px;
 }
 .header-layout a.compared-products:hover{
   background-color: #ffca57;
@@ -100,6 +102,8 @@
   font-family: 'MuseoSansCyrl-500';
   color: #1e2326;
   margin-left: 40px;
+  position: relative;
+  top: -5px;
 }
 .header-layout .basket:after{
   content: '';

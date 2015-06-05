@@ -42,6 +42,9 @@
 .page-block-product-compare .product-list .list-table tr:first-child td{
   padding-bottom: 55px;
 }
+.page-block-product-compare .product-list .list-table tr td p{
+  margin: 0;
+}
 
 .page-block-product-compare .product-list .list-table tr:nth-child(even) td{
   background: none #f2f2f2;
@@ -51,6 +54,7 @@
   width: 272px;
   position: relative;
   color: #272e32;
+  padding-bottom: 20px;
 }
 .page-block-product-compare .product-list .product-item:last-child{
   margin-right: 0;
