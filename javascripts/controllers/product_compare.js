@@ -1,5 +1,5 @@
 angular.module('productCompareCtrl', [])
-.controller('productCompareCtrl', function($scope, $rootScope, $location, localStorageService){
+.controller('productCompareCtrl', function($scope, $rootScope, $location, localStorageService, Compare){
 
   $scope.comparedProducts = localStorageService.get('comparedProducts');
 
