@@ -14,35 +14,35 @@ Invasite.config(['$routeProvider', '$locationProvider', function($routes, $locat
       templateUrl: "/javascripts/templates/catalog.html"
     })
     .when("/catalog/:productGroupName/electric/:productId", {
-      templateUrl: "/javascripts/templates/catalog.html"
+      templateUrl: "/javascripts/templates/product.html"
     })
 
     .when("/catalog/:productGroupName/mechanic", {
       templateUrl: "/javascripts/templates/catalog.html"
     })
     .when("/catalog/:productGroupName/mechanic/:productId", {
-      templateUrl: "/javascripts/templates/catalog.html"
+      templateUrl: "/javascripts/templates/product.html"
     })
 
     .when("/catalog/:productGroupName/active", {
       templateUrl: "/javascripts/templates/catalog.html"
     })
     .when("/catalog/:productGroupName/active/:productId", {
-      templateUrl: "/javascripts/templates/catalog.html"
+      templateUrl: "/javascripts/templates/product.html"
     })
 
     .when("/catalog/:productGroupName/detskie", {
       templateUrl: "/javascripts/templates/catalog.html"
     })
     .when("/catalog/:productGroupName/detskie/:productId", {
-      templateUrl: "/javascripts/templates/catalog.html"
+      templateUrl: "/javascripts/templates/product.html"
     })
 
     .when("/catalog/:productGroupName/dlya_polnih", {
       templateUrl: "/javascripts/templates/catalog.html"
     })
     .when("/catalog/:productGroupName/dlya_polnih/:productId", {
-      templateUrl: "/javascripts/templates/catalog.html"
+      templateUrl: "/javascripts/templates/product.html"
     })
 
     // остальные группы
