@@ -104,6 +104,7 @@
   border: solid 1px #ffc13e;
   border-radius: 3px;
   padding: 5px 20px;
+  cursor: pointer;
 }
 .product-list .product-item .buy .btn-buy:hover{
   color: #ffca57;

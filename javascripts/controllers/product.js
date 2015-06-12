@@ -56,37 +56,15 @@ angular.module('ProductCtrl', [
   ];
   $scope.panels.activePanel = 0;
 
-  $scope.recalcTotalPrice = function(){
-
-    $scope.totalPrice = $scope.product.price;
-
-    $scope.additionalPrice = 0;
-
-    if($scope.functionsSelected.length > 0){
-      for(item in $scope.functionsSelected){
-        $scope.additionalPrice = $scope.additionalPrice + $scope.functionsSelected[item].price;
-        $scope.totalPrice = $scope.totalPrice + $scope.functionsSelected[item].price;
-      }
-    }
-
-    $scope.optionsCountLabel = $filter('declOfNum')($scope.functionsSelected.length, ['опция', 'опции', 'опций']);
-
-  };
-
   $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productId)
     .success(function(data){
       $scope.product = data;
-
-      console.log($scope.product);
 
       $rootScope.metaTags.pageTitle = $scope.product.meta_tags;
       $rootScope.metaTags.pageKeyWords = $scope.product.keywords;
       $rootScope.metaTags.pageDescription = $scope.product.page_description;
 
       $scope.panels[0].body = $scope.product.description;
-
-      $scope.totalPrice = $scope.product.price;
-      $scope.recalcTotalPrice();
 
       $scope.compareDisabled = Compare.comparedProductsExists($scope.product);
 
@@ -170,35 +148,6 @@ angular.module('ProductCtrl', [
       $location.path('/404');
     });
 
-  $scope.showOptionsByType = function(index){
-    $scope.functionsList = $scope.carriageFunctions[index];
-    $scope.functionTypeSelected = index;
-  };
-
-  $scope.configureOptions = null;
-
-  $scope.toggleFunction = function(functionItem){
-
-    var functionSelectedIndex = $scope.functionsSelected.indexOf(functionItem);
-
-    if(functionSelectedIndex > -1){
-      $scope.functionsSelected.splice(functionSelectedIndex, 1)
-    }else{
-      $scope.functionsSelected.push(functionItem);
-    }
-
-    if($scope.functionsSelected.length == 0){
-      $scope.functionTotalOpened = false;
-    }
-
-    $scope.recalcTotalPrice();
-
-  };
-
-  $scope.toggleSelectedFunctionsList = function(){
-    $scope.functionTotalOpened = $scope.functionTotalOpened ? false : true;
-  };
-
   $scope.buyProduct = function(){
 
     var basketItem = {
@@ -207,7 +156,8 @@ angular.module('ProductCtrl', [
       art: $scope.product.art,
       price: $scope.product.price,
       photo: $scope.product.photo,
-      count: 1
+      count: 1,
+      in_stock: $scope.product.in_stock
     };
 
     var existingProduct = null;

@@ -1,6 +1,8 @@
 <div class="page-block page-block-product" ng-controller="ProductCtrl">
   <div class="main-card">
 
+    <!-- TO-DO: сделать вывод категорий -->
+
     <div class="breadcrumbs">
       <a ng-href="/catalog/{{carriageTypeIdToCaption[product.kind_id]}}"><span ng-bind="product.kind.name"></span> коляски</a>
       <span class="arrow">
@@ -130,9 +132,7 @@
           </ul>
 
           <div class="tab-content">
-            <div class="tab-pane" ng-class="{active : charactersActiveTab == 0}">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
-            </div>
+            <div class="tab-pane" ng-class="{active : charactersActiveTab == 0}" ng-bind-html="product.detailed_description"></div>
             <div class="tab-pane" ng-class="{active : charactersActiveTab == 1}">
               <div ng-if="characters.length > 0">
                 <table>
@@ -153,7 +153,7 @@
       <div class="grid-col col-right col-images product-list">
         <div class="product-item product-mini-card">
           <div class="image">
-            <img src="images/temp/product-image.jpg" alt="" />
+            <img ng-src="{{domain + product.photo.thumb}}" alt="{{product.name}}" />
           </div>
           <div class="product-details">
             <div class="artikul">
@@ -170,7 +170,7 @@
 
           <div class="product-footer">
             <div class="buy">
-              <a ng-href="/catalog/1" class="btn-buy">Купить</a>
+              <span class="btn-buy" ng-click="buyProduct('main')">Купить</span>
             </div>
             <div class="price"><span ng-bind="product.price"></span>.-</div>
           </div>
