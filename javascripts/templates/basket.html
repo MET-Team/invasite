@@ -4,11 +4,32 @@
     <div class="products-list" ng-if="basketList.length > 0">
       <div class="products-list-item" ng-repeat="item in basketList">
         <div class="image">
-          <img src="images/temp/product-image-basket.jpg" alt="" width="70" height="70" />
+          <img ng-src="{{domain + item.photo.original}}" alt="" />
         </div>
+        <div class="info">
+          <div class="info-item artikul">
+            Арт: <span ng-bind="item.art"></span>
+          </div>
+
+          <div class="info-item stock-type" ng-class="{'in-stock': product.in_stock}">
+            <div class="stock-indicator"></div>
+            <span ng-if="product.in_stock">В наличии</span>
+            <span ng-if="!product.in_stock">Нет в наличии</span>
+          </div>
+        </div>
+
         <div class="name" ng-bind="item.name"></div>
-        <div class="price"><span ng-bind="item.price"></span>.-</div>
-        <div class="remove" ng-click="removeItem(item)"></div>
+
+        <div class="actions">
+          <div class="action-item count">
+            <div class="count-item count-button count-button-minus" ng-class="{disabled: item.count == 1}" ng-click="changeProductCount(item, 'minus')"></div>
+            <div class="count-item count-number" ng-bind="item.count"></div>
+            <div class="count-item count-button count-button-plus" ng-click="changeProductCount(item, 'plus')"></div>
+          </div>
+          <div class="action-item remove" ng-click="removeItem(item)">Убрать товар</div>
+        </div>
+
+        <div class="price"><span ng-bind="item.price * item.count"></span>.-</div>
       </div>
     </div>
 

@@ -18,6 +18,17 @@ angular.module('BasketCtrl', []).controller('BasketCtrl', function($scope, $http
     }
   };
 
+  $scope.changeProductCount = function(product, type){
+    if(type === 'minus' && product.count > 1){
+      product.count--;
+    }
+    if(type === 'plus'){
+      product.count++;
+    }
+
+    localStorageService.set('basketList', $scope.basketList);
+  };
+
   $scope.checkoutData = {
     name: '',
     email: '',
@@ -25,10 +36,6 @@ angular.module('BasketCtrl', []).controller('BasketCtrl', function($scope, $http
     delivery: 0,
     payment: 0,
     products: []
-  };
-
-  $scope.toggleFunctionList = function(){
-    $scope.functionsListOpened = $scope.functionsListOpened ? false : true;
   };
 
   $scope.deliveryItems = [
