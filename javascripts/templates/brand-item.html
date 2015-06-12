@@ -4,13 +4,13 @@
     <div class="ico-close"><a href="/brands/"></a></div>
     <div class="brand-inner">
       <div class="brand-ico">
-        <img ng-src="{{brandDetails.logo}}" alt="" width="220" />
+        <img ng-src="{{domain + brandDetails.photo.original}}" alt="{{brandDetails.name}}" width="220" />
       </div>
-      <div class="brand-title" ng-bind="brandDetails.title"></div>
-      <div class="brand-text" ng-bind-html="brandDetails.text"></div>
-      <div class="catalog-groups" ng-if="brandDetails.catalog_groups.length > 0">
-        <a href="javascript:void(0)" class="catalog-group-item" ng-repeat="item in brandDetails.catalog_groups">
-          <span ng-bind="item.title"></span>
+      <div class="brand-title" ng-bind="brandDetails.name"></div>
+      <div class="brand-text" ng-bind-html="brandDetails.detailed_description"></div>
+      <div class="catalog-groups" ng-if="brandCatalogGroups.length > 0">
+        <a ng-href="/catalog/{{item.hrefPrefix + item.code_name}}" class="catalog-group-item" ng-repeat="item in brandCatalogGroups">
+          <span ng-bind="item.name"></span>
         </a>
       </div>
     </div>

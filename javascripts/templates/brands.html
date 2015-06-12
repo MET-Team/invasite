@@ -1,13 +1,15 @@
 <div class="page-block page-block-brands" ng-controller="BrandsCtrl">
   <div class="head">Ведущие производители</div>
   <div class="brand-list">
-    <div class="brand-item" ng-repeat="item in brandsList">
+    <div class="brand-item equal-height" ng-repeat="item in brandsList">
       <div class="image">
-        <img ng-src="{{item.image}}" width="277" height="277" alt="" />
+        <a ng-href="/brands/{{item.id}}">
+          <img ng-src="{{domain + item.photo.original}}" width="277" height="277" alt="{{item.name}}" />
+        </a>
       </div>
       <div class="description">
-        <div class="title" ng-bind="item.title"></div>
-        <div class="text" ng-bind="item.text"></div>
+        <div class="title" ng-bind="item.name"></div>
+        <div class="text" ng-bind-html="item.description"></div>
         <a ng-href="/brands/{{item.id}}" class="btn-details">Подробнее</a>
       </div>
     </div>

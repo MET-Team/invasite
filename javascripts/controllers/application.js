@@ -148,22 +148,36 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
 
 });
 
-appControllers.controller('BrandsCtrl', function($scope, $http){
-  $http.get('javascripts/factories/brands/list.json')
-    .success(function(data){
-      $scope.brandsList = data;
-    }).error(function(){
-      console.error('Произошла ошибка');
-    });
+appControllers.controller('BrandsCtrl', function($rootScope, $scope, $http){
+  $http.get($rootScope.domain + '/api/v1/brands').success(function (data) {
+    $scope.brandsList = data;
+  }).error(function(){
+    console.error('Произошла ошибка');
+  });
 });
 
-appControllers.controller('BrandItemCtrl', function($scope, $http){
-  $http.get('javascripts/factories/brands/item.json')
-    .success(function(data){
-      $scope.brandDetails = data;
-    }).error(function(){
-      console.error('Произошла ошибка');
+appControllers.controller('BrandItemCtrl', function($rootScope, $scope, $routeParams, $http){
+  $http.get($rootScope.domain + '/api/v1/brands/' + $routeParams.brandId).success(function (data) {
+    $scope.brandDetails = data;
+  }).error(function(){
+    console.error('Произошла ошибка');
+  });
+
+  $http.get($rootScope.domain +'/api/v1/brands/'+ $routeParams.brandId +'/kinds').success(function (data) {
+    $scope.brandCatalogGroups = data;
+
+    $scope.brandCatalogGroups.forEach(function(groupItem){
+      groupItem.hrefPrefix = '';
+      $rootScope.carriageType.list.forEach(function(carriageType){
+        if(carriageType.id == groupItem.id){
+          groupItem.hrefPrefix = 'carriages/';
+        }
+      });
     });
+
+  }).error(function(){
+    console.error('Произошла ошибка');
+  });
 });
 
 appControllers.controller('ContactsCtrl', function($scope, $http){
