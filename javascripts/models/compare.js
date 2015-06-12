@@ -40,6 +40,12 @@ Invasite.factory('Compare', [
 
             $http.get($rootScope.domain +'/api/v1/products/'+ productId).success(function(product) {
               if(product){
+
+                $http.get($rootScope.domain +'/api/v1/products/'+ product.id +'/tech_specs')
+                  .success(function(data){
+                    product.characters = data;
+                  });
+
                 Compare.add_to_list(product);
               }
             });
@@ -57,6 +63,12 @@ Invasite.factory('Compare', [
 
       Compare.fetch_all = function() {
         return Compare.all;
+      };
+
+      Compare.clear = function(){
+        Compare.all = [];
+        $rootScope.comparedProducts = Compare.all;
+        localStorageService.set('comparedProducts', Compare.all);
       };
 
       return Compare;

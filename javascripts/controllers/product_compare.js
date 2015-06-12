@@ -1,7 +1,7 @@
 angular.module('productCompareCtrl', [])
 .controller('productCompareCtrl', function($scope, $rootScope, $location, localStorageService, Compare){
 
-  $scope.comparedProducts = localStorageService.get('comparedProducts');
+  $scope.comparedProducts = Compare.fetch_all();
 
   $scope.compareList = [];
 
@@ -46,9 +46,7 @@ angular.module('productCompareCtrl', [])
   }
 
   $scope.clearCompare = function(){
-    $rootScope.comparedProducts = [];
-    localStorageService.set('comparedProducts', $rootScope.comparedProducts);
-
+    Compare.clear();
     $location.path("/catalog");
   };
 });
