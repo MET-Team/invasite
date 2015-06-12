@@ -11,7 +11,7 @@ controller('SearchCtrl', function($scope, $location, $http, $rootScope){
 
   $scope.searchProducts = function(){
     if($scope.searchString){
-      $http.get($rootScope.domain +'/api/v1/sites/4/products', {
+      $http.get($rootScope.domain +'/api/v1/sites/'+ $rootScope.site_id +'/products', {
         params: {
           keywords_cont: $scope.searchString
         }
