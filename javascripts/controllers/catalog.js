@@ -2,6 +2,14 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($rootScope,
 
   $scope.catalogGroupSelected = $routeParams.productGroupName || 'carriages';
 
+  if($scope.catalogGroupSelected == 'carriages'){
+    var carriagePath = '/catalog/carriages/';
+    var carriageType = $location.path().substr(carriagePath.length);
+
+    $rootScope.carriageType.selected = carriageType;
+    $rootScope.carriageTypeSelected = carriageType;
+  }
+
   $rootScope.$watch('carriageType.selected', function(newValue, oldValue){
     if($scope.catalogGroupSelected == 'carriages' && newValue != oldValue){
       $rootScope.carriageType.selected = $rootScope.carriageTypeSelected;
