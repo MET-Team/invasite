@@ -1,7 +1,7 @@
 Invasite.config(['$routeProvider', '$locationProvider', function($routes, $location) {
 
   $routes.when("/", {
-    templateUrl: "/javascripts/templates/about.html",
+    templateUrl: "/javascripts/templates/home.html",
     reloadOnSearch: false
   })
     .when("/catalog", {

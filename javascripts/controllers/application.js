@@ -62,6 +62,11 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
     console.log($scope.orderCallData)
   };
 
+  $scope.goToCatalog = function(){
+//    ga('send', 'event', 'button-catalog', 'click', 'button-catalog-main');
+    $location.path('/catalog/carriages');
+  };
+
   $scope.catalogGroups = [
     {
       "title": 'Коляски',
@@ -129,6 +134,28 @@ appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $locat
       isInfo: true
     }
   ];
+
+  $scope.sendMail = function(type, sendData){
+    $http({
+      method: 'post',
+      url: '/send_mail/',
+      params: {
+        type: type,
+        sendData: sendData
+      }
+    })
+      .success(function (data) {
+        if(data.error){
+          console.error(data.error);
+          return false;
+        }
+        if(data.success){
+          console.log(data.success);
+        }
+      }).error(function (){
+        console.error('Произошла ошибка');
+      });
+  };
 
   $scope.$on('$routeChangeStart', function() {
     $scope.pageIsMain = $location.path() == "/";

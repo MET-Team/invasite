@@ -9,8 +9,7 @@ var Invasite = angular.module('Invasite', [
   'LocalStorageModule',
 
   'mgcrea.ngStrap.select',
-  'matchHeight-ng',
-  'slugifier'
+  'matchHeight-ng'
 ]);
 
 Invasite.factory('Basket', function(){
