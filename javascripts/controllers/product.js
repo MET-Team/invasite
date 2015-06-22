@@ -161,7 +161,7 @@ angular.module('ProductCtrl', [
     };
 
     var existingProduct = null;
-    $rootScope.basketList.map(function(listItem){
+    $rootScope.basketList.forEach(function(listItem){
       if(listItem.id == $scope.product.id){
         existingProduct = listItem;
         listItem.count++;

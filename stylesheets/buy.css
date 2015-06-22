@@ -208,6 +208,19 @@
   font-size: 18px;
 }
 
+.page-block-buy .checkout .tab-content .checkout-errors{
+  color: #b94a48;
+}
+.page-block-buy .checkout .tab-content .checkout-errors.remote-error{
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+.page-block-buy .checkout .tab-content .checkout-errors.remote-error .callback{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #5098de;
+}
+
 .page-block-buy .checkout .tab-content .contacts .form-horizontal .form-group{
   margin-left: 0;
   margin-right: 0;
@@ -222,7 +235,9 @@
   line-height: 16px;
   height: auto;
 }
-
+.page-block-buy .checkout .tab-content .contacts .form-horizontal .form-control.error{
+  border: solid 1px #b94a48;
+}
 
 .page-block-buy .checkout .tab-content .contacts .row{
   margin-right: -5px;
@@ -283,6 +298,35 @@
 .page-block-buy .checkout .tab-content .delivery-list .delivery-item.selected .choose-button{
   border: solid 2px #fff;
   color: #fff;
+}
+
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.e-money .payment-sub-list{
+  display: none;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.e-money.selected .payment-sub-list{
+  display: block;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.e-money .payment-sub-list .sub-list-item{
+  margin-bottom: 10px;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.e-money .payment-sub-list .sub-list-item:last-child{
+  margin-bottom: 0;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.e-money .payment-sub-list .sub-list-item label{
+  cursor: pointer;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.disabled{
+  opacity: 0.5;
+  cursor: default;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.disabled .choose-button{
+  cursor: default;
+}
+.page-block-buy .checkout .tab-content .delivery-list .payment-item.disabled .choose-button:hover{
+  background: none #fff;
+  color: #5098de;
 }
 
 .page-block-buy .checkout .continue-button{
