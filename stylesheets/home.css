@@ -1,308 +1,92 @@
 /*.page-block-index*/
 .page-block-index .header{
-  height: 550px;
-  background: url('../images/bg-index-header.png') no-repeat center bottom transparent;
-  background-size: cover;
-  padding: 85px 0
+  background: none #fff;
+  padding: 180px 0 280px;
 }
-.page-block-index .header .inner{
-  width: 830px;
-  margin: 0 auto;
-}
+/*.page-block-index .header .inner{*/
+  /*width: 830px;*/
+  /*margin: 0 auto;*/
+/*}*/
 .page-block-index .header .title{
   font-family: 'MuseoSansCyrl-700';
-  font-size: 40px;
+  font-size: 45px;
   text-align: center;
 }
 .page-block-index .header .summary{
   font-size: 18px;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
   line-height: 30px;
 }
 .page-block-index .header .actions{
-  margin-top: 30px;
+  margin-top: 25px;
   text-align: center;
 }
-.page-block-index .header .actions .action-item{
+.page-block-index .header .actions .action-item,
+.page-block-index .index-footer .action-item,
+.page-block-index .privilege__list .privilege__item .action-item{
   display: inline-block;
   margin-right: 8px;
   cursor: pointer;
   font-family: 'MuseoSansCyrl-700';
   font-size: 16px;
-  border: solid 2px #272e32;
   padding: 12px 35px;
-  color: #000000;
+  background: none #ffc13e;
+  color: #fff;
   text-decoration: none;
+  border-radius: 3px;
 }
 .page-block-index .header .actions .action-item:last-child{
   margin-right: 0;
 }
 
-.page-block-index .header .actions .action-item:hover{
-  background: none #272e32;
-  color: #fff;
+.page-block-index .header .actions .action-item:hover,
+.page-block-index .index-footer .action-item:hover,
+.page-block-index .privilege__list .privilege__item .action-item:hover{
+  background-color: #ffca57;
 }
 
-.page-block-index .header .actions .action-buttons{
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-
-  opacity: 0;
-
-  position: absolute;
-  left: 50%;
-  margin-left: -250px;
-  z-index: 100;
+.page-block-index .index-footer{
+  background: none #fff;
+  text-align: center;
+  font-size: 18px;
+  padding: 30px;
 }
-.page-block-index .header .actions .action-buttons.show{
-  opacity: 1;
-  z-index: 101;
+.page-block-index .index-footer .action-item{
+  margin: 0 0 0 25px;
 }
 
-.page-block-index .header .actions .order-form{
-  display: inline-block;
-
-  opacity: 0;
-
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-
-  position: absolute;
-  left: 50%;
-  margin-left: -187px;
-  z-index: 100;
+.page-block-index .privilege__list .privilege__item{
+  padding: 210px 225px 200px;
+  background: none #d9d9d9;
 }
-.page-block-index .header .actions .order-form.show{
-  opacity: 1;
-  z-index: 101;
+.page-block-index .privilege__list .privilege__item:nth-child(even){
+  background-color: #e6e6e6;
 }
 
-.page-block-index .header .actions .order-form .order-phone{
-  width: 240px;
-  padding: 7px;
-  font-size: 16px;
-  height: 45px;
-  border: solid 1px #cccccc;
-  vertical-align: middle;
-}
-.page-block-index .header .actions .order-form .button{
-  background: none #5098de;
-  border: medium none;
-  font-family: 'MuseoSansCyrl-700';
-  font-size: 16px;
-  color: #fff;
-  cursor: pointer;
-  width: 102px;
-  padding: 10px 0;
-  outline: medium none;
-  height: 45px;
-  vertical-align: middle;
-}
-.page-block-index .header .actions .order-form .button:hover{
-  background: none #59a8f7;
-}
-
-.page-block-index .header .actions .order-form .form-close{
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  background: url('../images/ico-form-close-dark.png') no-repeat 0 0 transparent;
-  cursor: pointer;
-  vertical-align: middle;
-  margin-left: 10px;
-}
-.page-block-index .header .actions .order-form .form-close:hover{
-  opacity: 0.8;
-}
-
-.page-block-index .brief{
+.page-block-index .privilege__list .privilege__item .inner{
   display: table;
   width: 100%;
 }
-.page-block-index .brief .brief-item{
+.page-block-index .privilege__list .privilege__item .inner .privilege__col{
   display: table-cell;
-  border-right: solid 1px #e6e6e6;
-  padding: 25px 30px 30px;
-}
-.page-block-index .brief .brief-item:last-child{
-  border: medium none;
-}
-.page-block-index .brief .brief-item .ico{
-  margin: 0 auto;
-  display: block;
-}
-.page-block-index .brief .brief-item .title{
-  margin-top: 50px;
-  font-family: 'MuseoSansCyrl-700';
-  font-size: 18px;
-}
-.page-block-index .brief .brief-item .text{
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 27px;
-}
-.page-block-index .info{
-  height: 400px;
-  background: url('../images/bg-info.png') no-repeat 50% 50% fixed;
-  background-size: cover;
-  color: #fff;
-  padding: 158px 0 0 50px;
-}
-.page-block-index .info .title{
-  font-family: 'MuseoSansCyrl-700';
-  font-size: 36px;
-}
-.page-block-index .info .text{
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-.page-block-index .reviews{
-  padding: 101px 75px;
-  position: relative;
-}
-.page-block-index .reviews .review-item{
-  width: 775px;
-  margin: 0 auto;
-  text-align: center;
-}
-.page-block-index .reviews .review-item .text{
-  font-size: 24px;
-  line-height: 40px;
-}
-.page-block-index .reviews .review-item .author{
-  margin-top: 30px;
-  font-family: 'MuseoSansCyrl-500';
-  font-size: 18px;
-}
-.page-block-index .reviews .review-arrow{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 75px;
-  cursor: pointer;
-}
-.page-block-index .reviews .review-arrow.review-prev{
-  left: 0;
-  background: url('../images/ico-review-prev.png') no-repeat center center transparent;
-}
-.page-block-index .reviews .review-arrow.review-next{
-  right: 0;
-  background: url('../images/ico-review-next.png') no-repeat center center transparent;
-}
-
-.page-block-index .carriage-transitions{
-  height: 450px;
-}
-.page-block-index .carriage-transitions .transition-item{
-  float: left;
+  vertical-align: top;
   width: 50%;
-  height: 450px;
-  text-align: center;
-  text-decoration: none;
-  position: relative;
-  padding-top: 55px;
 }
-.page-block-index .carriage-transitions .transition-item.transition-item-mechanic{
-  background: url('../images/carriage-mechanic.png') no-repeat center center #5098de;
-}
-.page-block-index .carriage-transitions .transition-item.transition-item-electric{
-  background: url('../images/carriage-electric.png') no-repeat center center #3073b5;
+.page-block-index .privilege__list .privilege__item .inner .privilege__col:last-child{
+  padding-left: 100px;
 }
 
-.page-block-index .carriage-transitions .transition-item.transition-item-mechanic:hover{
-  background: url('../images/carriage-mechanic-hovered.png') no-repeat center center #59a8f7;
+.page-block-index .privilege__list .privilege__item .privilege__title{
+  font-size: 45px;
+  line-height: 55px;
+  font-family: 'MuseoSansCyrl-300';
 }
-.page-block-index .carriage-transitions .transition-item.transition-item-electric:hover{
-  background: url('../images/carriage-electric-hovered.png') no-repeat center center #3883cf;
-}
-.page-block-index .carriage-transitions .transition-item .caption{
-  position: absolute;
-  top: 215px;
-  left: 0;
-  width: 100%;
-  color: #fff;
+.page-block-index .privilege__list .privilege__item .privilege__text{
   font-size: 18px;
+  line-height: 30px;
+  margin-top: 20px;
 }
-.page-block-index .carriage-transitions .transition-item .caption .arrow{
-  position: relative;
-  top: 2px;
-  left: 2px;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-@media (max-width: 530px){
-  .page-block-index .header .title{
-    font-size: 18px;
-  }
-  .page-block-index .header .summary{
-    font-size: 14px;
-  }
-
-  .page-block-index .header .actions .action-buttons{
-    margin-left: -110px;
-  }
-  .page-block-index .header .actions .action-item{
-    font-size: 14px;
-  }
-  .page-block-index .header .actions .action-item.action-item-call-form{
-    display: none;
-  }
-
-  .page-block-index .brief{
-    display: block;
-  }
-  .page-block-index .brief .brief-item{
-    display: block;
-    text-align: center;
-  }
-  .page-block-index .brief .brief-item .title{
-    margin-top: 30px;
-    font-size: 16px;
-  }
-  .page-block-index .brief .brief-item .text{
-    font-size: 14px;
-  }
-
-  .page-block-index .info{
-    text-align: center;
-  }
-  .page-block-index .info .title{
-    font-size: 18px;
-  }
-  .page-block-index .info .text{
-    font-size: 14px;
-  }
-
-  .page-block-index .carriage-transitions, .page-block-index .carriage-transitions .transition-item{
-    height: auto;
-  }
-  .page-block-index .carriage-transitions .transition-item{
-    float: none;
-    padding: 20px;
-    display: block;
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .page-block-index .carriage-transitions .transition-item.transition-item-mechanic{
-    background: none #5098de;
-  }
-  .page-block-index .carriage-transitions .transition-item.transition-item-electric{
-    background: none #3073b5;
-  }
-
-  .page-block-index .carriage-transitions .transition-item.transition-item-mechanic:hover{
-    background: none #59a8f7;
-  }
-  .page-block-index .carriage-transitions .transition-item.transition-item-electric:hover{
-    background: none #3883cf;
-  }
-
-  .page-block-index .carriage-transitions .transition-item .caption{
-    position: static;
-  }
-
+.page-block-index .privilege__list .privilege__item .action-item{
+  margin-top: 25px;
 }
