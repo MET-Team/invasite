@@ -147,6 +147,12 @@ angular.module('CatalogCtrl', []).controller('CatalogCtrl', function($rootScope,
             productItem.compareDisabled = true;
           }
         });
+
+        $scope.productsListEmpty = false;
+        if(!data.length){
+          $scope.productsListEmpty = true;
+        }
+
       }).error(function(){
         console.error('Произошла ошибка');
       });

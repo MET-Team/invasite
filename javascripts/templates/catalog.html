@@ -23,6 +23,9 @@
   </div>
 
   <div class="product-list">
+    <div class="product-list-empty" ng-if="productsListEmpty">
+      <h2>Ничего не найдено</h2>
+    </div>
     <div class="product-item equal-height" ng-repeat="product in productsList">
       <div class="image">
         <a ng-href="/catalog/{{product.href}}">
