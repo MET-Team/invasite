@@ -43,15 +43,15 @@ angular.module('ProductCtrl', [
     },
     {
       "title": "Доставка по России и СНГ",
-      "body": "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee."
+      "body": ""
     },
     {
-      "title": "Получить коляску бесплатно",
-      "body": "<div>123123123</div>"
+      "title": "Получить бесплатно",
+      "body": ""
     },
     {
       "title": "Возврат и гарантии",
-      "body": "<div>123123123</div>"
+      "body": ""
     }
   ];
   $scope.panels.activePanel = 0;
@@ -65,6 +65,14 @@ angular.module('ProductCtrl', [
       $rootScope.metaTags.pageDescription = $scope.product.page_description;
 
       $scope.panels[0].body = $scope.product.description;
+      $scope.panels[1].body = $templateCache.get('infoDelivery');
+      $scope.panels[2].body = $templateCache.get('infoGetFree');
+
+      var guaranteeEstimate = '12 месяцев';
+      if($scope.product.kind_id == 1){
+        guaranteeEstimate = '24 месяца';
+      }
+      $scope.panels[3].body = '<p>На товары действует <a href="/return_guarantee">гарантия '+ guaranteeEstimate +'</a>. Если изделие оказалось неисправно, мы устраним дефект или заменим его.</p>';
 
       $scope.compareDisabled = Compare.comparedProductsExists($scope.product);
 
@@ -121,7 +129,7 @@ angular.module('ProductCtrl', [
       };
 
       if($scope.product.video_embed_code){
-        $scope.videoPath = $sce.trustAsResourceUrl('//www.youtube.com/embed/' + $scope.product.video_embed_code);
+        $scope.videoPath = $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + $scope.product.video_embed_code + '');
       }
 
       $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productId +'/tech_specs')
@@ -147,6 +155,22 @@ angular.module('ProductCtrl', [
       console.error('Произошла ошибка');
       $location.path('/404');
     });
+
+  $scope.getProductInfo = function(kindId){
+
+    var infoData = {
+      "carriages" : {
+        return: $templateCache.get($rootScope.carriageTypeSelected + 'Return')
+      },
+      "walkers" : {},
+      "lifts" : {},
+      "rollators" : {},
+      "accessories" : {}
+    };
+
+    console.log(infoData);
+
+  };
 
   $scope.buyProduct = function(){
 

@@ -32,8 +32,8 @@ angular.module('infoCtrl', []).controller('InfoCtrl', function($scope, $http, $d
     },
     {
       id: 4,
-      'title' : 'Как подобрать ходунки',
-      'summary' : 'Советы по выбору ходунков'
+      'title' : 'Технические особенности кресел-колясок',
+      'summary' : 'Советы по выбору кресел-колясок'
     }
   ];
 
