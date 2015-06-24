@@ -133,11 +133,11 @@
 
 .page-block-delivery-payments .delivery .delivery-navigation ul li{
   background: none #f2f2f2;
-  padding: 12px 20px;
+  padding: 10px 18px;
   float: left;
   cursor: pointer;
   color: #1e2326;
-  font-size: 16px;
+  font-size: 14px;
 }
 .page-block-delivery-payments .delivery .delivery-navigation ul li.active{
   background: none #ffc13e;
@@ -259,6 +259,18 @@
 .page-block-delivery-payments .delivery-list .delivery-item-additional .price-grid td.value .digits{
   color: #ffc13e;
   font-family: 'MuseoSansCyrl-500';
+}
+
+.page-block-delivery-payments .delivery-list .delivery-item-moscow .price-grid{
+  margin-bottom: 20px;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-moscow .price-grid td{
+  text-align: left!important;
+}
+.page-block-delivery-payments .delivery-list .delivery-item-moscow .price-grid thead td{
+  padding-bottom: 0;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .page-block-delivery-payments .delivery-list .delivery-item-additional .additional-service-list{

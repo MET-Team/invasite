@@ -4,7 +4,8 @@
 
     <div class="delivery-navigation">
       <ul>
-        <li class="active">По России</li>
+        <li class="active">По Москве</li>
+        <li>По России</li>
         <li>В Беларусь и Казахстан</li>
         <li>Самовывоз</li>
         <li>Дополнительные услуги</li>
@@ -12,45 +13,83 @@
     </div>
 
     <div class="delivery-list">
+
+    <div class="delivery-item delivery-item-additional delivery-item-moscow">
+      <div class="delivery-item-title">Доставка по Москве</div>
+      <div class="delivery-item-content">
+        <p>
+          Бесплатная доставка в пределах МКАД при сумме заказа от 5000 руб.
+        </p>
+        <div class="sub-list">
+          <div class="sub-list-item">
+            <div class="sub-list-item-content">
+              <table class="price-grid">
+                <thead>
+                <tr>
+                  <td>Стоимость и вес заказа</td>
+                  <td>В пределах МКАД</td>
+                  <td>За МКАД</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    Менее 5000 руб и до 30 кг
+                  </td>
+                  <td class="value">
+                    <span class="digits">650 руб.</span>
+                  </td>
+                  <td class="value">
+                    <span class="digits">650 руб.</span>+ <span class="digits">35 руб.</span> за каждый км за МКАД
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Более 30 кг
+                  </td>
+                  <td class="value">
+                    <span class="digits">990 руб.</span>
+                  </td>
+                  <td class="value">
+                    <span class="digits">990 руб.</span>+ <span class="digits">35 руб.</span> за каждый км за МКАД
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Более 5000 руб.
+                  </td>
+                  <td class="value">
+                    <span class="digits">бесплатно</span>
+                  </td>
+                  <td class="value">
+                    <span class="digits">35 руб.</span> за каждый км за МКАД
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p>
+          Доставка осуществляется до подъезда. Дополнительно вы можете заказать услуги (ссылка на доп.услуги) подъема на этаж, сборки и тестирования изделия.
+        </p>
+      </div>
+    </div>
+
       <div class="delivery-item">
         <div class="delivery-item-title">Доставка по России</div>
         <div class="delivery-item-content">
           <p>
-            Услуга доставки по России предоставляется <span style="font-weight: bold">бесплатно</span> и включает в себя доставку до подъезда.
-            Занос на этаж, сборка и тестирование изделий оплачиваются отдельно и осуществляются только при доставке по г. Москве и Московской области.
-            В регионы заказ доставляется транспортными компаниями, которые, увы, не предоставляют услугу заноса на этаж и сборки.
+            Мы <strong>БЕСПЛАТНО</strong> доставим заказ после его оплаты до следующих транспортных компаний: Деловые линии, Первая Экспедиционная Компания (ПЭК), Байкал-Сервис, Стейл и ЖелДорЭкспедиция.
+          </p>
+          <p>
+            Дальнейшая транспортировка осуществляется по тарифам и под ответственность транспортной компании. Доставка производится до пункта выдачи заказа транспортной компании в вашем городе.
           </p>
 
           <div class="sub-list">
 
             <div class="sub-list-item">
-              <div class="sub-list-item-title">Бесплатно доставка осуществляется в города, представленные в списке:</div>
-              <div class="sub-list-item-content">
-                <div class="delivery-city-search" ng-class="{opened: SearchListIsOpen}">
-                  <div class="inner">
-                    <div class="search-field">
-                      <input type="text" value="" placeholder="Введите город" ng-model="deliveryCity" ng-keyup="searchDeliveryCity()" />
-                      <div class="caret" ng-click="toggleSearchList()"></div>
-                    </div>
-                    <div class="search-list">
-                      <div class="list-item" ng-repeat="item in cityListResult" ng-bind="item.value" ng-click="selectDeliveryCity(item)"></div>
-                    </div>
-                    <div class="delivery-result" ng-if="deliveryCitySelected">
-                      <div class="delivery-enabled" ng-if="deliveryEnabled">Доставка осуществляется бесплатно</div>
-                      <div class="delivery-disabled" ng-if="!deliveryEnabled">Уточните стоимость доставки у менеджера по телефону <span ng-bind="mainPhone"></span></div>
-                    </div>
-                  </div>
-                </div>
-
-                <p>
-                  Если вы не нашли свой город в списке - уточните у менеджера стоимость и условия доставки по  вашему адресу
-                </p>
-
-              </div>
-            </div>
-
-            <div class="sub-list-item">
-              <div class="sub-list-item-title">Отслеживание местоположение груза</div>
+              <div class="sub-list-item-title">Тарифы транспортных компаний</div>
               <div class="sub-list-item-content">
                 <p>
                   Уточните у менеджера какая транспортная компания везет вам груз и номер товарно-транспортной накладной.
@@ -61,37 +100,37 @@
                     <tr>
                       <td>ПЭК</td>
                       <td>
-                        <a href="https://kabinet.pecom.ru/cargopickup/status" target="_blank" rel="nofollow">kabinet.pecom.ru/cargopickup/status</a>
+                        <a href="http://www.pecom.ru/ru/calc" target="_blank" rel="nofollow">http://www.pecom.ru/ru/calc</a>
                       </td>
                     </tr>
                     <tr>
                       <td>Деловые линии</td>
                       <td>
-                        <a href="http://dellin.ru/tracker/" target="_blank" rel="nofollow">dellin.ru/tracker/</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Автотрейдинг</td>
-                      <td>
-                        <a href="http://ae5000.ru/recipients/state/" target="_blank" rel="nofollow">ae5000.ru/recipients/state/</a>
+                        <a href="http://www.dellin.ru/calculator" target="_blank" rel="nofollow">http://www.dellin.ru/calculator</a>
                       </td>
                     </tr>
                     <tr>
                       <td>Байкал сервис</td>
                       <td>
-                        <a href="http://baikalsr.ru/vidgets/tracking/" target="_blank" rel="nofollow">baikalsr.ru/vidgets/tracking/</a>
+                        <a href="http://www.baikalsr.ru/value/calculator/" target="_blank" rel="nofollow">http://www.baikalsr.ru/value/calculator/</a>
                       </td>
                     </tr>
                     <tr>
                       <td>Стейл</td>
                       <td>
-                        <a href="http://steil.ru/status/" target="_blank" rel="nofollow">steil.ru/status/</a>
+                        <a href="http://www.steil.ru/rates/" target="_blank" rel="nofollow">http://www.steil.ru/rates/</a>
                       </td>
                     </tr>
                     <tr>
                       <td>ЖелДорЭкспедиция</td>
                       <td>
-                        <a href="http://cabinet.jde.ru/index.html" target="_blank" rel="nofollow">cabinet.jde.ru/index.html</a>
+                        <a href="http://www.jde.ru/calc" target="_blank" rel="nofollow">http://www.jde.ru/calc</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>ЖелдорАльянс</td>
+                      <td>
+                        <a href="http://zhdalians.ru/" target="_blank" rel="nofollow">http://zhdalians.ru/</a>
                       </td>
                     </tr>
                   </table>

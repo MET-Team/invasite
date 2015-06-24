@@ -57,7 +57,7 @@
   border-top: solid 1px #f2f2f2;
   position: relative;
   top: 90px;
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
 }
 .page-block-about .transitions:before{
   content: "";
@@ -293,7 +293,7 @@
   margin-top: 35px;
 }
 .page-block-brand-item .brand-details .brand-inner .catalog-groups .catalog-group-item{
-  margin-right: 10px;
+  margin: 0 10px 10px 0;
   background: none #ffc13e;
   border-radius: 5px;
   font-size: 16px;

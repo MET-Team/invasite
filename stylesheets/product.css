@@ -747,10 +747,13 @@
 .page-block-product .test-drive-form .form-horizontal .form-group .form-control.btn-order{
   cursor: pointer;
   text-align: center;
-  background: none #5098de;
+  background: none #ffc13e;
   color: #fff;
   font-family: 'MuseoSansCyrl-700';
   border: medium none;
+}
+.page-block-product .test-drive-form .form-horizontal .form-group .form-control.btn-order:hover{
+  background-color: #ffca57;
 }
 .page-block-product .test-drive-form .form-horizontal .form-group:last-child span{
   cursor: pointer;
