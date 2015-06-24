@@ -22,11 +22,20 @@ angular.module('ProductCtrl', [
 
   $scope.optionsCountLabel = '';
 
-  $scope.carriageTypeIdToCaption = {
-    6: 'active',
-    1: 'mechanic',
-    2: 'electric'
-  };
+
+  $scope.carriageTypes = [];
+  $scope.carriageTypeIdToCaption = {};
+
+  $rootScope.carriageType.list.forEach(function(carriageType){
+    $scope.carriageTypes.push(carriageType.id);
+    $scope.carriageTypeIdToCaption[carriageType.id] = carriageType.value;
+  });
+
+  $scope.catalogGroups.forEach(function(group){
+    if(group.group_id){
+      $scope.carriageTypeIdToCaption[group.group_id] = group.name;
+    }
+  });
 
   $rootScope.comparedProducts = $rootScope.comparedProducts || [];
 
@@ -56,6 +65,11 @@ angular.module('ProductCtrl', [
   ];
   $scope.panels.activePanel = 0;
 
+    $scope.breadcrumbRoot = {
+      link: '',
+      title: ''
+    };
+
   $http.get($rootScope.domain +'/api/v1/products/'+ $scope.productId)
     .success(function(data){
       $scope.product = data;
@@ -63,6 +77,14 @@ angular.module('ProductCtrl', [
       $rootScope.metaTags.pageTitle = $scope.product.meta_tags;
       $rootScope.metaTags.pageKeyWords = $scope.product.keywords;
       $rootScope.metaTags.pageDescription = $scope.product.page_description;
+
+      $scope.breadcrumbRoot.title = $scope.product.kind.name;
+      $scope.breadcrumbRoot.link = $scope.carriageTypeIdToCaption[$scope.product.kind_id]
+
+      if($scope.carriageTypes.indexOf($scope.product.kind_id) > -1){
+        $scope.breadcrumbRoot.title += ' коляски';
+        $scope.breadcrumbRoot.link = 'carriages/' + $scope.breadcrumbRoot.link;
+      }
 
       $scope.panels[0].body = $scope.product.description;
       $scope.panels[1].body = $templateCache.get('infoDelivery');

@@ -8,7 +8,7 @@ appControllers = angular.module("appControllers", [
   'SearchCtrl'
 ]);
 
-appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $location, $document, localStorageService, Basket){
+appControllers.controller('ApplicationCtrl', function($rootScope, $scope, $location, $document, localStorageService, $http, Basket){
 
   $scope.pageIsMain = false;
   $scope.pageIsInfo = false;

@@ -12,7 +12,7 @@
   };
 
   if($messageType == 'callback'){
-    $subject = 'Заявка на перезвон с сайта Invacare.com.ru';
+    $subject = 'Заявка на перезвон с сайта Invasite.ru';
 
     $name = $sendData->name;
     $phone = $sendData->phone;
@@ -27,7 +27,7 @@
   }
 
   if($messageType == 'feedback'){
-    $subject = 'Сообщение с сайта Invacare.com.ru';
+    $subject = 'Сообщение с сайта Invasite.ru';
 
     $email = $_GET['email'];
     $mess = '<b>E-mail:</b> '. $email;
@@ -36,7 +36,7 @@
   }
 
   if($messageType == 'order'){
-    $subject = 'Заказ с сайта Invacare.com.ru';
+    $subject = 'Заказ с сайта Invasite.ru';
 
     if($sendData->payment->value == 3){
       $subject .= ' ОТПРАВИТЬ СЧЕТ ВРУЧНУЮ';
@@ -65,13 +65,13 @@
   }
 
   if($messageType == 'registration'){
-    $subject = 'Контакты с сайта Invacare.com.ru';
+    $subject = 'Контакты с сайта Invasite.ru';
 
     $mess = '<b>Имя:</b> '.$sendData->name.'<br /><b>Почта:</b> '.$sendData->email.'<br /><b>Телефон:</b> '.$sendData->phone;
   }
 
   if($messageType == 'test-drive'){
-    $subject = 'Заявка на тест-драйв с сайта Invacare.com.ru';
+    $subject = 'Заявка на тест-драйв с сайта Invasite.ru';
 
     $mess = '';
     if($sendData->name){
@@ -84,9 +84,9 @@
   $mail = new PHPMailer();
   $mail->CharSet = 'utf-8';
   $mail->Subject = $subject;
-  $mail->FromName = 'info@invacare.com.ru';
-  $mail->From = 'info@invacare.com.ru';
-  $mail->AddAddress('info@invacare.com.ru');
+  $mail->FromName = 'info@invasite.ru';
+  $mail->From = 'info@invasite.ru';
+  $mail->AddAddress('info@invasite.ru');
   $mail->addBCC('tilvan@ya.ru');
 
   $mail->IsHTML(true);
@@ -106,9 +106,9 @@
     $userMail = new PHPMailer();
 
     $userMail->CharSet = 'utf-8';
-    $userMail->Subject = 'Оформление заказа на invacare.com.ru';
-    $userMail->FromName = 'info@invacare.com.ru';
-    $userMail->From = 'info@invacare.com.ru';
+    $userMail->Subject = 'Оформление заказа на invasite.ru';
+    $userMail->FromName = 'info@invasite.ru';
+    $userMail->From = 'info@invasite.ru';
     $userMail->AddAddress($sendData->email);
 
     $userMail->IsHTML(true);
@@ -117,8 +117,8 @@
 
       Здравствуйте, '. $sendData->name .'!<br/>
 
-      Вы начали оформление покупки на сайте invacare.com.ru , в настаящий момент процедура не завершена.
-      Чтобы продолжить, перейдите по <a href="http://invacare.com.ru/buy" target="_blank">ссылке</a>.
+      Вы начали оформление покупки на сайте invasite.ru , в настаящий момент процедура не завершена.
+      Чтобы продолжить, перейдите по <a href="http://invasite.ru/buy" target="_blank">ссылке</a>.
       Если у вас возникли какие-то вопросы по товарам или оформлению, наши менеджеры с удовольствием вам помогут!
       Звоните - 8 (495) 777-39-18.
 
@@ -134,15 +134,15 @@
 
     $userMail->CharSet = 'utf-8';
     $userMail->Subject = 'Заказ оформлен';
-    $userMail->FromName = 'info@invacare.com.ru';
-    $userMail->From = 'info@invacare.com.ru';
+    $userMail->FromName = 'info@invasite.ru';
+    $userMail->From = 'info@invasite.ru';
     $userMail->AddAddress($sendData->email);
 
     $userMail->IsHTML(true);
 
     $userMail->Body = '
         Здравствуйте, '. $sendData->name .'!<br/>
-        Вы оформили покупку на сайте <a href="http://invacare.com.ru/" target="_blank">invacare.com.ru</a>. Информация о заказае:<br/><br/>
+        Вы оформили покупку на сайте <a href="http://invasite.ru/" target="_blank">invasite.ru</a>. Информация о заказае:<br/><br/>
 
         <b>Товар</b> - '. $sendData->product->name .'<br/>
         <b>Артикул</b> - '. $sendData->product->art .'<br/>
@@ -151,7 +151,7 @@
     if($sendData->payment->value == 3){
       $userMail->Body .= '
         Счет будет отправлен Вам в течение 3х часов (в текущий или ближайший будний день).<br/>
-        Если Вы не получили счет, пожалуйста, свяжитесь с нами по телефону +7 495 777-39-18 или оставьте заявку на обратный звонок на нашем сайте <a href="http://invacare.com.ru/" target="_blank">invacare.com.ru</a>
+        Если Вы не получили счет, пожалуйста, свяжитесь с нами по телефону +7 495 777-39-18 или оставьте заявку на обратный звонок на нашем сайте <a href="http://invasite.ru/" target="_blank">invasite.ru</a>
         <br/><br/>
       ';
     }else{
@@ -159,7 +159,7 @@
     }
 
     $userMail->Body .= '
-        Спасибо, что выбрали <a href="http://invacare.com.ru/" target="_blank">invacare.com.ru</a>!<br/>
+        Спасибо, что выбрали <a href="http://invasite.ru/" target="_blank">invasite.ru</a>!<br/>
         С наилучшими пожеланиями,<br/>
         компания МЕТ.
       ';

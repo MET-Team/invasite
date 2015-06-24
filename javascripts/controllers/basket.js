@@ -367,8 +367,17 @@ angular.module('BasketCtrl', []).controller('BasketCtrl', function($scope, $root
 
         $scope.showRemoteServerError = false;
 
+        var orderProducts = [];
+        $scope.checkoutData.products.forEach(function(product){
+          orderProducts.push({
+            orderable_id: product.id,
+            orderable_type: 'Product',
+            quantity: product.count
+          });
+        });
+
         // 3. отправка заказа
-        $http.post($rootScope.domain+ '/api/v1/users/'+ $rootScope.userData.id +'/orders', {
+        $http.post($rootScope.domain + '/api/v1/users/'+ $rootScope.userData.id +'/orders', {
           user_id: $rootScope.userData.id,
           site_id: $rootScope.site_id,
           order: {
@@ -376,11 +385,7 @@ angular.module('BasketCtrl', []).controller('BasketCtrl', function($scope, $root
             payment_method: $scope.checkoutData.payment.cash,
             address: 'Test Invasite',
             comment: 'Test Invasite',
-            order_products_attributes: [{
-              orderable_id: $scope.checkoutData.product.id,
-              orderable_type: 'Product',
-              quantity: 1
-            }]
+            order_products_attributes: orderProducts
           }
         },{
           headers: {
@@ -418,11 +423,16 @@ angular.module('BasketCtrl', []).controller('BasketCtrl', function($scope, $root
             if($scope.checkoutData.payment.cash){
               /* делаем запрос на оформление оплаты */
 
+              var totalSum = 0;
+              $scope.checkoutData.product.forEach(function(product){
+                totalSum += product.count * product.price;
+              });
+
               var requestParams = {
                 scid: '19148',
                 ShopID: '25500',
                 CustomerNumber: $scope.checkoutData.email,
-                Sum: $scope.checkoutData.product.price,
+                Sum: totalSum,
                 custName: $scope.checkoutData.name,
                 custEMail: $scope.checkoutData.email,
                 cps_email: $scope.checkoutData.email,

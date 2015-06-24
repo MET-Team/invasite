@@ -4,7 +4,7 @@
     <!-- TO-DO: сделать вывод категорий -->
 
     <div class="breadcrumbs">
-      <a ng-href="/catalog/{{carriageTypeIdToCaption[product.kind_id]}}"><span ng-bind="product.kind.name"></span> коляски</a>
+      <a ng-href="/catalog/{{breadcrumbRoot.link}}"><span ng-bind="breadcrumbRoot.title"></span></a>
       <span class="arrow">
         <i class="fa fa-chevron-right"></i>
       </span>
