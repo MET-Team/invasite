@@ -23,7 +23,7 @@ angular.module('infoCtrl', []).controller('InfoCtrl', function($scope, $http, $d
     {
       id: 2,
       'title' : 'Как подобрать кресло-коляску',
-      'summary' : 'Узнайте, как пользоваться нашими крутыми колясками'
+      'summary' : 'основные виды кресел-колясок, их особенности и отличия'
     },
     {
       id: 3,
@@ -32,8 +32,8 @@ angular.module('infoCtrl', []).controller('InfoCtrl', function($scope, $http, $d
     },
     {
       id: 4,
-      'title' : 'Технические особенности кресел-колясок',
-      'summary' : 'Советы по выбору кресел-колясок'
+      'title' : 'Как правильно подобрать ходунки',
+      'summary' : 'Разновидности моделей и советы по выбору'
     }
   ];
 

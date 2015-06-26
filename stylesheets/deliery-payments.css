@@ -209,6 +209,13 @@
   vertical-align: middle;
 }
 
+.page-block-delivery-payments .delivery-list .delivery-item a.no-away{
+  margin: 0;
+}
+.page-block-delivery-payments .delivery-list .delivery-item a.no-away:after{
+  display: none;
+}
+
 .page-block-delivery-payments .delivery-list .delivery-item a.download-scheme{
   display: inline-block;
   cursor: pointer;
